@@ -31,6 +31,22 @@ const journal = path.join(__dirname, 'journal');
     await page.close();
   }
 
+  // 1 bis. Captures de la page Parcours
+  const parcours = path.join(racine, 'site/fr/parcours.html');
+  for (const [nom, vp] of [['bureau', { width: 1440, height: 900 }], ['mobile', { width: 390, height: 844 }]]) {
+    const page = await navigateur.newPage({ viewport: vp });
+    await page.goto('file://' + parcours, { waitUntil: 'load' });
+    await page.addStyleTag({ content: '.apparait{transition:none!important}' });
+    await page.waitForTimeout(1500);
+    await page.screenshot({ path: path.join(journal, `parcours_${nom}_tete.png`) });
+    if (nom === 'bureau') {
+      await page.evaluate(() => window.scrollTo(0, document.getElementById('mutt-lange').offsetTop - 20));
+      await page.waitForTimeout(500);
+      await page.screenshot({ path: path.join(journal, 'parcours_bureau_chapitre.png') });
+    }
+    await page.close();
+  }
+
   // 2. Journal de bord en PDF
   const page = await navigateur.newPage();
   await page.goto('file://' + path.join(journal, 'journal_de_bord.html'), { waitUntil: 'load' });
