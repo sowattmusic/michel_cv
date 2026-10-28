@@ -272,6 +272,7 @@ footer.pied { padding: 48px 0 28px; border-top: 1px solid var(--ligne); font-siz
 .chapitre-corps h3 { font-size: 1.1rem; margin: 26px 0 8px; color: #fff; }
 .chapitre-corps p { color: #c4cadc; font-size: 1.02rem; line-height: 1.75; }
 .chapitre-corps p b { color: #fff; font-weight: 600; }
+.chapitre-corps p a { color: var(--bleu-lueur); }
 .chapitre-corps blockquote { margin: 28px 0; font-size: 1.12rem; line-height: 1.6; font-style: italic; }
 .chapitre-corps blockquote footer { font-style: normal; }
 .credits-encart { margin-top: 30px; border: 1px solid var(--ligne); border-radius: var(--rayon); background: var(--nuit-2); padding: 22px 24px; }
