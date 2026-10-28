@@ -43,6 +43,9 @@ const journal = path.join(__dirname, 'journal');
       await page.evaluate(() => window.scrollTo(0, document.getElementById('mutt-lange').offsetTop - 20));
       await page.waitForTimeout(500);
       await page.screenshot({ path: path.join(journal, 'parcours_bureau_chapitre.png') });
+      await page.click('#mutt-lange summary');
+      await page.waitForTimeout(300);
+      await page.screenshot({ path: path.join(journal, 'parcours_bureau_volet.png') });
     }
     await page.close();
   }

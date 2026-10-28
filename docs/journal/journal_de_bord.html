@@ -75,6 +75,7 @@
     <li>Page 1 arrêtée après le parcours en bref</li>
     <li>Chiffres clés plus discrets</li>
     <li>Chiffres clés retirés</li>
+    <li>Page Parcours : ordre inversé, textes courts, volets dépliables</li>
   </ol>
 </section>
 
@@ -471,6 +472,26 @@
     <li>La fiche de l'en-tête affiche maintenant : Expérience 30 ans · Lieu · Langues · Nationalité.</li>
   </ul>
   <figure><img src="ecran_bureau_hero.png" style="max-height:90mm"><figcaption>L'en-tête avec « Expérience : 30 ans »</figcaption></figure>
+</section>
+
+<section class="saut">
+  <h2><span class="num">24</span>Page Parcours : ordre inversé, textes courts, volets dépliables</h2>
+  <p><b>Demande de Michel :</b> sur la page 2, raccourcir un peu les textes, mettre les périodes du plus récent au plus ancien, et placer les crédits et informations supplémentaires dans un onglet qui se révèle au clic.</p>
+  <h3>Ordre</h3>
+  <p>Aujourd'hui · 2022 M Le Media · 2012 Le classique · 2009 Hana Road · 2007 Événementiel et TV · 2000 Sowatt Music · 1999 Mutt Lange · 1994 Londres, Paris, Marrakech · 1990 Formation. Le sommaire en haut de page suit le même ordre. Les mentions « Chapitre 1, 2… » sont retirées, car elles n'avaient plus de sens dans l'ordre inversé.</p>
+  <h3>Textes raccourcis</h3>
+  <p>Chaque période tient en un ou deux paragraphes courts. La fiche employeur reste à gauche.</p>
+  <h3>Volets dépliables</h3>
+  <ul>
+    <li>Les crédits Discogs, les citations Headliner et les détails passent dans un volet fermé par défaut, avec un « + » qui devient « × » à l'ouverture.</li>
+    <li>Cinq volets : « Studio et méthode » (aujourd'hui), « Crédits et citation » (classique), « Productions et mixages récents » (Sowatt Music), « Crédits et citation » (Mutt Lange), « Détails et crédit » (débuts).</li>
+    <li>Réalisé avec l'élément HTML natif <code>details</code> : fonctionne sans JavaScript, au clavier et avec les lecteurs d'écran.</li>
+    <li>Les colonnes de la liste des crédits sont alignées d'une ligne à l'autre.</li>
+  </ul>
+  <div class="duo">
+    <figure><img src="parcours_bureau_chapitre.png"><figcaption>Une période, volet fermé</figcaption></figure>
+    <figure><img src="parcours_bureau_volet.png"><figcaption>Le volet « Crédits et citation » ouvert</figcaption></figure>
+  </div>
 </section>
 
 <section class="saut">
