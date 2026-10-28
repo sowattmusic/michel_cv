@@ -7,7 +7,7 @@ Note laissée par la session cloud pour la session Claude Code locale (Mac, avec
 - Branche : `claude/affectionate-euler-tp4710`
 - Trois pages en français : `site/fr/index.html` (accueil), `site/fr/parcours.html` (parcours complet), `site/fr/contact.html` (carte de visite, vCard, QR code).
 - `site/index.html` redirige vers `site/fr/`. La version anglaise ira dans `site/en/`.
-- Journal de bord : `docs/journal/journal_de_bord.html` → `node docs/build_pdf.js` régénère les captures et `docs/Journal_de_bord_site_Michel_Gallone.pdf`. Chaque modification du site ajoute une étape (la dernière est la 49) avant la section « Annexe ».
+- Journal de bord : `docs/journal/journal_de_bord.html` → `node docs/build_pdf.js` régénère les captures et `docs/Journal_de_bord_site_Michel_Gallone.pdf`. Chaque modification du site ajoute une étape (la dernière est la 50) avant la section « Annexe ».
 - vCard et QR code : coordonnées en haut de `tools/make_contact.py`, puis `tools/.venv/bin/python tools/make_contact.py`.
 
 ## Mise en ligne : faite (étapes 48 et 49 du journal)
