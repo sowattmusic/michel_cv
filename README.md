@@ -11,6 +11,7 @@ Le CV de Michel Gallone : directeur technique audiovisuel, réalisateur TV & rad
 | `renders/ingeson/CV_Michel_Gallone_ingeson.html` | Source de ce CV (HTML/CSS) |
 | `renders/ingeson_photo/` | Même CV avec portrait en fondu dans l'en-tête (`portrait.jpg`, recadré de `sources/photos/DSC_8780.jpg`) |
 | `renders/chefdeprojet/` | CV orienté chef de projet (sans photo) : M Le Media, Sully Sound et Digital Media Partners réécrits côté management |
+| `renders/chefdeprojet_photo/` | Même CV chef de projet, avec le portrait en fondu dans l'en-tête |
 | `sources/photos/` | Photos originales de Michel |
 | `sources/tech_multimedia_Gallone.pdf` | Ancien CV, utilisé comme source |
 | `conversation/conversation.md` | Conversation avec Claude, version lisible |
