@@ -89,9 +89,9 @@ p { margin: 0 0 1em; }
 /* ---------- Hero ---------- */
 .hero {
   position: relative; isolation: isolate; overflow: hidden;
-  min-height: 100vh; min-height: 100svh;
+  min-height: 640px;
   display: grid; align-items: center;
-  padding: 120px 0 80px;
+  padding: 110px 0 32px;
 }
 .hero-photo {
   position: absolute; z-index: -1; top: 0; right: 0; bottom: 0; width: 60%;
@@ -249,7 +249,7 @@ footer.pied { padding: 48px 0 28px; border-top: 1px solid var(--ligne); font-siz
 
 .profil { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
 .profil .section-entete { margin-bottom: 0; }
-.profil-section { padding-bottom: 72px; }
+.section.profil-section { padding-top: 40px; padding-bottom: 72px; }
 #experience { padding-top: 48px; }
 .bandeau-photo { margin: 0 0 40px; border-radius: var(--rayon); overflow: hidden; aspect-ratio: 21 / 8; max-width: 100%; }
 .bandeau-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 38%; }
