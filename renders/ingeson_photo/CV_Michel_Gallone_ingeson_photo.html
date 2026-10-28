@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>CV Michel Gallone · photo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #15171c;
+    --ink-2: #3a3f4a;
+    --muted: #6b7180;
+    --line: #e3e5ea;
+    --paper: #ffffff;
+    --tint: #f1f4f9;
+    --onair: #e8452c;
+    --hero: #1b2b45;
+    --hero-line: rgba(255,255,255,.14);
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #d9dbe0; }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    color: var(--ink-2);
+    font-size: 9.2pt;
+    line-height: 1.45;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    background: var(--paper);
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+  @media screen { .page { margin: 12mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.12); } }
+
+  /* ---------- Header ---------- */
+  header.hero {
+    background: var(--hero);
+    color: #fff;
+    padding: 10mm 14mm 7mm;
+    position: relative;
+  }
+  .onair {
+    display: inline-flex; align-items: center; gap: 6px;
+    font: 600 7pt/1 "Archivo", sans-serif;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: var(--onair);
+    border: 1px solid var(--onair);
+    border-radius: 3px;
+    padding: 4px 7px 3px;
+    margin-bottom: 5mm;
+  }
+  .onair::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--onair);
+  }
+  h1 {
+    font: 800 34pt/0.95 "Archivo", sans-serif;
+    letter-spacing: -0.02em;
+  }
+  h1 span { color: var(--onair); }
+  .role {
+    margin-top: 4mm;
+    font: 500 11.5pt/1.35 "Archivo", sans-serif;
+    color: #c3cde0;
+  }
+  .contact {
+    display: flex; flex-wrap: wrap; gap: 3mm 8mm;
+    margin-top: 5mm; padding-top: 4mm;
+    border-top: 1px solid var(--hero-line);
+    font-size: 8.6pt; color: #e6e7eb;
+  }
+  .contact b { color: var(--onair); font-weight: 600; margin-right: 4px; }
+
+
+  /* Portrait fondu dans le bandeau */
+  header.hero { isolation: isolate; }
+  header.hero > *:not(.portrait) { position: relative; z-index: 1; max-width: 128mm; }
+  header.hero > .contact { max-width: none; }
+  .portrait {
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 78mm;
+    z-index: 0;
+  }
+  .portrait img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: 50% 12%;
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, rgba(0,0,0,.55) 22%, #000 48%),
+      linear-gradient(to top, transparent 0%, #000 30%);
+    -webkit-mask-composite: source-in;
+            mask-image:
+      linear-gradient(to right, transparent 0%, rgba(0,0,0,.55) 22%, #000 48%),
+      linear-gradient(to top, transparent 0%, #000 30%);
+            mask-composite: intersect;
+  }
+  .portrait::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(200deg, rgba(27,43,69,0) 40%, rgba(27,43,69,.35) 100%);
+    pointer-events: none;
+  }
+
+  header.mini {
+    background: var(--hero); color: #fff;
+    padding: 7mm 14mm;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  header.mini .n { font: 800 14pt/1 "Archivo", sans-serif; }
+  header.mini .n span { color: var(--onair); }
+  header.mini .r { font-size: 8pt; color: #c3cde0; }
+
+  /* ---------- Body ---------- */
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 62mm;
+  }
+  main { padding: 9mm 9mm 6mm 14mm; }
+  aside {
+    background: var(--tint);
+    padding: 9mm 10mm 6mm 8mm;
+  }
+  h2 {
+    font: 700 8pt/1 "Archivo", sans-serif;
+    letter-spacing: .16em; text-transform: uppercase;
+    color: var(--ink);
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 4mm;
+  }
+  h2::before {
+    content: ""; width: 14px; height: 2px; background: var(--onair);
+  }
+  section + section { margin-top: 6mm; }
+
+  .profile p { color: var(--ink-2); }
+  .profile p + p { margin-top: 2.2mm; }
+  .profile strong { color: var(--ink); font-weight: 600; }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin-top: 3.5mm !important;
+    margin-top: 5mm;
+  }
+  .stat {
+    border-left: 2px solid var(--onair);
+    padding: 1mm 0 1mm 3mm;
+  }
+  .stat .v { font: 800 17pt/1 "Archivo", sans-serif; color: var(--ink); }
+  .stat .l { font-size: 7.4pt; color: var(--muted); margin-top: 1.2mm; line-height: 1.3; }
+
+  /* Timeline */
+  .job {
+    display: grid;
+    grid-template-columns: 19mm 1fr;
+    gap: 0 4mm;
+    padding-bottom: 3.6mm;
+  }
+  .job + .job { border-top: 1px solid var(--line); padding-top: 3.6mm; }
+  .when {
+    font: 600 7.8pt/1.3 "Archivo", sans-serif;
+    color: var(--muted);
+    padding-top: 1px;
+  }
+  .what h3 {
+    font: 700 10.2pt/1.25 "Archivo", sans-serif;
+    color: var(--ink);
+  }
+  .what .co {
+    font-size: 8.4pt; color: var(--onair); font-weight: 600;
+    margin: .6mm 0 1.6mm;
+  }
+  .what .co em { color: var(--muted); font-style: normal; font-weight: 400; }
+  .what ul { list-style: none; }
+  .what li { position: relative; padding-left: 3.5mm; }
+  .what li + li { margin-top: .8mm; }
+  .what li::before {
+    content: ""; position: absolute; left: 0; top: .62em;
+    width: 4px; height: 1px; background: var(--ink-2);
+  }
+  .what li strong { color: var(--ink); font-weight: 600; }
+  .job.star .what h3::after {
+    content: "Référence internationale";
+    margin-left: 6px; vertical-align: 2px;
+    font: 600 6.4pt/1 "Inter", sans-serif; letter-spacing: .06em; text-transform: uppercase;
+    color: #fff; background: var(--onair);
+    padding: 2px 5px; border-radius: 2px;
+  }
+
+  /* Sidebar */
+  .tags { display: flex; flex-wrap: wrap; gap: 1.6mm; }
+  .tags span {
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 20px; padding: 1.1mm 2.6mm;
+    font-size: 7.8pt; color: var(--ink);
+  }
+  .list li { list-style: none; padding: 1.3mm 0; border-bottom: 1px solid #dfe5ee; }
+  .list li:last-child { border-bottom: 0; }
+  .list b { display: block; color: var(--ink); font-weight: 600; }
+  .list small { color: var(--muted); font-size: 7.8pt; }
+  .clients { font-size: 8.4pt; color: var(--ink); line-height: 1.7; }
+  .clients i { font-style: normal; color: var(--onair); padding: 0 3px; }
+  .lang { display: grid; grid-template-columns: 1fr auto; gap: 1.5mm 3mm; font-size: 8.6pt; }
+  .lang b { color: var(--ink); font-weight: 600; }
+  .lang span { color: var(--muted); text-align: right; }
+  .meter { grid-column: 1 / -1; height: 3px; background: #dbe2ec; border-radius: 2px; margin: -0.6mm 0 1.6mm; }
+  .meter i { display: block; height: 100%; background: var(--onair); border-radius: 2px; }
+
+  footer {
+    padding: 4mm 14mm;
+    border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between;
+    font-size: 7.4pt; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 ================= -->
+<div class="page">
+  <header class="hero">
+    <div class="portrait"><img src="portrait.jpg" alt="Michel Gallone en studio"></div>
+    <div class="onair">Live · Broadcast · Studio</div>
+    <h1>Michel<br>Gallone<span>.</span></h1>
+    <div class="role">Directeur technique audiovisuel<br>Réalisateur TV &amp; radio · Ingénieur du son</div>
+    <div class="contact">
+      <div><b>T</b>+41 79 342 98 80</div>
+      <div><b>@</b>gallone@bluewin.ch</div>
+      <div><b>◎</b>1307 Lussery-Villars (VD) · Lausanne – Genève</div>
+    </div>
+  </header>
+
+  <div class="body">
+    <main>
+      <section class="profile">
+        <h2>Profil</h2>
+        <p><strong>Plus de 30 ans d’expérience</strong> dans la production audiovisuelle, de Londres à Paris, Marrakech et la Suisse romande : studios d’enregistrement de renommée mondiale, réalisation télévision et radio en direct, événements corporate et broadcast.</p>
+        <p>Je conçois des infrastructures techniques complètes, je les mets en service et je les exploite au quotidien. Ma méthode : suivre de près les dernières évolutions technologiques et les confronter à l’expérience terrain pour livrer des solutions <strong>fiables, efficaces et durables</strong>.</p>
+        <div class="stats">
+          <div class="stat"><div class="v">30+</div><div class="l">années dans l’audiovisuel</div></div>
+          <div class="stat"><div class="v">4</div><div class="l">pays : Suisse, France, Royaume-Uni, Maroc</div></div>
+          <div class="stat"><div class="v">3</div><div class="l">studios et régies conçus de A à Z</div></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Expérience</h2>
+
+        <div class="job">
+          <div class="when">2022 – 2025</div>
+          <div class="what">
+            <h3>Directeur technique &amp; réalisateur d’antenne</h3>
+            <div class="co">M Le Media <em>· Millennium Media Groupe, Crissier</em></div>
+            <ul>
+              <li>Conception et installation de l’<strong>infrastructure technique radio et télévision</strong></li>
+              <li>Mise en place des routines d’exploitation et de diffusion (playout)</li>
+              <li>Réalisation des <strong>matinales TV et radio en direct</strong>, diffusées sur Canal+</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="when">2007 – 2020</div>
+          <div class="what">
+            <h3>Technicien audiovisuel &amp; ingénieur du son événementiel</h3>
+            <div class="co">Dorier Group · Winkler · Illumination <em>· Montreux, Lausanne, Genève</em></div>
+            <ul>
+              <li>Installation et exploitation son / vidéo de <strong>conférences, spectacles et événements corporate</strong></li>
+              <li>Lieux : Auditorium Stravinsky (2m2c), SwissTech Convention Center, Beaulieu, Royal Savoy…</li>
+              <li>Captations et émissions de télévision en multicaméra</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="when">2008 – 2012</div>
+          <div class="what">
+            <h3>Producteur &amp; réalisateur télévision</h3>
+            <div class="co">Rouge TV <em>· aujourd’hui Carac TV, Le Mont-sur-Lausanne</em></div>
+            <ul>
+              <li>Production et réalisation de plusieurs programmes : tournage, montage, finalisation et diffusion</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside>
+      <section>
+        <h2>Compétences</h2>
+        <div class="tags">
+          <span>Direction technique</span>
+          <span>Réalisation live TV</span>
+          <span>Réalisation radio</span>
+          <span>Playout &amp; diffusion</span>
+          <span>Conception de régies</span>
+          <span>Infrastructures broadcast</span>
+          <span>Sonorisation événementielle</span>
+          <span>Enregistrement &amp; mixage</span>
+          <span>Post-production audio</span>
+          <span>Tournage &amp; montage</span>
+          <span>Gestion de projet</span>
+          <span>Coordination d’équipes</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Ils m’ont fait confiance</h2>
+        <p class="clients">
+          Universal Music<i>/</i>Canal+<i>/</i>Walt Disney<i>/</i>TF1<i>/</i>M6<i>/</i>Energy (NRJ)<i>/</i>Robert John “Mutt” Lange<i>/</i>Dorier Group<i>/</i>Winkler<i>/</i>Illumination<i>/</i>2m2c Montreux
+        </p>
+      </section>
+
+      <section>
+        <h2>Langues</h2>
+        <div class="lang">
+          <b>Français</b><span>langue maternelle</span>
+          <div class="meter"><i style="width:100%"></i></div>
+          <b>Anglais</b><span>courant, écrit et parlé</span>
+          <div class="meter"><i style="width:90%"></i></div>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <footer>
+    <span>Michel Gallone · Curriculum vitæ</span>
+    <span>1 / 2</span>
+  </footer>
+</div>
+
+<!-- ================= PAGE 2 ================= -->
+<div class="page">
+  <header class="mini">
+    <div class="n">Michel Gallone<span>.</span></div>
+    <div class="r">+41 79 342 98 80 · gallone@bluewin.ch</div>
+  </header>
+
+  <div class="body">
+    <main>
+      <section>
+        <h2>Expérience <span style="font-weight:500;color:var(--muted);letter-spacing:.1em">(suite)</span></h2>
+
+        <div class="job">
+          <div class="when">2009 – 2017</div>
+          <div class="what">
+            <h3>Concepteur puis directeur technique du studio</h3>
+            <div class="co">The Hana Road Music Group <em>· Montreux</em></div>
+            <ul>
+              <li>Conception et construction d’un <strong>complexe de production audio et vidéo</strong> haut de gamme</li>
+              <li>Liaison fibre optique jusqu’au 2m2c (Auditorium Stravinsky) pour captations et diffusions</li>
+              <li>Responsable technique de l’ensemble des installations (2016 – 2017)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job star">
+          <div class="when">1999 – 2007</div>
+          <div class="what">
+            <h3>Studio Manager</h3>
+            <div class="co">Sully Sound SA · studio de Robert John “Mutt” Lange <em>· La Tour-de-Peilz</em></div>
+            <ul>
+              <li>Exploitation du studio privé du producteur international lors de l’implantation de sa société en Suisse romande</li>
+              <li>Supervision technique de projets pour <strong>Shania Twain, Britney Spears, Céline Dion, Bryan Adams, The Corrs</strong>…</li>
+              <li>Assistant personnel du producteur pour l’ensemble des productions</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="when">1998 – 1999</div>
+          <div class="what">
+            <h3>Responsable des ventes</h3>
+            <div class="co">Ony Media SA <em>· Montreux</em></div>
+            <ul>
+              <li>Développement des ventes de systèmes d’automatisation pour stations de radio</li>
+              <li>Conception des solutions techniques d’implémentation, notamment pour <strong>Energy (NRJ) Allemagne</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="when">1996 – 1998</div>
+          <div class="what">
+            <h3>Ingénieur du son &amp; coordinateur de projet</h3>
+            <div class="co">Digital Media Partners <em>· Marrakech, Maroc</em></div>
+            <ul>
+              <li>Création d’un centre de production film, multimédia et son de grande envergure</li>
+              <li>Équipes internationales (États-Unis, Suisse, Maroc) sous la direction de <strong>Tom Hidley</strong>, concepteur de studios de renommée mondiale</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="when">1995 – 1999</div>
+          <div class="what">
+            <h3>Ingénieur du son post-production</h3>
+            <div class="co">Télétota <em>· Paris · missions ponctuelles</em></div>
+            <ul>
+              <li>Post-production audiovisuelle pour <strong>Walt Disney, M6 et TF1</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="when">1994 – 1995</div>
+          <div class="what">
+            <h3>Chef ingénieur du son (Studio Chief Engineer)</h3>
+            <div class="co">Nomis Studios <em>· Londres</em></div>
+            <ul>
+              <li>Assistant, puis promu responsable technique du studio de l’un des plus grands complexes de production de Londres</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside>
+      <section>
+        <h2>Formation</h2>
+        <ul class="list">
+          <li><b>Recording Arts Degree</b><small>Full Sail University · Winter Park, Floride (USA) · 1993 – 1994</small></li>
+          <li><b>Baccalauréat A2</b><small>Lycée Valbert · 1990 – 1993</small></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Engagement</h2>
+        <ul class="list">
+          <li><b>Fondateur · Swiss Artists Productions</b><small>Depuis 2018 · association de soutien à la création musicale et cinématographique</small></li>
+          <li><b>Secrétaire du comité · Route 108</b><small>Association active dans le domaine artistique · route-108.com</small></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Parcours</h2>
+        <ul class="list">
+          <li><b>Londres</b><small>1994 – 1995</small></li>
+          <li><b>Paris</b><small>1995 – 1999</small></li>
+          <li><b>Marrakech</b><small>1996 – 1998</small></li>
+          <li><b>Suisse romande</b><small>depuis 1998</small></li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+
+  <footer>
+    <span>Michel Gallone · Curriculum vitæ</span>
+    <span>2 / 2</span>
+  </footer>
+</div>
+
+</body>
+</html>
