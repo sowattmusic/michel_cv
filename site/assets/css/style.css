@@ -216,9 +216,10 @@ footer.pied { padding: 48px 0 28px; border-top: 1px solid var(--ligne); font-siz
 .roles { display: flex; flex-direction: column; gap: 4px; margin: 0 0 18px; font: 600 clamp(1.05rem, 1.7vw, 1.25rem)/1.35 var(--titre); color: #fff; }
 .roles span { display: flex; align-items: center; gap: 10px; }
 .roles span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--rouge); flex: none; }
-.missions { list-style: none; padding: 0; margin: -18px 0 34px; color: #cdd3e6; font-size: 1.02rem; }
+.missions { list-style: none; padding: 0; margin: -18px 0 0; color: #cdd3e6; font-size: 1.02rem; }
 .missions li { position: relative; padding: 5px 0 5px 26px; }
 .missions li::before { content: ""; position: absolute; left: 3px; top: 13px; width: 10px; height: 5px; border-left: 2px solid var(--rouge); border-bottom: 2px solid var(--rouge); transform: rotate(-45deg); }
+.actions-bas { margin-top: 32px; }
 .fiche { list-style: none; padding: 0; margin: 44px 0 0; display: flex; flex-wrap: wrap; gap: 14px 36px; font-size: .92rem; color: #cdd3e6; }
 .fiche span { display: block; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--texte-doux); margin-bottom: 3px; }
 .etape ul { margin: 10px 0 0; padding-left: 18px; color: var(--texte-doux); font-size: .94rem; max-width: 70ch; }
