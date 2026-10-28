@@ -390,5 +390,5 @@ footer.pied { padding: 48px 0 28px; border-top: 1px solid var(--ligne); font-siz
 @media (max-width: 640px) {
   .section.profil-section { padding: 14px 0 42px; }
   .section#experience { padding: 48px 0 85px; }
-  .section.page2-tete { padding-bottom: 87px; }
+  .section.page2-tete { padding-bottom: 47px; }
 }
