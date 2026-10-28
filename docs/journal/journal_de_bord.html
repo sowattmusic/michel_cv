@@ -43,7 +43,7 @@
   <div>
     <span class="sur">Journal de bord du projet</span>
     <h1>Site vitrine<br>de Michel Gallone<span class="rouge">.</span></h1>
-    <p>Toutes les étapes de la création du site, des sources consultées jusqu'aux tests. Version française. La version anglaise suivra.</p>
+    <p>Toutes les étapes de la création du site, des sources consultées jusqu'aux tests. Un CV en ligne doublé d'une offre de services. Version française ; la version anglaise suivra.</p>
     <img src="ecran_bureau_hero.png" alt="">
   </div>
   <p style="font-size:9.5pt">Dépôt : github.com/sowattmusic/michel_cv · branche claude/affectionate-euler-tp4710<br>Document mis à jour le 28 octobre 2026</p>
@@ -64,6 +64,7 @@
     <li>Prochaines étapes</li>
     <li>Régénérer ce document</li>
     <li>Retours : retrait du panier</li>
+    <li>Refonte : un CV live orienté gestion de projet et marketing digital</li>
   </ol>
 </section>
 
@@ -128,7 +129,8 @@
 </section>
 
 <section class="saut">
-  <h2><span class="num">05</span>Concept : un site « boutique » de prestations</h2>
+  <h2><span class="num">05</span>Concept initial : un site « boutique » de prestations</h2>
+  <div class="info">Cette section décrit les versions 1 et 2. Le site a ensuite été repensé en « CV live » : voir l'étape 13.</div>
   <p>Pour que le site « vende » Michel, ses compétences sont présentées comme une vitrine de <b>domaines d'expertise</b>. Le visiteur les filtre et, d'un clic sur « En discuter », écrit directement à Michel au sujet du domaine choisi. <i>(La première version comportait un panier, retiré ensuite : voir l'étape 12.)</i></p>
   <h3>Les six prestations</h3>
   <table>
@@ -219,11 +221,11 @@
   </table>
   <div class="duo">
     <figure><img src="v1_bureau_hero.png"><figcaption>Version 1 : texte sur le visage</figcaption></figure>
-    <figure><img src="ecran_bureau_hero.png"><figcaption>Version 2 : texte et photo séparés</figcaption></figure>
+    <figure><img src="v2_bureau_hero.png"><figcaption>Version 2 : texte et photo séparés</figcaption></figure>
   </div>
   <div class="duo">
     <figure><img src="v1_mobile_hero.png" style="max-height:105mm"><figcaption>Mobile, version 1</figcaption></figure>
-    <figure><img src="ecran_mobile_hero.png" style="max-height:105mm"><figcaption>Mobile, version 2</figcaption></figure>
+    <figure><img src="v2_mobile_hero.png" style="max-height:105mm"><figcaption>Mobile, version 2</figcaption></figure>
     
   </div>
 </section>
@@ -275,12 +277,49 @@
   <p>Le code du panier a été retiré du HTML, du CSS et du JavaScript. La vitrine reste organisée par domaines, avec les filtres.</p>
   <div class="duo">
     <figure><img src="v1_bureau_demande.png"><figcaption>Avant : le panier et le tiroir de demande</figcaption></figure>
-    <figure><img src="ecran_bureau_prestations.png"><figcaption>Après : les domaines avec « En discuter »</figcaption></figure>
+    <figure><img src="v2_bureau_prestations.png"><figcaption>Après : les domaines avec « En discuter »</figcaption></figure>
   </div>
 </section>
 
 <section class="saut">
-  <h2>Annexe · La page complète</h2>
+  <h2><span class="num">13</span>Refonte : un CV live</h2>
+  <p><b>Demande de Michel :</b> repenser le site en mode « curriculum vitae live », orienté <b>marketing digital</b> et <b>gestion de projet</b>. Le défi : trouver le juste milieu entre un CV en ligne et une offre de prestations. Limiter les pages et les boutons au strict nécessaire. Supprimer le bandeau défilant des clients. Le reste était jugé « pas mal » et a été conservé (couleurs, typographies, photos, presse, contact).</p>
+  <h3>Nouvelle structure : une seule page, dans l'ordre d'un CV</h3>
+  <table>
+    <tr><th style="width:24%">Section</th><th>Contenu</th></tr>
+    <tr><td>En-tête</td><td>Pastille « Disponible · poste, mandat ou mission », titre « Je pilote vos projets, de l'idée à l'écran. », poste visé « Chef de projet audiovisuel et digital », lieu, langues, nationalité</td></tr>
+    <tr><td>Chiffres clés</td><td>30+ années, 3 infrastructures, 4 pays, 50+ disques</td></tr>
+    <tr><td>Profil</td><td>Résumé et trois atouts : gestion de projet, communication digitale, exigence internationale</td></tr>
+    <tr><td>Expérience</td><td>Frise détaillée de 1994 à aujourd'hui, réécrite côté pilotage et communication</td></tr>
+    <tr><td>Compétences</td><td>Trois familles : gestion de projet, marketing digital et communication, production audiovisuelle. Puis formation, langues, engagement</td></tr>
+    <tr><td>Offre</td><td>Trois services seulement, sans bouton : gestion de projet, communication pour les PME, production audio et vidéo</td></tr>
+    <tr><td>Références</td><td>L'interview Headliner, deux citations, liens vers l'article et Discogs</td></tr>
+    <tr><td>Contact</td><td>Un seul bouton, coordonnées, réseaux</td></tr>
+  </table>
+  <h3>Ce qui a été retiré</h3>
+  <ul>
+    <li>Le bandeau défilant des clients.</li>
+    <li>Les filtres et les six cartes de prestations avec leurs boutons « En discuter ».</li>
+    <li>La liste détaillée des crédits Discogs (remplacée par un lien), la section Studio (matériel) et la section Engagement (intégrée aux compétences).</li>
+  </ul>
+  <h3>Boutons : quatre au total</h3>
+  <p>« Me contacter » et « CV en PDF » dans l'en-tête, « Écrire un e-mail » dans le contact, et le sélecteur de langue. Le menu passe à cinq entrées : Profil, Expérience, Compétences, Offre, Contact.</p>
+  <h3>Le CV en PDF</h3>
+  <p>Le bouton « CV en PDF » télécharge le CV chef de projet avec photo déjà présent dans le dépôt, copié dans <code>site/assets/CV_Michel_Gallone.pdf</code>. Si ce CV est modifié, il faut recopier le PDF à cet endroit.</p>
+  <div class="note"><b>À valider :</b> l'orientation marketing digital s'appuie sur ce que disent les sources (communication pour les PME chez Sowatt Music, production vidéo, label). Les compétences « Contenus pour les réseaux sociaux » et « Lancement d'artistes » sont des déductions : Michel doit confirmer, préciser ou compléter (outils, campagnes, résultats chiffrés). La pastille « Disponible » est aussi à confirmer.</div>
+  <div class="duo">
+    <figure><img src="v2_bureau_hero.png"><figcaption>Avant : la vitrine de prestations</figcaption></figure>
+    <figure><img src="ecran_bureau_hero.png"><figcaption>Après : le CV live</figcaption></figure>
+  </div>
+  <div class="duo">
+    <figure><img src="ecran_bureau_experience.png"><figcaption>Expérience</figcaption></figure>
+    <figure><img src="ecran_bureau_competences.png"><figcaption>Compétences</figcaption></figure>
+  </div>
+  <figure><img src="ecran_bureau_offre.png" style="max-height:90mm"><figcaption>Offre</figcaption></figure>
+</section>
+
+<section class="saut">
+  <h2>Annexe · La page complète (version actuelle)</h2>
   <div class="duo">
     <figure><img src="ecran_bureau_complet.png" style="max-height:230mm;width:auto"><figcaption>Bureau, page entière</figcaption></figure>
     <figure><img src="ecran_mobile_complet.png" style="max-height:230mm;width:auto"><figcaption>Mobile, page entière</figcaption></figure>

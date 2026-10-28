@@ -21,10 +21,11 @@ const journal = path.join(__dirname, 'journal');
     await page.evaluate(() => document.querySelectorAll('.apparait').forEach(e => e.classList.add('vu')));
     await page.screenshot({ path: path.join(journal, `ecran_${nom}_complet.png`), fullPage: true });
     if (nom === 'bureau') {
-      await page.locator('#prestations').scrollIntoViewIfNeeded();
-      await page.evaluate(() => window.scrollTo(0, document.getElementById('prestations').offsetTop + 60));
-      await page.waitForTimeout(500);
-      await page.screenshot({ path: path.join(journal, 'ecran_bureau_prestations.png') });
+      for (const id of ['experience', 'competences', 'offre']) {
+        await page.evaluate(i => window.scrollTo(0, document.getElementById(i).offsetTop + 40), id);
+        await page.waitForTimeout(500);
+        await page.screenshot({ path: path.join(journal, `ecran_bureau_${id}.png`) });
+      }
     }
     await page.close();
   }
