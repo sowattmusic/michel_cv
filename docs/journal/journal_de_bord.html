@@ -102,6 +102,7 @@
     <li>Préparation de la mise en ligne et passage en session locale</li>
     <li>Mise en ligne sur michelgallone.ch</li>
     <li>Moins de « 30 ans », nouveaux titres, crédits et page Contact</li>
+    <li>Référencement pour la recherche d'emploi et Google Search Console</li>
   </ol>
 </section>
 
@@ -851,6 +852,36 @@ tools/.venv/bin/python tools/make_contact.py</pre>
   <p>Un petit serveur local (<code>.claude/launch.json</code>) affiche le dossier <code>site/</code> dans l'aperçu de Claude, avec la mise en page ; il a fallu autoriser l'accès au dossier Documents dans les réglages de macOS.</p>
   <h3>Mise en ligne</h3>
   <p><code>./build.sh</code>, puis téléversement des pages modifiées (<code>fr/index.html</code>, <code>fr/parcours.html</code>, <code>fr/contact.html</code>) dans le dossier michelgallone.ch, en remplaçant les anciennes. Vérifié en ligne.</p>
+</section>
+
+<section>
+  <h2><span class="num">51</span>Référencement pour la recherche d'emploi et Google Search Console</h2>
+  <p><b>Demande de Michel :</b> un référencement optimal, avec des mots-clés pensés pour une recherche d'emploi, et le plan du site déclaré à Google.</p>
+  <h3>Mots-clés visés</h3>
+  <p>Ceux qu'un recruteur tape dans Google : le nom « Michel Gallone », les métiers (chef de projet audiovisuel et digital, responsable visibilité et marketing, direction technique radio-TV, communication) et la région (Vaud, Lausanne, Suisse romande).</p>
+  <h3>Titres et descriptions</h3>
+  <ul>
+    <li>Accueil : « Michel Gallone · Chef de projet audiovisuel et digital · Vaud ».</li>
+    <li>Parcours : « Parcours de Michel Gallone · Chef de projet audiovisuel ».</li>
+    <li>Contact : « Contacter Michel Gallone · Chef de projet audiovisuel, Vaud ».</li>
+    <li>Descriptions réécrites autour des métiers et de la région, sous 160 caractères pour ne pas être coupées par Google ; l'accueil se termine par « Disponible ».</li>
+  </ul>
+  <h3>Données structurées (schema.org)</h3>
+  <ul>
+    <li>Accueil : page de profil (<code>ProfilePage</code>) décrivant Michel : métiers et région, compétences (gestion de projet, production audiovisuelle, radio-TV, communication digitale, marketing…), formation, langues, réseaux.</li>
+    <li>Parcours : page de profil ; Contact : page de contact (<code>ContactPage</code>) ; toutes reliées à la même personne.</li>
+  </ul>
+  <h3>Autres réglages</h3>
+  <ul>
+    <li>Langue des pages précisée en français de Suisse (<code>fr-CH</code>), balise auteur.</li>
+    <li>Textes des photos plus descriptifs (métier, studio) ; dans les chiffres clés, « Lieu » devient « Vaud, Suisse romande ».</li>
+  </ul>
+  <h3>Google Search Console</h3>
+  <ul>
+    <li>Plan du site <code>https://michelgallone.ch/sitemap.xml</code> soumis : « Sitemap submitted successfully ».</li>
+    <li>Google avait déjà découvert l'accueil par le plan du site ; indexation demandée pour <code>https://michelgallone.ch/fr/</code>.</li>
+    <li>L'apparition dans les résultats prend en général quelques jours à quelques semaines.</li>
+  </ul>
 </section>
 
 <section class="saut">
