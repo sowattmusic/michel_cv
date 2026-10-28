@@ -206,8 +206,8 @@ footer.pied { padding: 48px 0 28px; border-top: 1px solid var(--ligne); font-siz
 @media (max-width: 420px) { .pied-reseaux { gap: 6px; } .pied-reseaux a:not(.icone) { padding: 8px 12px; } }
 .pied-reseaux svg { width: 16px; height: 16px; flex: none; }
 .pied-bas { display: flex; flex-direction: column; align-items: center; gap: 18px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--ligne); }
-.pied-ligne { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px 20px; }
-.pied-carte { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--ligne); border-radius: 999px; font-size: .85rem; font-weight: 500; color: var(--texte-doux); text-decoration: none; transition: border-color .2s, color .2s; }
+.pied-copyright { margin: 0; text-align: center; }
+.pied-carte { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border: 1px solid var(--ligne); border-radius: 999px; font-size: .85rem; font-weight: 500; color: var(--texte-doux); text-decoration: none; transition: border-color .2s, color .2s; }
 .pied-carte:hover { color: #fff; border-color: #fff; }
 .pied-carte svg { width: 16px; height: 16px; flex: none; }
 
