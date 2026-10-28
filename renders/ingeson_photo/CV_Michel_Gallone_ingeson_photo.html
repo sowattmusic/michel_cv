@@ -24,8 +24,8 @@
   body {
     font-family: "Inter", system-ui, sans-serif;
     color: var(--ink-2);
-    font-size: 9.2pt;
-    line-height: 1.45;
+    font-size: 9pt;
+    line-height: 1.42;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -123,10 +123,10 @@
     display: grid;
     grid-template-columns: 1fr 62mm;
   }
-  main { padding: 9mm 9mm 6mm 14mm; }
+  main { padding: 8mm 9mm 5mm 14mm; }
   aside {
     background: var(--tint);
-    padding: 9mm 10mm 6mm 8mm;
+    padding: 8mm 10mm 5mm 8mm;
   }
   h2 {
     font: 700 8pt/1 "Archivo", sans-serif;
@@ -138,7 +138,7 @@
   h2::before {
     content: ""; width: 14px; height: 2px; background: var(--onair);
   }
-  section + section { margin-top: 6mm; }
+  section + section { margin-top: 5.5mm; }
 
   .profile p { color: var(--ink-2); }
   .profile p + p { margin-top: 2.2mm; }
@@ -160,9 +160,9 @@
     display: grid;
     grid-template-columns: 19mm 1fr;
     gap: 0 4mm;
-    padding-bottom: 3.6mm;
+    padding-bottom: 3.2mm;
   }
-  .job + .job { border-top: 1px solid var(--line); padding-top: 3.6mm; }
+  .job + .job { border-top: 1px solid var(--line); padding-top: 3.2mm; }
   .when {
     font: 600 7.8pt/1.3 "Archivo", sans-serif;
     color: var(--muted);
@@ -213,7 +213,7 @@
   .meter i { display: block; height: 100%; background: var(--onair); border-radius: 2px; }
 
   footer {
-    padding: 4mm 14mm;
+    padding: 3.5mm 14mm;
     border-top: 1px solid var(--line);
     display: flex; justify-content: space-between;
     font-size: 7.4pt; color: var(--muted);
@@ -254,6 +254,18 @@
         <h2>Expérience</h2>
 
         <div class="job">
+          <div class="when">2000 – présent</div>
+          <div class="what">
+            <h3>Co-fondateur &amp; gérant</h3>
+            <div class="co">Sowatt Music Sàrl</div>
+            <ul>
+              <li>Société active dans les <strong>installations audiovisuelles</strong> et la <strong>production de films et de vidéos</strong></li>
+              <li>Spécialiste de la <strong>communication pour les PME</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
           <div class="when">2022 – 2025</div>
           <div class="what">
             <h3>Directeur technique &amp; réalisateur d’antenne</h3>
@@ -279,16 +291,6 @@
           </div>
         </div>
 
-        <div class="job">
-          <div class="when">2008 – 2012</div>
-          <div class="what">
-            <h3>Producteur &amp; réalisateur télévision</h3>
-            <div class="co">Rouge TV <em>· aujourd’hui Carac TV, Le Mont-sur-Lausanne</em></div>
-            <ul>
-              <li>Production et réalisation de plusieurs programmes : tournage, montage, finalisation et diffusion</li>
-            </ul>
-          </div>
-        </div>
       </section>
     </main>
 
@@ -349,14 +351,24 @@
         <h2>Expérience <span style="font-weight:500;color:var(--muted);letter-spacing:.1em">(suite)</span></h2>
 
         <div class="job">
+          <div class="when">2008 – 2012</div>
+          <div class="what">
+            <h3>Producteur &amp; réalisateur télévision</h3>
+            <div class="co">Rouge TV <em>· aujourd’hui Carac TV, Le Mont-sur-Lausanne</em></div>
+            <ul>
+              <li>Production et réalisation de plusieurs programmes : tournage, montage, finalisation et diffusion</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
           <div class="when">2009 – 2017</div>
           <div class="what">
             <h3>Concepteur puis directeur technique du studio</h3>
             <div class="co">The Hana Road Music Group <em>· Montreux</em></div>
             <ul>
-              <li>Conception et construction d’un <strong>complexe de production audio et vidéo</strong> haut de gamme</li>
+              <li>Conception et construction d’un <strong>complexe de production audio et vidéo</strong> haut de gamme, puis responsable technique des installations</li>
               <li>Liaison fibre optique jusqu’au 2m2c (Auditorium Stravinsky) pour captations et diffusions</li>
-              <li>Responsable technique de l’ensemble des installations (2016 – 2017)</li>
             </ul>
           </div>
         </div>
@@ -380,8 +392,7 @@
             <h3>Responsable des ventes</h3>
             <div class="co">Ony Media SA <em>· Montreux</em></div>
             <ul>
-              <li>Développement des ventes de systèmes d’automatisation pour stations de radio</li>
-              <li>Conception des solutions techniques d’implémentation, notamment pour <strong>Energy (NRJ) Allemagne</strong></li>
+              <li>Ventes et solutions d’implémentation de systèmes d’automatisation pour radios, notamment <strong>Energy (NRJ) Allemagne</strong></li>
             </ul>
           </div>
         </div>
