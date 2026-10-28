@@ -101,7 +101,7 @@
     <li>« Mes coordonnées » à côté des réseaux, copyright à la ligne</li>
     <li>Préparation de la mise en ligne et passage en session locale</li>
     <li>Mise en ligne sur michelgallone.ch</li>
-    <li>Moins de « 30 ans », nouveaux titres et crédits</li>
+    <li>Moins de « 30 ans », nouveaux titres, crédits et page Contact</li>
   </ol>
 </section>
 
@@ -828,12 +828,12 @@ tools/.venv/bin/python tools/make_contact.py</pre>
 </section>
 
 <section>
-  <h2><span class="num">50</span>Moins de « 30 ans », nouveaux titres et crédits</h2>
+  <h2><span class="num">50</span>Moins de « 30 ans », nouveaux titres, crédits et page Contact</h2>
   <p><b>Demande de Michel :</b> « 30 ans » revenait trop souvent ; ajouter des crédits pour The Hana Road Music Group et pour les débuts.</p>
   <h3>Textes</h3>
   <ul>
     <li>Accueil, accroche : « 30 ans à concevoir, coordonner et livrer : » devient « Savoir-faire pour concevoir, coordonner et livrer : ».</li>
-    <li>Accueil, Parcours en bref : « 30 ans de projets, de Londres à Montreux. » devient « Les étapes clés, de Londres à Montreux. ».</li>
+    <li>Accueil, Parcours en bref : « 30 ans de projets, de Londres à Montreux. » devient « Les étapes clés, de Londres à Montreux. », puis simplement « Les jalons. ».</li>
     <li>Page Parcours, grand titre : « 30 ans de projets, du plus récent au premier. » devient « Les jalons d’une carrière. ».</li>
     <li>Descriptions pour Google et pour les aperçus de partage : « 30 ans » retiré.</li>
     <li>Seul le chiffre clé « Expérience · 30 ans » est gardé sur l'accueil.</li>
@@ -843,10 +843,14 @@ tools/.venv/bin/python tools/make_contact.py</pre>
     <li>The Hana Road Music Group : Van Morrison, enregistrement (tracking) avec Bob Rock ; Larry Graham, enregistrement (tracking). Sur la page Parcours (bouton « Crédits ») et dans le Parcours en bref de l'accueil.</li>
     <li>Débuts (1994 – 1999), sous Marla Glen : Squeeze, <i>Ridiculous</i> (1995) ; Chris de Burgh, <i>Beautiful Dreams</i> (1995). Le bouton devient « Crédits ».</li>
   </ul>
+  <h3>Page Contact</h3>
+  <ul>
+    <li>Lien « Voir sur la carte » (Google Maps) retiré : l'adresse reste affichée seule.</li>
+  </ul>
   <h3>Aperçu en local</h3>
   <p>Un petit serveur local (<code>.claude/launch.json</code>) affiche le dossier <code>site/</code> dans l'aperçu de Claude, avec la mise en page ; il a fallu autoriser l'accès au dossier Documents dans les réglages de macOS.</p>
   <h3>Mise en ligne</h3>
-  <p><code>./build.sh</code>, puis téléversement des deux pages modifiées (<code>fr/index.html</code> et <code>fr/parcours.html</code>) dans le dossier michelgallone.ch.</p>
+  <p><code>./build.sh</code>, puis téléversement des pages modifiées (<code>fr/index.html</code>, <code>fr/parcours.html</code>, <code>fr/contact.html</code>) dans le dossier michelgallone.ch, en remplaçant les anciennes. Vérifié en ligne.</p>
 </section>
 
 <section class="saut">
