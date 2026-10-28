@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Journal de bord · site de Michel Gallone</title>
+<style>
+  @page { size: A4; }
+  body { font: 10.5pt/1.55 "Inter", "Helvetica Neue", Arial, sans-serif; color: #1b2133; margin: 0; }
+  h1, h2, h3 { font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif; color: #070b18; line-height: 1.2; }
+  .couverture { height: 255mm; display: flex; flex-direction: column; justify-content: space-between; background: #070b18; color: #e9ecf5; padding: 22mm 18mm; box-sizing: border-box; margin: -16mm -16mm 0; page-break-after: always; }
+  .couverture h1 { color: #fff; font-size: 34pt; margin: 8mm 0 6mm; }
+  .couverture .rouge { color: #e5373a; }
+  .couverture p { color: #a3abc4; font-size: 12pt; max-width: 140mm; }
+  .couverture img { width: 100%; border-radius: 8px; margin-top: 8mm; }
+  .sur { font-size: 8.5pt; letter-spacing: .2em; text-transform: uppercase; color: #e5373a; font-weight: 700; }
+  h2 { font-size: 17pt; margin: 0 0 4mm; padding-top: 2mm; border-top: 3px solid #e5373a; display: inline-block; }
+  h2 .num { color: #e5373a; margin-right: 3mm; }
+  h3 { font-size: 12pt; margin: 6mm 0 2mm; }
+  section { margin-bottom: 9mm; }
+  .saut { page-break-before: always; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.2pt; margin: 3mm 0 4mm; }
+  th { text-align: left; background: #eef1f8; padding: 2mm 2.5mm; font-weight: 600; }
+  td { padding: 2mm 2.5mm; border-bottom: 1px solid #e2e6f0; vertical-align: top; }
+  .ok { color: #1f7a4d; font-weight: 600; }
+  .ko { color: #b9232a; font-weight: 600; }
+  .note { background: #fff6e6; border-left: 3px solid #e5a03a; padding: 3mm 4mm; font-size: 9.5pt; margin: 3mm 0; }
+  .info { background: #eef3ff; border-left: 3px solid #4f7dff; padding: 3mm 4mm; font-size: 9.5pt; margin: 3mm 0; }
+  code { font: 8.8pt "SFMono-Regular", Menlo, Consolas, monospace; background: #f1f3f8; padding: .3mm 1.2mm; border-radius: 3px; }
+  pre { font: 8.5pt Menlo, Consolas, monospace; background: #f1f3f8; padding: 3mm 4mm; border-radius: 4px; white-space: pre-wrap; }
+  figure { margin: 4mm 0; text-align: center; page-break-inside: avoid; }
+  figure img { max-width: 100%; border: 1px solid #dde2ee; border-radius: 4px; }
+  figcaption { font-size: 8.5pt; color: #6a7390; margin-top: 1.5mm; }
+  .duo { display: flex; gap: 5mm; align-items: flex-start; }
+  .duo figure { flex: 1; }
+  .pastilles span { display: inline-block; width: 12mm; height: 12mm; border-radius: 2mm; margin-right: 2mm; vertical-align: middle; }
+  ul, ol { padding-left: 5mm; margin: 2mm 0; }
+  li { margin: 1mm 0; }
+</style>
+</head>
+<body>
+
+<div class="couverture">
+  <div>
+    <span class="sur">Journal de bord du projet</span>
+    <h1>Site vitrine<br>de Michel Gallone<span class="rouge">.</span></h1>
+    <p>Toutes les étapes de la création du site, des sources consultées jusqu'aux tests. Version française. La version anglaise suivra.</p>
+    <img src="ecran_bureau_hero.png" alt="">
+  </div>
+  <p style="font-size:9.5pt">Dépôt : github.com/sowattmusic/michel_cv · branche claude/affectionate-euler-tp4710<br>Document mis à jour le 28 octobre 2026</p>
+</div>
+
+<section>
+  <h2><span class="num">00</span>Sommaire</h2>
+  <ol>
+    <li>La demande</li>
+    <li>État du dépôt au départ</li>
+    <li>Collecte des sources</li>
+    <li>Synthèse des informations retenues</li>
+    <li>Concept : un site « boutique » de prestations</li>
+    <li>Direction artistique</li>
+    <li>Développement</li>
+    <li>Tests et corrections</li>
+    <li>Points à valider par Michel</li>
+    <li>Prochaines étapes</li>
+    <li>Régénérer ce document</li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="num">01</span>La demande</h2>
+  <p>Créer un site web pour Michel Gallone à partir de son CV et de quatre sources en ligne :</p>
+  <ul>
+    <li>LinkedIn : linkedin.com/in/michelgallone</li>
+    <li>Headliner Magazine USA n° 23, pages 62 à 64 (Issuu)</li>
+    <li>Sa page de liens : linkin.bio/mg</li>
+    <li>Ses crédits Discogs : discogs.com/artist/323111-Michel-Gallone</li>
+  </ul>
+  <p>Le site doit être une <b>vitrine de type boutique</b> qui « vend » Michel sur le marché du travail. Il est rédigé <b>entièrement en français</b>, et une version anglaise sera faite ensuite. Chaque étape est documentée dans ce PDF, conservé dans l'environnement de travail et dans le dépôt GitHub.</p>
+</section>
+
+<section>
+  <h2><span class="num">02</span>État du dépôt au départ</h2>
+  <p>Le dépôt <code>sowattmusic/michel_cv</code> contenait déjà :</p>
+  <table>
+    <tr><th>Chemin</th><th>Contenu</th><th>Utilisé pour le site</th></tr>
+    <tr><td><code>renders/*/</code></td><td>Quatre variantes du CV (ingé son, chef de projet, avec ou sans photo), en HTML et PDF</td><td>Oui : parcours, dates, références, langues, coordonnées</td></tr>
+    <tr><td><code>sources/photos/</code></td><td>Trois photos de Michel dans son studio (DSC_8780, 8782, 8809)</td><td>Oui : toutes les images du site</td></tr>
+    <tr><td><code>sources/tech_multimedia_Gallone.pdf</code></td><td>Ancien CV</td><td>Indirectement, via les CV refaits</td></tr>
+    <tr><td><code>conversation/</code></td><td>Historique de la création des CV</td><td>Oui : choix déjà faits (e-mail, mise en page)</td></tr>
+  </table>
+  <p>La source de référence est le CV « chef de projet avec photo », le plus complet et le plus récent (il inclut Sowatt Music Sàrl, Route 108 et l'association SAP).</p>
+</section>
+
+<section>
+  <h2><span class="num">03</span>Collecte des sources</h2>
+  <p>Chaque source a d'abord été lue avec un outil de lecture web simple, puis, en cas d'échec, avec un navigateur Chromium sans interface (pour les pages construites en JavaScript) ou avec l'API publique du site.</p>
+  <table>
+    <tr><th style="width:22%">Source</th><th style="width:30%">Méthode</th><th style="width:12%">Résultat</th><th>Ce qu'on en tire</th></tr>
+    <tr><td>LinkedIn</td><td>Lecture web : erreur HTTP 999 (LinkedIn bloque les robots). Pas de nouvel essai possible sans être connecté.</td><td class="ko">Échec</td><td>Seule l'adresse du profil est utilisée (lien dans le pied du site). Le contenu du profil n'a pas pu être lu.</td></tr>
+    <tr><td>linkin.bio/mg</td><td>Lecture simple vide (page en JavaScript), puis Chromium sans interface</td><td class="ok">Réussi</td><td>Titre « Producer - Engineer », liens Instagram, LinkedIn, Facebook, e-mail michel@sowattmusic.com, Sowatt Media, Route 108, Discogs et lien vers l'article Headliner.</td></tr>
+    <tr><td>Discogs</td><td>Page web : erreur 403. API publique <code>api.discogs.com</code> : réussi</td><td class="ok">Réussi</td><td>Biographie, variantes du nom, liens, 77 entrées de crédits (51 parutions distinctes, 1995 à 2026).</td></tr>
+    <tr><td>Headliner (Issuu)</td><td>Le lecteur Issuu n'expose pas le texte. L'article a été trouvé sur headlinerhub.com grâce au lien de linkin.bio, puis lu avec Chromium.</td><td class="ok">Réussi</td><td>Interview complète « From pop icons to pristine sound » par Liz Wilkinson : parcours, souvenirs avec Mutt Lange, matériel, méthode de travail.</td></tr>
+    <tr><td>sowattmedia.com, route-108.com, sowattmusic.com</td><td>Consultés pour compléter. Connexion refusée ou erreur 403.</td><td class="ko">Échec</td><td>Liens conservés sur le site, sans contenu supplémentaire.</td></tr>
+  </table>
+  <p>Les données récupérées sont archivées dans le dépôt pour qu'on puisse les vérifier :</p>
+  <ul>
+    <li><code>sources/web/headliner_article_2025.txt</code> : texte de l'article</li>
+    <li><code>sources/web/linkin_bio_mg.txt</code> : texte et liens de la page linkin.bio</li>
+    <li><code>sources/web/discogs_artist.json</code> et <code>discogs_releases.json</code> : réponses de l'API Discogs</li>
+    <li><code>docs/journal/capture_linkinbio.png</code> : capture de la page linkin.bio</li>
+  </ul>
+  <figure><img src="capture_linkinbio.png" style="max-height:55mm"><figcaption>La page linkin.bio/mg vue par le navigateur sans interface.</figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="num">04</span>Synthèse des informations retenues</h2>
+  <h3>Identité et positionnement</h3>
+  <p>Producteur, ingénieur du son et directeur technique audiovisuel, basé à Lussery-Villars (VD). Plus de 30 ans de métier, dans quatre pays (Suisse, France, Royaume-Uni, Maroc). Français langue maternelle, anglais courant.</p>
+  <h3>Ce que les nouvelles sources ajoutent au CV</h3>
+  <table>
+    <tr><th style="width:25%">Source</th><th>Information nouvelle</th></tr>
+    <tr><td>Discogs</td><td>Crédits vérifiables : Shania Twain (<i>Up!</i>, mixage ; <i>Ka-Ching!</i>, remix), Britney Spears (<i>Don't Let Me Be The Last To Know</i>, mixage), Céline Dion, The Corrs, Michael Bolton, Krokus (mixage), Marla Glen (mixage, 1995). Productions et mixages récents : STARVINSKY, Huey V, Alejandro Reyes, Antony Trice, Hypsign, Uranian Stone, Tricia Cordero, Jay Derson. Enregistrement de <i>The Art Of Chopin</i> (Elizabeth Sombart, Royal Philharmonic Orchestra).</td></tr>
+    <tr><td>Headliner</td><td>Production et coordination d'enregistrements à Abbey Road avec Elizabeth Sombart et le Royal Philharmonic Orchestra. Enregistrements classiques avec Philippe Entremont. Matériel : Pro Tools, Logic, Merging Horus, DAD, Prism Sound, Neumann KH 420, Dangerous Music 2BUS+, intérêt pour l'Audio over IP. Citations sur Mutt Lange, la transparence du son et la méthode.</td></tr>
+    <tr><td>linkin.bio</td><td>Titre public « Producer - Engineer », e-mail professionnel michel@sowattmusic.com, Instagram et Facebook, Sowatt Media.</td></tr>
+  </table>
+  <div class="note"><b>Prudence sur Discogs.</b> Pour beaucoup de disques, Discogs indique seulement que Michel est « crédité », sans préciser son rôle exact (ingénieur, assistant…). Le site écrit donc « Crédité » dans ces cas, et ne précise « Mixage », « Remix » ou « Production » que quand Discogs le dit.</div>
+</section>
+
+<section class="saut">
+  <h2><span class="num">05</span>Concept : un site « boutique » de prestations</h2>
+  <p>Pour que le site « vende » Michel, ses compétences sont présentées comme des <b>produits</b>. Le visiteur les filtre, les ajoute à une « demande de devis » (comme un panier), puis envoie la demande par e-mail.</p>
+  <h3>Les six prestations</h3>
+  <table>
+    <tr><th>Prestation</th><th>Catégorie</th><th>Preuves affichées</th></tr>
+    <tr><td>Mixage &amp; production musicale</td><td>Musique</td><td>STARVINSKY, Antony Trice, Hypsign, Alejandro Reyes</td></tr>
+    <tr><td>Enregistrement classique &amp; acoustique</td><td>Musique</td><td>Elizabeth Sombart, Philippe Entremont, RPO, Abbey Road</td></tr>
+    <tr><td>Direction technique radio &amp; TV</td><td>Broadcast, Conseil</td><td>M Le Media, matinales en direct (Canal+)</td></tr>
+    <tr><td>Son &amp; vidéo pour l'événementiel</td><td>Broadcast &amp; direct</td><td>2m2c, SwissTech Convention Center, Beaulieu, Royal Savoy</td></tr>
+    <tr><td>Conception de studio &amp; gestion de projet</td><td>Conseil</td><td>Hana Road, Digital Media Partners avec Tom Hidley, Sully Sound</td></tr>
+    <tr><td>Vidéo, post-production &amp; communication</td><td>Image</td><td>Rouge TV, Walt Disney, M6, TF1, Sowatt Music</td></tr>
+  </table>
+  <p>Aucun prix n'a été inventé : chaque prestation affiche « Sur devis » avec l'unité habituelle (au titre, à la journée, au projet…).</p>
+  <h3>Plan de la page</h3>
+  <ol>
+    <li><b>Accueil</b> : titre « Le son juste, du studio au direct. », accroche, boutons vers les prestations et le parcours</li>
+    <li><b>Bandeau défilant</b> des références (Shania Twain, Céline Dion, Canal+, TF1…)</li>
+    <li><b>Chiffres clés</b> : 30+ années, 50+ parutions, 4 pays, 3 infrastructures</li>
+    <li><b>Prestations</b> (la « boutique ») avec filtres et bouton « Ajouter »</li>
+    <li><b>Pourquoi moi</b> : quatre arguments</li>
+    <li><b>Crédits</b> : deux listes tirées de Discogs, lien vers Discogs</li>
+    <li><b>Presse</b> : l'interview Headliner, trois citations traduites</li>
+    <li><b>Parcours</b> : frise chronologique de 1993 à aujourd'hui</li>
+    <li><b>Le studio</b> : matériel</li>
+    <li><b>Engagement</b> : Sowatt Music, Route 108, association SAP</li>
+    <li><b>Contact</b> : demande de devis, téléphone, réseaux sociaux</li>
+  </ol>
+</section>
+
+<section class="saut">
+  <h2><span class="num">06</span>Direction artistique</h2>
+  <p>Les couleurs viennent des photos de Michel : un studio baigné de lumière bleue et sa chemise rouge et noire. Le site est sombre, comme une régie, avec le rouge réservé aux actions et aux accents.</p>
+  <p class="pastilles">
+    <span style="background:#070b18"></span>Bleu nuit #070b18 &nbsp;
+    <span style="background:#4f7dff"></span>Bleu lueur #4f7dff &nbsp;
+    <span style="background:#e5373a"></span>Rouge #e5373a &nbsp;
+    <span style="background:#e9ecf5;border:1px solid #ccc"></span>Texte #e9ecf5
+  </p>
+  <ul>
+    <li><b>Typographies</b> (Google Fonts) : Space Grotesk pour les titres, au caractère technique ; Inter pour le texte, très lisible.</li>
+    <li><b>Photos</b> : DSC_8782 (accueil), DSC_8780 (« Pourquoi moi » et contact), DSC_8809 (presse). Redimensionnées et compressées dans <code>site/assets/img/</code>.</li>
+    <li><b>Animations</b> discrètes : apparition des blocs au défilement, bandeau défilant. Elles sont coupées si le visiteur a demandé à réduire les animations.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="num">07</span>Développement</h2>
+  <p>Site statique, sans outil de construction : il s'ouvre directement dans un navigateur et s'héberge n'importe où (GitHub Pages, Infomaniak…).</p>
+  <pre>site/
+├── index.html            redirige vers fr/
+├── fr/index.html         la page en français
+├── en/                   (à venir) la version anglaise
+└── assets/
+    ├── css/style.css     styles, responsive, palette
+    ├── js/main.js        menu, filtres, demande de devis, animations
+    └── img/              photos optimisées</pre>
+  <h3>Fonctionnement de la demande de devis</h3>
+  <ul>
+    <li>Chaque bouton « Ajouter » place la prestation dans la demande. Un compteur rouge s'affiche sur l'icône du panier.</li>
+    <li>Le tiroir « Ma demande de devis » liste les prestations, avec un champ pour le nom et un pour le projet.</li>
+    <li>« Envoyer ma demande par e-mail » ouvre la messagerie du visiteur avec un e-mail prérempli vers michel@sowattmusic.com. Aucun serveur ni formulaire tiers n'est nécessaire.</li>
+    <li>La sélection est gardée dans le navigateur du visiteur s'il revient plus tard. Si ce stockage est bloqué, le site fonctionne quand même.</li>
+  </ul>
+  <h3>Préparé pour la version anglaise</h3>
+  <ul>
+    <li>Les textes générés par le script sont regroupés par langue (<code>fr</code> et <code>en</code>) dans <code>main.js</code> ; les textes anglais sont déjà prêts.</li>
+    <li>Le sélecteur FR / EN est en place ; EN est grisé « bientôt ».</li>
+    <li>La balise <code>hreflang</code> anglaise est prête, en commentaire.</li>
+  </ul>
+  <h3>Référencement</h3>
+  <p>Titre et description de page, balises Open Graph pour le partage sur les réseaux, et données structurées schema.org « Person » (métier, adresse, liens LinkedIn, Instagram, Facebook, Discogs).</p>
+</section>
+
+<section class="saut">
+  <h2><span class="num">08</span>Tests et corrections</h2>
+  <p>La page a été ouverte dans Chromium sans interface, en format bureau (1440 × 900) et mobile (390 × 844). Vérifications faites :</p>
+  <ul>
+    <li>Aucune erreur JavaScript dans la console.</li>
+    <li>Pas de défilement horizontal sur mobile (largeur de page = largeur d'écran).</li>
+    <li>Demande de devis testée : deux prestations ajoutées, nom saisi, e-mail prérempli correct.</li>
+  </ul>
+  <h3>Corrections après la première version</h3>
+  <table>
+    <tr><th>Problème constaté</th><th>Correction</th></tr>
+    <tr><td>Accueil : le texte recouvrait le visage de Michel, placé à gauche de la photo.</td><td>Mise en page en deux parties : texte à gauche, photo à droite en fondu. Sur mobile, la photo passe au-dessus du texte.</td></tr>
+    <tr><td>Le menu disparaissait sur la partie claire de la photo.</td><td>Dégradé sombre ajouté derrière le menu.</td></tr>
+    <tr><td>Krokus (2004) apparaissait sous « Sowatt Music », et le bloc « Avec Mutt Lange » affirmait plus que ce que dit Discogs.</td><td>Titres des deux listes rendus exacts : « Signatures internationales » et « Productions &amp; mixages ».</td></tr>
+    <tr><td>Section Presse : la photo coupait le visage.</td><td>Recadrage de l'image.</td></tr>
+  </table>
+  <div class="duo">
+    <figure><img src="v1_bureau_hero.png"><figcaption>Version 1 : texte sur le visage</figcaption></figure>
+    <figure><img src="ecran_bureau_hero.png"><figcaption>Version 2 : texte et photo séparés</figcaption></figure>
+  </div>
+  <div class="duo">
+    <figure><img src="v1_mobile_hero.png" style="max-height:105mm"><figcaption>Mobile, version 1</figcaption></figure>
+    <figure><img src="ecran_mobile_hero.png" style="max-height:105mm"><figcaption>Mobile, version 2</figcaption></figure>
+    <figure><img src="ecran_bureau_demande.png" style="max-height:105mm"><figcaption>La demande de devis ouverte</figcaption></figure>
+  </div>
+</section>
+
+<section class="saut">
+  <h2><span class="num">09</span>Points à valider par Michel</h2>
+  <table>
+    <tr><th style="width:30%">Sujet</th><th>Choix fait</th><th style="width:28%">À confirmer</th></tr>
+    <tr><td>Adresse e-mail</td><td>michel@sowattmusic.com (celle de linkin.bio, plus professionnelle pour une vitrine). Les CV utilisent gallone@bluewin.ch.</td><td>Laquelle afficher ?</td></tr>
+    <tr><td>Contenu LinkedIn</td><td>Non lu (LinkedIn bloque les robots).</td><td>Envoyer un export PDF du profil (LinkedIn › Plus › Enregistrer au format PDF) pour compléter.</td></tr>
+    <tr><td>Rôle sur les disques « crédités »</td><td>Écrit « Crédité » quand Discogs ne précise pas le rôle.</td><td>Préciser le rôle exact sur Shania Twain, Céline Dion, The Corrs, Michael Bolton…</td></tr>
+    <tr><td>Abbey Road et Philippe Entremont</td><td>Mentionnés d'après l'interview Headliner.</td><td>Vérifier la formulation.</td></tr>
+    <tr><td>Prix</td><td>« Sur devis » partout.</td><td>Ajouter des tarifs « à partir de » ?</td></tr>
+    <tr><td>Citations Headliner</td><td>Traduites de l'anglais par nos soins, avec lien vers l'article.</td><td>Relire la traduction.</td></tr>
+    <tr><td>Sowatt Media</td><td>Lien non affiché (site inaccessible pendant le travail).</td><td>Faut-il l'ajouter ?</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2><span class="num">10</span>Prochaines étapes</h2>
+  <ol>
+    <li>Relecture du site par Michel et corrections.</li>
+    <li>Version anglaise : copier <code>site/fr/</code> vers <code>site/en/</code>, traduire, puis activer le lien EN et la balise <code>hreflang</code>.</li>
+    <li>Mise en ligne : GitHub Pages (gratuit) ou hébergement suisse, avec un nom de domaine (par exemple michelgallone.ch).</li>
+    <li>Option : formulaire de contact hébergé (Tally, Formspree) à la place de l'e-mail prérempli.</li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="num">11</span>Régénérer ce document</h2>
+  <p>Ce PDF est produit à partir de <code>docs/journal/journal_de_bord.html</code>. La commande suivante refait les captures du site puis le PDF :</p>
+  <pre>node docs/build_pdf.js</pre>
+  <p>À chaque nouvelle étape (version anglaise, mise en ligne…), on ajoute une section au fichier HTML et on relance la commande.</p>
+</section>
+
+<section class="saut">
+  <h2>Annexe · La page complète</h2>
+  <div class="duo">
+    <figure><img src="ecran_bureau_complet.png" style="max-height:230mm;width:auto"><figcaption>Bureau, page entière</figcaption></figure>
+    <figure><img src="ecran_mobile_complet.png" style="max-height:230mm;width:auto"><figcaption>Mobile, page entière</figcaption></figure>
+  </div>
+</section>
+
+</body>
+</html>
