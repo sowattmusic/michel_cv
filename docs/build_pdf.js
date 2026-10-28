@@ -22,7 +22,7 @@ const journal = path.join(__dirname, 'journal');
     await page.screenshot({ path: path.join(journal, `ecran_${nom}_complet.png`), fullPage: true });
     if (nom === 'bureau') {
       for (const id of ['experience']) {
-        await page.evaluate(i => window.scrollTo(0, document.getElementById(i).offsetTop + 40), id);
+        await page.evaluate(i => window.scrollTo(0, document.getElementById(i).offsetTop), id);
         await page.waitForTimeout(500);
         await page.screenshot({ path: path.join(journal, `ecran_bureau_${id}.png`) });
       }
