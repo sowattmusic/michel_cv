@@ -380,3 +380,13 @@ footer.pied { padding: 48px 0 28px; border-top: 1px solid var(--ligne); font-siz
   .presse-texte { padding: 30px 22px; }
   .langues { display: none; }
 }
+
+/* ---------- Rythme vertical : même écart entre toutes les sections ---------- */
+.section.profil-section { padding: 40px 0 52px; }
+.section#experience { padding: 48px 0 91px; }
+.section.page2-tete { padding-bottom: 53px; }
+@media (max-width: 640px) {
+  .section.profil-section { padding: 14px 0 42px; }
+  .section#experience { padding: 48px 0 85px; }
+  .section.page2-tete { padding-bottom: 87px; }
+}
