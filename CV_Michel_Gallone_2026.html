@@ -13,8 +13,10 @@
     --muted: #6b7180;
     --line: #e3e5ea;
     --paper: #ffffff;
-    --tint: #f5f3ef;
+    --tint: #f1f4f9;
     --onair: #e8452c;
+    --hero: #1b2b45;
+    --hero-line: rgba(255,255,255,.14);
   }
   @page { size: A4; margin: 0; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,7 +44,7 @@
 
   /* ---------- Header ---------- */
   header.hero {
-    background: var(--ink);
+    background: var(--hero);
     color: #fff;
     padding: 11mm 14mm 8mm;
     position: relative;
@@ -69,24 +71,24 @@
   .role {
     margin-top: 4mm;
     font: 500 11.5pt/1.35 "Archivo", sans-serif;
-    color: #c9ccd4;
+    color: #c3cde0;
   }
   .contact {
     display: flex; flex-wrap: wrap; gap: 3mm 8mm;
     margin-top: 5mm; padding-top: 4mm;
-    border-top: 1px solid #2c3039;
+    border-top: 1px solid var(--hero-line);
     font-size: 8.6pt; color: #e6e7eb;
   }
   .contact b { color: var(--onair); font-weight: 600; margin-right: 4px; }
 
   header.mini {
-    background: var(--ink); color: #fff;
+    background: var(--hero); color: #fff;
     padding: 7mm 14mm;
     display: flex; justify-content: space-between; align-items: baseline;
   }
   header.mini .n { font: 800 14pt/1 "Archivo", sans-serif; }
   header.mini .n span { color: var(--onair); }
-  header.mini .r { font-size: 8pt; color: #c9ccd4; }
+  header.mini .r { font-size: 8pt; color: #c3cde0; }
 
   /* ---------- Body ---------- */
   .body {
@@ -170,7 +172,7 @@
     border-radius: 20px; padding: 1.1mm 2.6mm;
     font-size: 7.8pt; color: var(--ink);
   }
-  .list li { list-style: none; padding: 1.3mm 0; border-bottom: 1px solid #e7e3dc; }
+  .list li { list-style: none; padding: 1.3mm 0; border-bottom: 1px solid #dfe5ee; }
   .list li:last-child { border-bottom: 0; }
   .list b { display: block; color: var(--ink); font-weight: 600; }
   .list small { color: var(--muted); font-size: 7.8pt; }
@@ -179,7 +181,7 @@
   .lang { display: grid; grid-template-columns: 1fr auto; gap: 1.5mm 3mm; font-size: 8.6pt; }
   .lang b { color: var(--ink); font-weight: 600; }
   .lang span { color: var(--muted); text-align: right; }
-  .meter { grid-column: 1 / -1; height: 3px; background: #e2ddd5; border-radius: 2px; margin: -0.6mm 0 1.6mm; }
+  .meter { grid-column: 1 / -1; height: 3px; background: #dbe2ec; border-radius: 2px; margin: -0.6mm 0 1.6mm; }
   .meter i { display: block; height: 100%; background: var(--onair); border-radius: 2px; }
 
   footer {
