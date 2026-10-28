@@ -115,11 +115,6 @@ p { margin: 0 0 1em; }
 }
 
 /* ---------- Chiffres ---------- */
-.chiffres { display: flex; flex-wrap: wrap; gap: 10px 40px; padding: 16px 0; border-top: 1px solid var(--ligne); border-bottom: 1px solid var(--ligne); }
-.chiffre { display: flex; align-items: baseline; gap: 8px; }
-.chiffre b { font: 600 1.25rem/1 var(--titre); color: var(--texte); font-variant-numeric: tabular-nums; }
-.chiffre b sup { color: var(--rouge); font-size: .6em; }
-.chiffre span { color: var(--texte-doux); font-size: .85rem; }
 
 /* ---------- Boutique (prestations) ---------- */
 .boutique { background: radial-gradient(1200px 500px at 85% 0%, rgba(79,125,255,.13), transparent 60%), var(--nuit); }
@@ -328,7 +323,6 @@ footer.pied { padding: 48px 0 28px; border-top: 1px solid var(--ligne); font-siz
   }
   .nav ul.ouvert { display: flex; }
   .nav ul a { display: block; padding: 12px 0; font-size: 1rem; }
-  .chiffres { gap: 10px 28px; }
   .competences, .annexes { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
