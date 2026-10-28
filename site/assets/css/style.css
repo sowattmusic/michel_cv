@@ -245,6 +245,23 @@ footer.pied { padding: 48px 0 28px; border-top: 1px solid var(--ligne); font-siz
 .bref b { display: block; font: 600 1.08rem/1.3 var(--titre); color: var(--texte); margin-bottom: 6px; }
 @media (max-width: 860px) { .bref { grid-template-columns: 1fr; } }
 
+/* ---------- Page Parcours : cartes par période ---------- */
+.page2-tete { padding-top: 130px; }
+.page2-tete h1 { font-size: clamp(2rem, 4.4vw, 3.1rem); margin: 14px 0 16px; }
+.periodes { list-style: none; margin: 0; padding: 0; border: 1px solid var(--ligne); border-radius: var(--rayon); overflow: hidden; background: var(--ligne); display: grid; gap: 1px; }
+.periodes > li { background: var(--nuit-2); padding: 26px 28px; display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; scroll-margin-top: 90px; }
+.periode-date { font: 600 .95rem/1.4 var(--titre); color: var(--rouge); font-variant-numeric: tabular-nums; }
+.periodes b { display: block; font: 600 1.15rem/1.3 var(--titre); color: var(--texte); }
+.periodes small { display: block; color: var(--bleu-lueur); font-size: .88rem; margin-top: 4px; }
+.periodes > li ul:not(.credits-liste) { list-style: disc; margin: 12px 0 0; padding-left: 18px; color: var(--texte-doux); font-size: .95rem; }
+.periodes > li ul:not(.credits-liste) li { margin: 4px 0; }
+.periodes > li ul:not(.credits-liste) li::marker { color: var(--rouge); }
+.periodes .plus { margin-top: 16px; background: var(--nuit); }
+.periodes .credits-liste b { display: inline; font: 600 .9rem/1.4 var(--corps); }
+@media (max-width: 640px) {
+  .periodes > li { grid-template-columns: 1fr; gap: 8px; padding: 22px 18px; }
+}
+
 /* ---------- Page Parcours ---------- */
 .nav ul a[aria-current="page"] { color: #fff; }
 .parcours-tete { padding: 130px 0 0; background: radial-gradient(900px 480px at 85% 10%, rgba(79,125,255,.16), transparent 60%), var(--nuit); }
