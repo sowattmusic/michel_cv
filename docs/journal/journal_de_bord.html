@@ -104,6 +104,7 @@
     <li>Moins de « 30 ans », nouveaux titres, crédits et page Contact</li>
     <li>Référencement pour la recherche d'emploi et Google Search Console</li>
     <li>Aperçus de partage sur les réseaux sociaux</li>
+    <li>Tablettes et petites fenêtres : haut de page empilé</li>
   </ol>
 </section>
 
@@ -902,6 +903,24 @@ tools/.venv/bin/python tools/make_contact.py</pre>
     <li>Les robots de Facebook, X, LinkedIn et WhatsApp reçoivent bien les pages et l'image.</li>
     <li>LinkedIn Post Inspector et le débogueur de partage de Facebook affichent la nouvelle image, le titre et la description. Le seul avertissement de Facebook (<code>fb:app_id</code>) concerne les applications Facebook et peut être ignoré.</li>
   </ul>
+</section>
+
+<section>
+  <h2><span class="num">53</span>Tablettes et petites fenêtres : haut de page empilé</h2>
+  <p><b>Demande de Michel :</b> sur une tablette en portrait, le texte du haut de l'accueil passait sur le visage ; tester toutes les tailles d'écran et refaire les points de rupture.</p>
+  <h3>Diagnostic</h3>
+  <p>Les trois pages ont été photographiées à 13 tailles : téléphones (320, 375, 414), tablettes en portrait (600, 690, 768, 820, 912, 1024 × 1366), tablettes en paysage et portables (1024 × 768, 1180, 1280, 1440). Aucun débordement horizontal. Parcours et Contact tiennent partout. Seul le haut de l'accueil posait problème : photo à droite et texte à gauche restaient côte à côte jusqu'à 641 px de large, si bien qu'entre 641 et environ 1100 px le texte couvrait le visage.</p>
+  <h3>Corrections</h3>
+  <ul>
+    <li>Nouveau point de rupture : jusqu'à 1023 px de large, et pour les tablettes en portrait jusqu'à 1199 px, la photo passe en haut et le texte dessous, comme sur téléphone. Hauteur minimale de la photo pour les écrans couchés peu hauts.</li>
+    <li>Au-delà (tablette en paysage, ordinateur), le texte ne dépasse plus la moitié gauche : il ne touche plus le visage, même à 1024 px.</li>
+    <li>Titres équilibrés sur toutes les pages : les lignes ont une longueur proche, plus de mot seul en fin de ligne (« à » isolé).</li>
+    <li>Numéro de version sur la feuille de style (<code>style.css?v=2</code>) : le serveur demande aux navigateurs de la garder une semaine ; sans ce numéro, les visiteurs auraient continué à voir l'ancienne mise en page.</li>
+  </ul>
+  <figure><img src="tablette_portrait.png" alt="Accueil sur tablette en portrait (768 px) après correction" style="width:60%;border-radius:6px"></figure>
+  <h3>Mise en ligne</h3>
+  <p>Feuille de style et trois pages téléversées, vérifiées en ligne à 768 px.</p>
+  <p><b>À retenir pour la suite :</b> à chaque modification de <code>style.css</code>, augmenter le numéro (<code>?v=3</code>, <code>?v=4</code>…) dans les trois pages.</p>
 </section>
 
 <section class="saut">

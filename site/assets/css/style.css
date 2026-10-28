@@ -34,7 +34,7 @@ body {
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
-h1, h2, h3, h4 { font-family: var(--titre); line-height: 1.1; margin: 0; letter-spacing: -.01em; }
+h1, h2, h3, h4 { font-family: var(--titre); line-height: 1.1; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
 p { margin: 0 0 1em; }
 
 .conteneur { width: min(var(--max), 100% - 32px); margin-inline: auto; }
@@ -103,7 +103,7 @@ p { margin: 0 0 1em; }
     linear-gradient(90deg, var(--nuit) 0%, rgba(7,11,24,.55) 22%, rgba(7,11,24,0) 50%),
     linear-gradient(0deg, var(--nuit) 0%, rgba(7,11,24,0) 30%);
 }
-.hero .conteneur > * { max-width: 600px; }
+.hero .conteneur > * { max-width: min(600px, 50%); }
 .hero h1 { font-size: clamp(2.5rem, 5.6vw, 4.4rem); margin: 22px 0 22px; max-width: 13ch; }
 .hero h1 em { font-style: normal; color: var(--rouge); }
 .hero .accroche { font-size: clamp(1.05rem, 1.7vw, 1.25rem); color: #cdd3e6; max-width: 560px; margin-bottom: 34px; }
@@ -350,6 +350,15 @@ footer.pied { padding: 48px 0 28px; border-top: 1px solid var(--ligne); font-siz
 }
 
 /* ---------- Responsive ---------- */
+/* Haut de page empilé (photo en haut, texte dessous) : téléphones, tablettes,
+   petites fenêtres et tablettes en portrait. Côte à côte, le texte couvrait le visage. */
+@media (max-width: 1023px), (orientation: portrait) and (max-width: 1199px) {
+  .hero { min-height: 0; padding-top: max(calc(72px + 46vh), 300px); align-items: start; }
+  .hero-photo { width: 100%; bottom: auto; height: max(calc(72px + 50vh), 330px); }
+  .hero-photo img { object-position: 30% 25%; }
+  .hero-photo::after { background: linear-gradient(0deg, var(--nuit) 0%, rgba(7,11,24,0) 45%); }
+  .hero .conteneur > * { max-width: 680px; }
+}
 @media (max-width: 1020px) {
   .atouts { grid-template-columns: 1fr; gap: 40px; }
   .atouts-photo { aspect-ratio: 16 / 11; }
@@ -371,10 +380,6 @@ footer.pied { padding: 48px 0 28px; border-top: 1px solid var(--ligne); font-siz
 @media (max-width: 640px) {
   .section { padding: 80px 0; }
   .produits { grid-template-columns: 1fr; }
-  .hero { padding-top: calc(72px + 46vh); align-items: start; }
-  .hero-photo { width: 100%; bottom: auto; height: calc(72px + 50vh); }
-  .hero-photo img { object-position: 30% 25%; }
-  .hero-photo::after { background: linear-gradient(0deg, var(--nuit) 0%, rgba(7,11,24,0) 45%); }
   .etape { grid-template-columns: 18px 1fr; gap: 14px; }
   .etape-date { grid-column: 2; grid-row: 1; text-align: left; }
   .etape-point { grid-column: 1; grid-row: 1 / span 2; }

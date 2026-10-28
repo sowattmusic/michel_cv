@@ -7,7 +7,7 @@ Note laissée par la session cloud pour la session Claude Code locale (Mac, avec
 - Branche : `main` (la branche de travail a été fusionnée puis supprimée)
 - Trois pages en français : `site/fr/index.html` (accueil), `site/fr/parcours.html` (parcours complet), `site/fr/contact.html` (carte de visite, vCard, QR code).
 - `site/index.html` redirige vers `site/fr/`. La version anglaise ira dans `site/en/`.
-- Journal de bord : `docs/journal/journal_de_bord.html` → `node docs/build_pdf.js` régénère les captures et `docs/Journal_de_bord_site_Michel_Gallone.pdf`. Chaque modification du site ajoute une étape (la dernière est la 52) avant la section « Annexe ».
+- Journal de bord : `docs/journal/journal_de_bord.html` → `node docs/build_pdf.js` régénère les captures et `docs/Journal_de_bord_site_Michel_Gallone.pdf`. Chaque modification du site ajoute une étape (la dernière est la 53) avant la section « Annexe ».
 - vCard et QR code : coordonnées en haut de `tools/make_contact.py`, puis `tools/.venv/bin/python tools/make_contact.py`.
 
 ## Mise en ligne : faite (étapes 48 et 49 du journal)
@@ -15,6 +15,7 @@ Note laissée par la session cloud pour la session Claude Code locale (Mac, avec
 - Le site est en ligne sur https://michelgallone.ch (gestionnaire de fichiers N0C, dossier `michelgallone.ch/`).
 - `server/` contient `.htaccess`, `robots.txt`, `sitemap.xml` et `404.html`.
 - `./build.sh` fabrique `deploy/` (ignoré par git) à partir de `site/` et `server/`.
+- Si `site/assets/css/style.css` change, augmenter le numéro `?v=` du lien vers la feuille de style dans les trois pages (le serveur la garde une semaine en cache).
 - Pour mettre à jour : `./build.sh`, puis téléverser les fichiers modifiés de `deploy/` avec Chrome dans
   https://nodels65-eu.n0c.com:4443/fb/cpjhfswt/files/michelgallone.ch/
   (Michel est connecté dans son Chrome ; ne jamais demander ni enregistrer de mot de passe.)
