@@ -99,6 +99,7 @@
     <li>Pied de page centré, réseaux sociaux seuls</li>
     <li>Références à gauche, réseaux dans la ligne du copyright</li>
     <li>« Mes coordonnées » à côté des réseaux, copyright à la ligne</li>
+    <li>Préparation de la mise en ligne et passage en session locale</li>
   </ol>
 </section>
 
@@ -781,6 +782,21 @@ tools/.venv/bin/python tools/make_contact.py</pre>
     <figure><img src="ecran_pied.png"><figcaption>Ordinateur</figcaption></figure>
     <figure><img src="ecran_pied_mobile.png" style="max-height:70mm"><figcaption>Mobile</figcaption></figure>
   </div>
+</section>
+
+<section>
+  <h2><span class="num">48</span>Préparation de la mise en ligne et passage en session locale</h2>
+  <p><b>Demande de Michel :</b> publier le site sur le serveur N0C (gestionnaire de fichiers, dossier michelgallone.ch), accessible avec Chrome ; puis migrer la session en local pour pouvoir téléverser et mettre à jour directement par Chrome.</p>
+  <h3>Fait dans la session cloud</h3>
+  <ul>
+    <li>Réglages serveur du site Route 108 étudiés (<code>server/.htaccess</code>, <code>build.sh</code>) pour reprendre la même méthode.</li>
+    <li>Image de partage <code>site/assets/img/og-image.jpg</code> (1200 × 630) créée à partir de la photo du studio.</li>
+    <li>Sur les trois pages : adresse canonique, <code>og:url</code> et <code>og:image</code> en adresse complète sur https://michelgallone.ch, carte d'aperçu large pour les réseaux.</li>
+  </ul>
+  <h3>Pourquoi passer en local</h3>
+  <p>La session cloud ne peut pas utiliser le Chrome de Michel, où il est connecté au gestionnaire de fichiers N0C. En local, l'extension Claude in Chrome permet de téléverser les fichiers et de vérifier le site en ligne directement.</p>
+  <h3>Reprise</h3>
+  <p>La suite (fichiers serveur, <code>build.sh</code>, téléversement, tests en ligne) est décrite dans <code>docs/REPRISE_SESSION_LOCALE.md</code>, à lire par la session locale.</p>
 </section>
 
 <section class="saut">
