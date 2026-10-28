@@ -63,6 +63,7 @@
     <li>Points à valider par Michel</li>
     <li>Prochaines étapes</li>
     <li>Régénérer ce document</li>
+    <li>Retours : retrait du panier</li>
   </ol>
 </section>
 
@@ -128,7 +129,7 @@
 
 <section class="saut">
   <h2><span class="num">05</span>Concept : un site « boutique » de prestations</h2>
-  <p>Pour que le site « vende » Michel, ses compétences sont présentées comme des <b>produits</b>. Le visiteur les filtre, les ajoute à une « demande de devis » (comme un panier), puis envoie la demande par e-mail.</p>
+  <p>Pour que le site « vende » Michel, ses compétences sont présentées comme une vitrine de <b>domaines d'expertise</b>. Le visiteur les filtre et, d'un clic sur « En discuter », écrit directement à Michel au sujet du domaine choisi. <i>(La première version comportait un panier, retiré ensuite : voir l'étape 12.)</i></p>
   <h3>Les six prestations</h3>
   <table>
     <tr><th>Prestation</th><th>Catégorie</th><th>Preuves affichées</th></tr>
@@ -139,20 +140,20 @@
     <tr><td>Conception de studio &amp; gestion de projet</td><td>Conseil</td><td>Hana Road, Digital Media Partners avec Tom Hidley, Sully Sound</td></tr>
     <tr><td>Vidéo, post-production &amp; communication</td><td>Image</td><td>Rouge TV, Walt Disney, M6, TF1, Sowatt Music</td></tr>
   </table>
-  <p>Aucun prix n'a été inventé : chaque prestation affiche « Sur devis » avec l'unité habituelle (au titre, à la journée, au projet…).</p>
+  <p>Aucun prix n'est affiché : chaque domaine indique la forme de collaboration possible (mission, mandat ou poste) et son échelle (au titre, à la journée, au projet…).</p>
   <h3>Plan de la page</h3>
   <ol>
     <li><b>Accueil</b> : titre « Le son juste, du studio au direct. », accroche, boutons vers les prestations et le parcours</li>
     <li><b>Bandeau défilant</b> des références (Shania Twain, Céline Dion, Canal+, TF1…)</li>
     <li><b>Chiffres clés</b> : 30+ années, 50+ parutions, 4 pays, 3 infrastructures</li>
-    <li><b>Prestations</b> (la « boutique ») avec filtres et bouton « Ajouter »</li>
+    <li><b>Prestations</b> (la « boutique ») avec filtres et bouton « En discuter »</li>
     <li><b>Pourquoi moi</b> : quatre arguments</li>
     <li><b>Crédits</b> : deux listes tirées de Discogs, lien vers Discogs</li>
     <li><b>Presse</b> : l'interview Headliner, trois citations traduites</li>
     <li><b>Parcours</b> : frise chronologique de 1993 à aujourd'hui</li>
     <li><b>Le studio</b> : matériel</li>
     <li><b>Engagement</b> : Sowatt Music, Route 108, association SAP</li>
-    <li><b>Contact</b> : demande de devis, téléphone, réseaux sociaux</li>
+    <li><b>Contact</b> : e-mail, téléphone, réseaux sociaux</li>
   </ol>
 </section>
 
@@ -181,13 +182,13 @@
 ├── en/                   (à venir) la version anglaise
 └── assets/
     ├── css/style.css     styles, responsive, palette
-    ├── js/main.js        menu, filtres, demande de devis, animations
+    ├── js/main.js        menu, filtres, liens « En discuter », animations
     └── img/              photos optimisées</pre>
-  <h3>Fonctionnement de la demande de devis</h3>
+  <h3>Fonctionnement des boutons « En discuter »</h3>
   <ul>
-    <li>Chaque bouton « Ajouter » place la prestation dans la demande. Un compteur rouge s'affiche sur l'icône du panier.</li>
-    <li>Le tiroir « Ma demande de devis » liste les prestations, avec un champ pour le nom et un pour le projet.</li>
-    <li>« Envoyer ma demande par e-mail » ouvre la messagerie du visiteur avec un e-mail prérempli vers michel@sowattmusic.com. Aucun serveur ni formulaire tiers n'est nécessaire.</li>
+    <li>Chaque domaine a un bouton « En discuter » qui ouvre la messagerie du visiteur avec un e-mail prérempli vers michel@sowattmusic.com : objet « Prise de contact · <i>nom du domaine</i> », et un début de message.</li>
+    <li>Sans JavaScript, le bouton renvoie simplement à la section Contact.</li>
+    <li>Aucun serveur ni formulaire tiers n'est nécessaire.</li>
     <li>La sélection est gardée dans le navigateur du visiteur s'il revient plus tard. Si ce stockage est bloqué, le site fonctionne quand même.</li>
   </ul>
   <h3>Préparé pour la version anglaise</h3>
@@ -206,7 +207,7 @@
   <ul>
     <li>Aucune erreur JavaScript dans la console.</li>
     <li>Pas de défilement horizontal sur mobile (largeur de page = largeur d'écran).</li>
-    <li>Demande de devis testée : deux prestations ajoutées, nom saisi, e-mail prérempli correct.</li>
+    <li>Boutons « En discuter » testés : chacun ouvre un e-mail avec le bon objet.</li>
   </ul>
   <h3>Corrections après la première version</h3>
   <table>
@@ -223,7 +224,7 @@
   <div class="duo">
     <figure><img src="v1_mobile_hero.png" style="max-height:105mm"><figcaption>Mobile, version 1</figcaption></figure>
     <figure><img src="ecran_mobile_hero.png" style="max-height:105mm"><figcaption>Mobile, version 2</figcaption></figure>
-    <figure><img src="ecran_bureau_demande.png" style="max-height:105mm"><figcaption>La demande de devis ouverte</figcaption></figure>
+    
   </div>
 </section>
 
@@ -235,7 +236,7 @@
     <tr><td>Contenu LinkedIn</td><td>Non lu (LinkedIn bloque les robots).</td><td>Envoyer un export PDF du profil (LinkedIn › Plus › Enregistrer au format PDF) pour compléter.</td></tr>
     <tr><td>Rôle sur les disques « crédités »</td><td>Écrit « Crédité » quand Discogs ne précise pas le rôle.</td><td>Préciser le rôle exact sur Shania Twain, Céline Dion, The Corrs, Michael Bolton…</td></tr>
     <tr><td>Abbey Road et Philippe Entremont</td><td>Mentionnés d'après l'interview Headliner.</td><td>Vérifier la formulation.</td></tr>
-    <tr><td>Prix</td><td>« Sur devis » partout.</td><td>Ajouter des tarifs « à partir de » ?</td></tr>
+    <tr><td>Forme de collaboration</td><td>Chaque domaine indique « mission », « mandat » ou « poste ».</td><td>Michel cherche-t-il surtout un poste salarié, des missions, ou les deux ?</td></tr>
     <tr><td>Citations Headliner</td><td>Traduites de l'anglais par nos soins, avec lien vers l'article.</td><td>Relire la traduction.</td></tr>
     <tr><td>Sowatt Media</td><td>Lien non affiché (site inaccessible pendant le travail).</td><td>Faut-il l'ajouter ?</td></tr>
   </table>
@@ -256,6 +257,26 @@
   <p>Ce PDF est produit à partir de <code>docs/journal/journal_de_bord.html</code>. La commande suivante refait les captures du site puis le PDF :</p>
   <pre>node docs/build_pdf.js</pre>
   <p>À chaque nouvelle étape (version anglaise, mise en ligne…), on ajoute une section au fichier HTML et on relance la commande.</p>
+</section>
+
+<section class="saut">
+  <h2><span class="num">12</span>Retours : retrait du panier</h2>
+  <p><b>Retour reçu :</b> « Pourquoi y a-t-il un panier ? Je ne vends rien. »</p>
+  <p>La première version poussait l'idée de « boutique » jusqu'au panier : bouton « Ajouter » sur chaque prestation, icône de panier dans le menu, tiroir « Ma demande de devis », mention « Sur devis ». Or Michel propose ses compétences, il ne vend pas de produits. Le panier brouillait le message.</p>
+  <h3>Changements</h3>
+  <table>
+    <tr><th>Avant</th><th>Après</th></tr>
+    <tr><td>Icône de panier avec compteur dans le menu</td><td>Supprimée</td></tr>
+    <tr><td>Bouton « Ajouter » sur chaque prestation</td><td>Bouton « En discuter » : e-mail prérempli avec le domaine en objet</td></tr>
+    <tr><td>« Sur devis »</td><td>Forme de collaboration : mission, mandat ou poste</td></tr>
+    <tr><td>Titre « Choisissez ce dont votre projet a besoin. »</td><td>« Ce que je peux faire pour vous. »</td></tr>
+    <tr><td>Tiroir « Ma demande de devis »</td><td>Supprimé ; le contact se fait par e-mail ou téléphone</td></tr>
+  </table>
+  <p>Le code du panier a été retiré du HTML, du CSS et du JavaScript. La vitrine reste organisée par domaines, avec les filtres.</p>
+  <div class="duo">
+    <figure><img src="v1_bureau_demande.png"><figcaption>Avant : le panier et le tiroir de demande</figcaption></figure>
+    <figure><img src="ecran_bureau_prestations.png"><figcaption>Après : les domaines avec « En discuter »</figcaption></figure>
+  </div>
 </section>
 
 <section class="saut">

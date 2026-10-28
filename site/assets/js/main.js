@@ -1,5 +1,5 @@
 /* Michel Gallone · site vitrine
-   Navigation, filtres, demande de devis (panier) et animations.
+   Navigation, filtres, liens « En discuter » et animations.
    Les textes dynamiques sont regroupés par langue pour la future version anglaise. */
 
 (function () {
@@ -7,42 +7,23 @@
 
   var TEXTES = {
     fr: {
-      ajouter: "Ajouter",
-      ajoute: "Ajouté ✓",
-      retirer: "Retirer",
-      objet: "Demande de devis",
+      objet: "Prise de contact",
       bonjour: "Bonjour Michel,",
-      intro: "Je souhaite un devis pour :",
-      aucune: "(prestation à définir)",
+      intro: "Je vous contacte au sujet de :",
       projet: "Mon projet :",
-      signature: "Merci et à bientôt,"
+      signature: "Bien à vous,"
     },
     en: {
-      ajouter: "Add",
-      ajoute: "Added ✓",
-      retirer: "Remove",
-      objet: "Quote request",
+      objet: "Getting in touch",
       bonjour: "Hello Michel,",
-      intro: "I would like a quote for:",
-      aucune: "(service to be defined)",
+      intro: "I am contacting you about:",
       projet: "My project:",
-      signature: "Thank you, best regards,"
+      signature: "Best regards,"
     }
   };
   var langue = (document.documentElement.lang || "fr").slice(0, 2);
   var t = TEXTES[langue] || TEXTES.fr;
   var EMAIL = "michel@sowattmusic.com";
-  var CLE = "mg-demande";
-
-  /* ---------- Stockage local (facultatif) ---------- */
-  function lire() {
-    try { return JSON.parse(localStorage.getItem(CLE)) || []; } catch (e) { return []; }
-  }
-  function ecrire(liste) {
-    try { localStorage.setItem(CLE, JSON.stringify(liste)); } catch (e) { /* navigation privée */ }
-  }
-
-  var selection = lire();
 
   /* ---------- Navigation ---------- */
   var nav = document.getElementById("nav");
@@ -76,91 +57,12 @@
     });
   });
 
-  /* ---------- Demande de devis ---------- */
-  var tiroir = document.getElementById("tiroir");
-  var voile = document.getElementById("voile");
-  var lignes = document.getElementById("lignes");
-  var vide = document.getElementById("vide");
-  var pastille = document.getElementById("pastille");
-  var envoyer = document.getElementById("envoyer");
-  var champNom = document.getElementById("nom");
-  var champProjet = document.getElementById("projet");
-
-  function nomDe(id) {
-    var p = document.querySelector('.produit[data-id="' + id + '"]');
-    return p ? p.dataset.nom : id;
-  }
-
-  function majMailto() {
-    var corps = [t.bonjour, "", t.intro];
-    if (selection.length) {
-      selection.forEach(function (id) { corps.push("• " + nomDe(id)); });
-    } else {
-      corps.push(t.aucune);
-    }
-    corps.push("", t.projet, champProjet.value.trim() || "…", "", t.signature, champNom.value.trim());
-    var objet = t.objet + (champNom.value.trim() ? " · " + champNom.value.trim() : "");
-    envoyer.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(objet) + "&body=" + encodeURIComponent(corps.join("\n"));
-  }
-
-  function rendre() {
-    lignes.innerHTML = "";
-    selection.forEach(function (id) {
-      var div = document.createElement("div");
-      div.className = "ligne-panier";
-      var b = document.createElement("b");
-      b.textContent = nomDe(id);
-      var btn = document.createElement("button");
-      btn.type = "button";
-      btn.textContent = t.retirer;
-      btn.addEventListener("click", function () { basculer(id); });
-      div.appendChild(b);
-      div.appendChild(btn);
-      lignes.appendChild(div);
-    });
-    vide.hidden = selection.length > 0;
-    pastille.textContent = selection.length;
-    pastille.classList.toggle("visible", selection.length > 0);
-    produits.forEach(function (p) {
-      var btn = p.querySelector(".ajouter");
-      var dedans = selection.indexOf(p.dataset.id) !== -1;
-      btn.setAttribute("aria-pressed", dedans);
-      btn.textContent = dedans ? t.ajoute : t.ajouter;
-    });
-    majMailto();
-  }
-
-  function basculer(id) {
-    var i = selection.indexOf(id);
-    if (i === -1) selection.push(id); else selection.splice(i, 1);
-    ecrire(selection);
-    rendre();
-  }
-
-  function ouvrir() {
-    tiroir.classList.add("ouvert");
-    voile.classList.add("ouvert");
-    tiroir.setAttribute("aria-hidden", "false");
-    document.getElementById("fermer-panier").focus();
-  }
-  function fermer() {
-    tiroir.classList.remove("ouvert");
-    voile.classList.remove("ouvert");
-    tiroir.setAttribute("aria-hidden", "true");
-  }
-
+  /* ---------- « En discuter » : e-mail prérempli par domaine ---------- */
   produits.forEach(function (p) {
-    p.querySelector(".ajouter").addEventListener("click", function () { basculer(p.dataset.id); });
+    var lien = p.querySelector(".en-parler");
+    var corps = [t.bonjour, "", t.intro + " " + p.dataset.nom, "", t.projet, "", "", t.signature].join("\n");
+    lien.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(t.objet + " · " + p.dataset.nom) + "&body=" + encodeURIComponent(corps);
   });
-  document.getElementById("ouvrir-panier").addEventListener("click", ouvrir);
-  document.querySelectorAll("[data-ouvre-panier]").forEach(function (b) { b.addEventListener("click", ouvrir); });
-  document.getElementById("fermer-panier").addEventListener("click", fermer);
-  voile.addEventListener("click", fermer);
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") fermer(); });
-  champNom.addEventListener("input", majMailto);
-  champProjet.addEventListener("input", majMailto);
-
-  rendre();
 
   /* ---------- Apparition au défilement ---------- */
   var elements = document.querySelectorAll(".apparait");

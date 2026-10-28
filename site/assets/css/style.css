@@ -84,17 +84,6 @@ p { margin: 0 0 1em; }
 .langues a, .langues span { padding: 6px 9px; border-radius: 999px; text-decoration: none; }
 .langues .actif { background: rgba(255,255,255,.1); }
 .langues .bientot { color: var(--texte-doux); opacity: .55; cursor: not-allowed; }
-.panier-btn {
-  position: relative; background: none; border: 1px solid var(--ligne); color: var(--texte);
-  width: 42px; height: 42px; border-radius: 50%; cursor: pointer; display: grid; place-items: center;
-}
-.panier-btn svg { width: 19px; height: 19px; }
-.panier-btn .pastille {
-  position: absolute; top: -4px; right: -4px; min-width: 19px; height: 19px; padding: 0 5px;
-  border-radius: 999px; background: var(--rouge); font: 700 .7rem/19px var(--corps); text-align: center;
-  transform: scale(0); transition: transform .25s;
-}
-.panier-btn .pastille.visible { transform: scale(1); }
 .menu-btn { display: none; background: none; border: 0; color: var(--texte); cursor: pointer; padding: 6px; }
 
 /* ---------- Hero ---------- */
@@ -170,36 +159,6 @@ p { margin: 0 0 1em; }
 .produit-pied { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--ligne); }
 .prix { font: 600 .95rem/1.2 var(--titre); }
 .prix small { display: block; font: 400 .75rem/1.3 var(--corps); color: var(--texte-doux); }
-.ajouter[aria-pressed="true"] { --fond: #1f7a4d; }
-.ajouter[aria-pressed="true"]:hover { box-shadow: none; }
-
-/* ---------- Panier / devis ---------- */
-.voile { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 60; opacity: 0; pointer-events: none; transition: opacity .3s; }
-.voile.ouvert { opacity: 1; pointer-events: auto; }
-.tiroir {
-  position: fixed; top: 0; right: 0; bottom: 0; z-index: 70; width: min(430px, 100%);
-  background: var(--nuit-2); border-left: 1px solid var(--ligne);
-  transform: translateX(100%); transition: transform .35s cubic-bezier(.2,.8,.2,1);
-  display: flex; flex-direction: column;
-}
-.tiroir.ouvert { transform: none; }
-.tiroir-tete { display: flex; justify-content: space-between; align-items: center; padding: 22px 24px; border-bottom: 1px solid var(--ligne); }
-.tiroir-tete h3 { font-size: 1.25rem; }
-.fermer { background: none; border: 0; color: var(--texte); font-size: 1.6rem; cursor: pointer; line-height: 1; }
-.tiroir-corps { padding: 20px 24px; overflow-y: auto; flex: 1; }
-.tiroir-vide { color: var(--texte-doux); font-size: .95rem; }
-.ligne-panier { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--ligne); }
-.ligne-panier b { font: 600 .98rem/1.3 var(--titre); }
-.ligne-panier button { background: none; border: 0; color: var(--texte-doux); cursor: pointer; font-size: .82rem; text-decoration: underline; }
-.tiroir label { display: block; font-size: .82rem; color: var(--texte-doux); margin: 18px 0 6px; }
-.tiroir input, .tiroir textarea {
-  width: 100%; background: var(--nuit); color: var(--texte); border: 1px solid var(--ligne);
-  border-radius: 10px; padding: 11px 13px; font: inherit; font-size: .95rem;
-}
-.tiroir textarea { min-height: 110px; resize: vertical; }
-.tiroir-pied { padding: 20px 24px; border-top: 1px solid var(--ligne); }
-.tiroir-pied .btn { width: 100%; justify-content: center; }
-.tiroir-pied p { font-size: .78rem; color: var(--texte-doux); margin: 10px 0 0; text-align: center; }
 
 /* ---------- Pourquoi moi ---------- */
 .atouts { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }

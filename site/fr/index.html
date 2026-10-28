@@ -59,10 +59,6 @@
         <span class="actif" aria-current="true">FR</span>
         <span class="bientot" title="Version anglaise bientôt disponible">EN</span>
       </div>
-      <button class="panier-btn" id="ouvrir-panier" aria-label="Voir ma demande de devis">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5h10l-1.5 9H7.5L5 3H2"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg>
-        <span class="pastille" id="pastille">0</span>
-      </button>
       <button class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
       </button>
@@ -116,8 +112,8 @@
   <div class="conteneur">
     <div class="section-entete apparait">
       <span class="surtitre">Prestations</span>
-      <h2>Choisissez ce dont votre projet a besoin.</h2>
-      <p>Ajoutez une ou plusieurs prestations à votre demande, décrivez votre projet, et je vous réponds avec un devis sur mesure.</p>
+      <h2>Ce que je peux faire pour vous.</h2>
+      <p>En mission, en mandat ou en poste : choisissez un domaine et écrivez-moi directement pour en parler.</p>
     </div>
 
     <div class="filtres" role="group" aria-label="Filtrer les prestations">
@@ -145,8 +141,8 @@
         </ul>
         <p class="produit-preuve">Récemment : <b>STARVINSKY, Antony Trice, Hypsign, Alejandro Reyes</b></p>
         <div class="produit-pied">
-          <span class="prix">Sur devis<small>au titre ou à l'EP</small></span>
-          <button class="btn btn-petit ajouter" aria-pressed="false">Ajouter</button>
+          <span class="prix">Mission ou collaboration<small>au titre, à l'EP ou à l'album</small></span>
+          <a class="btn btn-petit en-parler" href="#contact">En discuter</a>
         </div>
       </article>
 
@@ -165,8 +161,8 @@
         </ul>
         <p class="produit-preuve">Références : <b>Elizabeth Sombart, Philippe Entremont, Royal Philharmonic Orchestra, Abbey Road</b></p>
         <div class="produit-pied">
-          <span class="prix">Sur devis<small>à la séance ou à l'album</small></span>
-          <button class="btn btn-petit ajouter" aria-pressed="false">Ajouter</button>
+          <span class="prix">Mission<small>à la séance ou à l'album</small></span>
+          <a class="btn btn-petit en-parler" href="#contact">En discuter</a>
         </div>
       </article>
 
@@ -185,8 +181,8 @@
         </ul>
         <p class="produit-preuve">Référence : <b>M Le Media, matinales TV et radio en direct (Canal+)</b></p>
         <div class="produit-pied">
-          <span class="prix">Sur devis<small>mission ou forfait projet</small></span>
-          <button class="btn btn-petit ajouter" aria-pressed="false">Ajouter</button>
+          <span class="prix">Mandat ou poste<small>direction technique, chef de projet</small></span>
+          <a class="btn btn-petit en-parler" href="#contact">En discuter</a>
         </div>
       </article>
 
@@ -205,8 +201,8 @@
         </ul>
         <p class="produit-preuve">Lieux : <b>2m2c Montreux, SwissTech Convention Center, Beaulieu, Royal Savoy</b></p>
         <div class="produit-pied">
-          <span class="prix">Sur devis<small>à la journée</small></span>
-          <button class="btn btn-petit ajouter" aria-pressed="false">Ajouter</button>
+          <span class="prix">Mission<small>à la journée ou à l'événement</small></span>
+          <a class="btn btn-petit en-parler" href="#contact">En discuter</a>
         </div>
       </article>
 
@@ -225,8 +221,8 @@
         </ul>
         <p class="produit-preuve">Références : <b>The Hana Road Music Group, Digital Media Partners avec Tom Hidley, Sully Sound</b></p>
         <div class="produit-pied">
-          <span class="prix">Sur devis<small>accompagnement ou mandat</small></span>
-          <button class="btn btn-petit ajouter" aria-pressed="false">Ajouter</button>
+          <span class="prix">Mandat ou poste<small>accompagnement de A à Z</small></span>
+          <a class="btn btn-petit en-parler" href="#contact">En discuter</a>
         </div>
       </article>
 
@@ -245,8 +241,8 @@
         </ul>
         <p class="produit-preuve">Références : <b>Rouge TV, Walt Disney, M6 et TF1 (post-production), Sowatt Music</b></p>
         <div class="produit-pied">
-          <span class="prix">Sur devis<small>au film ou au forfait</small></span>
-          <button class="btn btn-petit ajouter" aria-pressed="false">Ajouter</button>
+          <span class="prix">Mission ou mandat<small>au film ou au projet</small></span>
+          <a class="btn btn-petit en-parler" href="#contact">En discuter</a>
         </div>
       </article>
 
@@ -413,7 +409,7 @@
     <h2>Parlons de votre projet.</h2>
     <p>Un disque à mixer, une captation, un studio à construire, une régie à moderniser ? Décrivez-moi votre besoin, je vous réponds rapidement.</p>
     <div class="contact-actions">
-      <button class="btn" type="button" data-ouvre-panier>Composer ma demande</button>
+      <a class="btn" href="mailto:michel@sowattmusic.com">Écrire un e-mail</a>
       <a class="btn btn-fantome" href="tel:+41793429880">Appeler</a>
     </div>
     <div class="coordonnees">
@@ -438,27 +434,6 @@
     <span>Photos : studio de Michel Gallone · Crédits : Discogs</span>
   </div>
 </footer>
-
-<!-- ============ Tiroir « Ma demande » ============ -->
-<div class="voile" id="voile"></div>
-<aside class="tiroir" id="tiroir" aria-label="Ma demande de devis" aria-hidden="true">
-  <div class="tiroir-tete">
-    <h3>Ma demande de devis</h3>
-    <button class="fermer" id="fermer-panier" aria-label="Fermer">×</button>
-  </div>
-  <div class="tiroir-corps">
-    <div id="lignes"></div>
-    <p class="tiroir-vide" id="vide">Aucune prestation pour l'instant. Ajoutez-en depuis la section Prestations, ou décrivez simplement votre projet ci-dessous.</p>
-    <label for="nom">Votre nom</label>
-    <input id="nom" type="text" autocomplete="name">
-    <label for="projet">Votre projet : dates, lieu, budget indicatif</label>
-    <textarea id="projet"></textarea>
-  </div>
-  <div class="tiroir-pied">
-    <a class="btn" id="envoyer" href="mailto:michel@sowattmusic.com">Envoyer ma demande par e-mail</a>
-    <p>Votre logiciel de messagerie s'ouvre avec la demande préremplie.</p>
-  </div>
-</aside>
 
 <script src="../assets/js/main.js"></script>
 </body>

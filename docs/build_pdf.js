@@ -21,13 +21,10 @@ const journal = path.join(__dirname, 'journal');
     await page.evaluate(() => document.querySelectorAll('.apparait').forEach(e => e.classList.add('vu')));
     await page.screenshot({ path: path.join(journal, `ecran_${nom}_complet.png`), fullPage: true });
     if (nom === 'bureau') {
-      await page.click('.produit[data-id="mixage"] .ajouter');
-      await page.click('.produit[data-id="classique"] .ajouter');
-      await page.click('#ouvrir-panier');
-      await page.fill('#nom', 'Exemple');
+      await page.locator('#prestations').scrollIntoViewIfNeeded();
+      await page.evaluate(() => window.scrollTo(0, document.getElementById('prestations').offsetTop + 60));
       await page.waitForTimeout(500);
-      await page.screenshot({ path: path.join(journal, 'ecran_bureau_demande.png') });
-      await page.evaluate(() => { try { localStorage.clear(); } catch (e) {} });
+      await page.screenshot({ path: path.join(journal, 'ecran_bureau_prestations.png') });
     }
     await page.close();
   }
