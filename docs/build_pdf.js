@@ -26,6 +26,7 @@ const journal = path.join(__dirname, 'journal');
         await page.waitForTimeout(500);
         await page.screenshot({ path: path.join(journal, `ecran_bureau_${id}.png`) });
       }
+      await page.locator('footer.pied').screenshot({ path: path.join(journal, 'ecran_pied.png') });
     }
     await page.close();
   }
