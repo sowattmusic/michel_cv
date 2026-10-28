@@ -28,6 +28,9 @@ const journal = path.join(__dirname, 'journal');
       }
       await page.locator('footer.pied').screenshot({ path: path.join(journal, 'ecran_pied.png') });
     }
+    if (nom === 'mobile') {
+      await page.locator('footer.pied').screenshot({ path: path.join(journal, 'ecran_pied_mobile.png') });
+    }
     await page.close();
   }
 
