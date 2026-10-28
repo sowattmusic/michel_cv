@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/contact/
+
+Sitemap: https://michelgallone.ch/sitemap.xml

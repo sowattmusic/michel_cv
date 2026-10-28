@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Journal de bord · site de Michel Gallone</title>
+<style>
+  @page { size: A4; }
+  body { font: 10.5pt/1.55 "Inter", "Helvetica Neue", Arial, sans-serif; color: #1b2133; margin: 0; }
+  h1, h2, h3 { font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif; color: #070b18; line-height: 1.2; }
+  .couverture { height: 255mm; display: flex; flex-direction: column; justify-content: space-between; background: #070b18; color: #e9ecf5; padding: 22mm 18mm; box-sizing: border-box; margin: -16mm -16mm 0; page-break-after: always; }
+  .couverture h1 { color: #fff; font-size: 34pt; margin: 8mm 0 6mm; }
+  .couverture .rouge { color: #e5373a; }
+  .couverture p { color: #a3abc4; font-size: 12pt; max-width: 140mm; }
+  .couverture img { width: 100%; border-radius: 8px; margin-top: 8mm; }
+  .sur { font-size: 8.5pt; letter-spacing: .2em; text-transform: uppercase; color: #e5373a; font-weight: 700; }
+  h2 { font-size: 17pt; margin: 0 0 4mm; padding-top: 2mm; border-top: 3px solid #e5373a; display: inline-block; }
+  h2 .num { color: #e5373a; margin-right: 3mm; }
+  h3 { font-size: 12pt; margin: 6mm 0 2mm; }
+  section { margin-bottom: 9mm; }
+  .saut { page-break-before: always; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.2pt; margin: 3mm 0 4mm; }
+  th { text-align: left; background: #eef1f8; padding: 2mm 2.5mm; font-weight: 600; }
+  td { padding: 2mm 2.5mm; border-bottom: 1px solid #e2e6f0; vertical-align: top; }
+  .ok { color: #1f7a4d; font-weight: 600; }
+  .ko { color: #b9232a; font-weight: 600; }
+  .note { background: #fff6e6; border-left: 3px solid #e5a03a; padding: 3mm 4mm; font-size: 9.5pt; margin: 3mm 0; }
+  .info { background: #eef3ff; border-left: 3px solid #4f7dff; padding: 3mm 4mm; font-size: 9.5pt; margin: 3mm 0; }
+  code { font: 8.8pt "SFMono-Regular", Menlo, Consolas, monospace; background: #f1f3f8; padding: .3mm 1.2mm; border-radius: 3px; }
+  pre { font: 8.5pt Menlo, Consolas, monospace; background: #f1f3f8; padding: 3mm 4mm; border-radius: 4px; white-space: pre-wrap; }
+  figure { margin: 4mm 0; text-align: center; page-break-inside: avoid; }
+  figure img { max-width: 100%; border: 1px solid #dde2ee; border-radius: 4px; }
+  figcaption { font-size: 8.5pt; color: #6a7390; margin-top: 1.5mm; }
+  .duo { display: flex; gap: 5mm; align-items: flex-start; }
+  .duo figure { flex: 1; }
+  .pastilles span { display: inline-block; width: 12mm; height: 12mm; border-radius: 2mm; margin-right: 2mm; vertical-align: middle; }
+  ul, ol { padding-left: 5mm; margin: 2mm 0; }
+  li { margin: 1mm 0; }
+</style>
+</head>
+<body>
+
+<div class="couverture">
+  <div>
+    <span class="sur">Journal de bord du projet</span>
+    <h1>Site vitrine<br>de Michel Gallone<span class="rouge">.</span></h1>
+    <p>Toutes les étapes de la création du site, des sources consultées jusqu'aux tests. Un CV en ligne doublé d'une offre de services. Version française ; la version anglaise suivra.</p>
+    <img src="ecran_bureau_hero.png" alt="">
+  </div>
+  <p style="font-size:9.5pt">Dépôt : github.com/sowattmusic/michel_cv · branche claude/affectionate-euler-tp4710<br>Document mis à jour le 28 octobre 2026</p>
+</div>
+
+<section>
+  <h2><span class="num">00</span>Sommaire</h2>
+  <ol>
+    <li>La demande</li>
+    <li>État du dépôt au départ</li>
+    <li>Collecte des sources</li>
+    <li>Synthèse des informations retenues</li>
+    <li>Concept : un site « boutique » de prestations</li>
+    <li>Direction artistique</li>
+    <li>Développement</li>
+    <li>Tests et corrections</li>
+    <li>Points à valider par Michel</li>
+    <li>Prochaines étapes</li>
+    <li>Régénérer ce document</li>
+    <li>Retours : retrait du panier</li>
+    <li>Refonte : un CV live orienté gestion de projet et marketing digital</li>
+    <li>Ajout du titre « Responsable visibilité et marketing »</li>
+    <li>Missions dans l'en-tête, références et coordonnées en pied de page</li>
+    <li>Deuxième page : le parcours raconté</li>
+    <li>Bouton « Plus d'infos » vers le parcours</li>
+    <li>Page Parcours : Montreux et Mutt Lange</li>
+    <li>Page Parcours : chapitre Mutt Lange simplifié</li>
+    <li>Page 1 allégée : pas de répétition avec la page 2</li>
+    <li>Page 1 arrêtée après le parcours en bref</li>
+    <li>Chiffres clés plus discrets</li>
+    <li>Chiffres clés retirés</li>
+    <li>Page Parcours : ordre inversé, textes courts, volets dépliables</li>
+    <li>Page Parcours : cartes claires, comme la page 1</li>
+    <li>Lieu : Suisse romande</li>
+    <li>Boutons déplacés sous le parcours en bref</li>
+    <li>Bouton renommé « Parcours complet »</li>
+    <li>Réseaux sociaux dans le pied de page</li>
+    <li>Icône courrier devant l'e-mail</li>
+    <li>Téléphone en bouton, comme les réseaux</li>
+    <li>E-mail et téléphone au même niveau que les réseaux</li>
+    <li>Copyright simplifié</li>
+    <li>Boutons du pied de page centrés</li>
+    <li>Pied de page : logos seuls</li>
+    <li>Deuxième photo avant le parcours en bref</li>
+    <li>Espace resserré entre l'intro et le profil</li>
+    <li>Même écart entre toutes les sections</li>
+    <li>Sowatt Music en premier, ajout de Loreto1 Trading SA</li>
+    <li>Sowatt Music : activités complétées</li>
+    <li>Hana Road : « multimédia » au lieu de « vidéo »</li>
+    <li>Ajout de Media One Group et Rouge TV</li>
+    <li>Page Contact : carte de visite, vCard et QR code</li>
+    <li>Lien « Mes coordonnées » et signet « Parcours en bref »</li>
+    <li>Pied de page centré, réseaux sociaux seuls</li>
+    <li>Références à gauche, réseaux dans la ligne du copyright</li>
+    <li>« Mes coordonnées » à côté des réseaux, copyright à la ligne</li>
+    <li>Préparation de la mise en ligne et passage en session locale</li>
+    <li>Mise en ligne sur michelgallone.ch</li>
+    <li>Moins de « 30 ans », nouveaux titres, crédits et page Contact</li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="num">01</span>La demande</h2>
+  <p>Créer un site web pour Michel Gallone à partir de son CV et de quatre sources en ligne :</p>
+  <ul>
+    <li>LinkedIn : linkedin.com/in/michelgallone</li>
+    <li>Headliner Magazine USA n° 23, pages 62 à 64 (Issuu)</li>
+    <li>Sa page de liens : linkin.bio/mg</li>
+    <li>Ses crédits Discogs : discogs.com/artist/323111-Michel-Gallone</li>
+  </ul>
+  <p>Le site doit être une <b>vitrine de type boutique</b> qui « vend » Michel sur le marché du travail. Il est rédigé <b>entièrement en français</b>, et une version anglaise sera faite ensuite. Chaque étape est documentée dans ce PDF, conservé dans l'environnement de travail et dans le dépôt GitHub.</p>
+</section>
+
+<section>
+  <h2><span class="num">02</span>État du dépôt au départ</h2>
+  <p>Le dépôt <code>sowattmusic/michel_cv</code> contenait déjà :</p>
+  <table>
+    <tr><th>Chemin</th><th>Contenu</th><th>Utilisé pour le site</th></tr>
+    <tr><td><code>renders/*/</code></td><td>Quatre variantes du CV (ingé son, chef de projet, avec ou sans photo), en HTML et PDF</td><td>Oui : parcours, dates, références, langues, coordonnées</td></tr>
+    <tr><td><code>sources/photos/</code></td><td>Trois photos de Michel dans son studio (DSC_8780, 8782, 8809)</td><td>Oui : toutes les images du site</td></tr>
+    <tr><td><code>sources/tech_multimedia_Gallone.pdf</code></td><td>Ancien CV</td><td>Indirectement, via les CV refaits</td></tr>
+    <tr><td><code>conversation/</code></td><td>Historique de la création des CV</td><td>Oui : choix déjà faits (e-mail, mise en page)</td></tr>
+  </table>
+  <p>La source de référence est le CV « chef de projet avec photo », le plus complet et le plus récent (il inclut Sowatt Music Sàrl, Route 108 et l'association SAP).</p>
+</section>
+
+<section>
+  <h2><span class="num">03</span>Collecte des sources</h2>
+  <p>Chaque source a d'abord été lue avec un outil de lecture web simple, puis, en cas d'échec, avec un navigateur Chromium sans interface (pour les pages construites en JavaScript) ou avec l'API publique du site.</p>
+  <table>
+    <tr><th style="width:22%">Source</th><th style="width:30%">Méthode</th><th style="width:12%">Résultat</th><th>Ce qu'on en tire</th></tr>
+    <tr><td>LinkedIn</td><td>Lecture web : erreur HTTP 999 (LinkedIn bloque les robots). Pas de nouvel essai possible sans être connecté.</td><td class="ko">Échec</td><td>Seule l'adresse du profil est utilisée (lien dans le pied du site). Le contenu du profil n'a pas pu être lu.</td></tr>
+    <tr><td>linkin.bio/mg</td><td>Lecture simple vide (page en JavaScript), puis Chromium sans interface</td><td class="ok">Réussi</td><td>Titre « Producer - Engineer », liens Instagram, LinkedIn, Facebook, e-mail michel@sowattmusic.com, Sowatt Media, Route 108, Discogs et lien vers l'article Headliner.</td></tr>
+    <tr><td>Discogs</td><td>Page web : erreur 403. API publique <code>api.discogs.com</code> : réussi</td><td class="ok">Réussi</td><td>Biographie, variantes du nom, liens, 77 entrées de crédits (51 parutions distinctes, 1995 à 2026).</td></tr>
+    <tr><td>Headliner (Issuu)</td><td>Le lecteur Issuu n'expose pas le texte. L'article a été trouvé sur headlinerhub.com grâce au lien de linkin.bio, puis lu avec Chromium.</td><td class="ok">Réussi</td><td>Interview complète « From pop icons to pristine sound » par Liz Wilkinson : parcours, souvenirs avec Mutt Lange, matériel, méthode de travail.</td></tr>
+    <tr><td>sowattmedia.com, route-108.com, sowattmusic.com</td><td>Consultés pour compléter. Connexion refusée ou erreur 403.</td><td class="ko">Échec</td><td>Liens conservés sur le site, sans contenu supplémentaire.</td></tr>
+  </table>
+  <p>Les données récupérées sont archivées dans le dépôt pour qu'on puisse les vérifier :</p>
+  <ul>
+    <li><code>sources/web/headliner_article_2025.txt</code> : texte de l'article</li>
+    <li><code>sources/web/linkin_bio_mg.txt</code> : texte et liens de la page linkin.bio</li>
+    <li><code>sources/web/discogs_artist.json</code> et <code>discogs_releases.json</code> : réponses de l'API Discogs</li>
+    <li><code>docs/journal/capture_linkinbio.png</code> : capture de la page linkin.bio</li>
+  </ul>
+  <figure><img src="capture_linkinbio.png" style="max-height:55mm"><figcaption>La page linkin.bio/mg vue par le navigateur sans interface.</figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="num">04</span>Synthèse des informations retenues</h2>
+  <h3>Identité et positionnement</h3>
+  <p>Producteur, ingénieur du son et directeur technique audiovisuel, basé à Lussery-Villars (VD). Plus de 30 ans de métier, dans quatre pays (Suisse, France, Royaume-Uni, Maroc). Français langue maternelle, anglais courant.</p>
+  <h3>Ce que les nouvelles sources ajoutent au CV</h3>
+  <table>
+    <tr><th style="width:25%">Source</th><th>Information nouvelle</th></tr>
+    <tr><td>Discogs</td><td>Crédits vérifiables : Shania Twain (<i>Up!</i>, mixage ; <i>Ka-Ching!</i>, remix), Britney Spears (<i>Don't Let Me Be The Last To Know</i>, mixage), Céline Dion, The Corrs, Michael Bolton, Krokus (mixage), Marla Glen (mixage, 1995). Productions et mixages récents : STARVINSKY, Huey V, Alejandro Reyes, Antony Trice, Hypsign, Uranian Stone, Tricia Cordero, Jay Derson. Enregistrement de <i>The Art Of Chopin</i> (Elizabeth Sombart, Royal Philharmonic Orchestra).</td></tr>
+    <tr><td>Headliner</td><td>Production et coordination d'enregistrements à Abbey Road avec Elizabeth Sombart et le Royal Philharmonic Orchestra. Enregistrements classiques avec Philippe Entremont. Matériel : Pro Tools, Logic, Merging Horus, DAD, Prism Sound, Neumann KH 420, Dangerous Music 2BUS+, intérêt pour l'Audio over IP. Citations sur Mutt Lange, la transparence du son et la méthode.</td></tr>
+    <tr><td>linkin.bio</td><td>Titre public « Producer - Engineer », e-mail professionnel michel@sowattmusic.com, Instagram et Facebook, Sowatt Media.</td></tr>
+  </table>
+  <div class="note"><b>Prudence sur Discogs.</b> Pour beaucoup de disques, Discogs indique seulement que Michel est « crédité », sans préciser son rôle exact (ingénieur, assistant…). Le site écrit donc « Crédité » dans ces cas, et ne précise « Mixage », « Remix » ou « Production » que quand Discogs le dit.</div>
+</section>
+
+<section class="saut">
+  <h2><span class="num">05</span>Concept initial : un site « boutique » de prestations</h2>
+  <div class="info">Cette section décrit les versions 1 et 2. Le site a ensuite été repensé en « CV live » : voir l'étape 13.</div>
+  <p>Pour que le site « vende » Michel, ses compétences sont présentées comme une vitrine de <b>domaines d'expertise</b>. Le visiteur les filtre et, d'un clic sur « En discuter », écrit directement à Michel au sujet du domaine choisi. <i>(La première version comportait un panier, retiré ensuite : voir l'étape 12.)</i></p>
+  <h3>Les six prestations</h3>
+  <table>
+    <tr><th>Prestation</th><th>Catégorie</th><th>Preuves affichées</th></tr>
+    <tr><td>Mixage &amp; production musicale</td><td>Musique</td><td>STARVINSKY, Antony Trice, Hypsign, Alejandro Reyes</td></tr>
+    <tr><td>Enregistrement classique &amp; acoustique</td><td>Musique</td><td>Elizabeth Sombart, Philippe Entremont, RPO, Abbey Road</td></tr>
+    <tr><td>Direction technique radio &amp; TV</td><td>Broadcast, Conseil</td><td>M Le Media, matinales en direct (Canal+)</td></tr>
+    <tr><td>Son &amp; vidéo pour l'événementiel</td><td>Broadcast &amp; direct</td><td>2m2c, SwissTech Convention Center, Beaulieu, Royal Savoy</td></tr>
+    <tr><td>Conception de studio &amp; gestion de projet</td><td>Conseil</td><td>Hana Road, Digital Media Partners avec Tom Hidley, Sully Sound</td></tr>
+    <tr><td>Vidéo, post-production &amp; communication</td><td>Image</td><td>Rouge TV, Walt Disney, M6, TF1, Sowatt Music</td></tr>
+  </table>
+  <p>Aucun prix n'est affiché : chaque domaine indique la forme de collaboration possible (mission, mandat ou poste) et son échelle (au titre, à la journée, au projet…).</p>
+  <h3>Plan de la page</h3>
+  <ol>
+    <li><b>Accueil</b> : titre « Le son juste, du studio au direct. », accroche, boutons vers les prestations et le parcours</li>
+    <li><b>Bandeau défilant</b> des références (Shania Twain, Céline Dion, Canal+, TF1…)</li>
+    <li><b>Chiffres clés</b> : 30+ années, 50+ parutions, 4 pays, 3 infrastructures</li>
+    <li><b>Prestations</b> (la « boutique ») avec filtres et bouton « En discuter »</li>
+    <li><b>Pourquoi moi</b> : quatre arguments</li>
+    <li><b>Crédits</b> : deux listes tirées de Discogs, lien vers Discogs</li>
+    <li><b>Presse</b> : l'interview Headliner, trois citations traduites</li>
+    <li><b>Parcours</b> : frise chronologique de 1993 à aujourd'hui</li>
+    <li><b>Le studio</b> : matériel</li>
+    <li><b>Engagement</b> : Sowatt Music, Route 108, association SAP</li>
+    <li><b>Contact</b> : e-mail, téléphone, réseaux sociaux</li>
+  </ol>
+</section>
+
+<section class="saut">
+  <h2><span class="num">06</span>Direction artistique</h2>
+  <p>Les couleurs viennent des photos de Michel : un studio baigné de lumière bleue et sa chemise rouge et noire. Le site est sombre, comme une régie, avec le rouge réservé aux actions et aux accents.</p>
+  <p class="pastilles">
+    <span style="background:#070b18"></span>Bleu nuit #070b18 &nbsp;
+    <span style="background:#4f7dff"></span>Bleu lueur #4f7dff &nbsp;
+    <span style="background:#e5373a"></span>Rouge #e5373a &nbsp;
+    <span style="background:#e9ecf5;border:1px solid #ccc"></span>Texte #e9ecf5
+  </p>
+  <ul>
+    <li><b>Typographies</b> (Google Fonts) : Space Grotesk pour les titres, au caractère technique ; Inter pour le texte, très lisible.</li>
+    <li><b>Photos</b> : DSC_8782 (accueil), DSC_8780 (« Pourquoi moi » et contact), DSC_8809 (presse). Redimensionnées et compressées dans <code>site/assets/img/</code>.</li>
+    <li><b>Animations</b> discrètes : apparition des blocs au défilement, bandeau défilant. Elles sont coupées si le visiteur a demandé à réduire les animations.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="num">07</span>Développement</h2>
+  <p>Site statique, sans outil de construction : il s'ouvre directement dans un navigateur et s'héberge n'importe où (GitHub Pages, Infomaniak…).</p>
+  <pre>site/
+├── index.html            redirige vers fr/
+├── fr/index.html         la page en français
+├── en/                   (à venir) la version anglaise
+└── assets/
+    ├── css/style.css     styles, responsive, palette
+    ├── js/main.js        menu, filtres, liens « En discuter », animations
+    └── img/              photos optimisées</pre>
+  <h3>Fonctionnement des boutons « En discuter »</h3>
+  <ul>
+    <li>Chaque domaine a un bouton « En discuter » qui ouvre la messagerie du visiteur avec un e-mail prérempli vers michel@sowattmusic.com : objet « Prise de contact · <i>nom du domaine</i> », et un début de message.</li>
+    <li>Sans JavaScript, le bouton renvoie simplement à la section Contact.</li>
+    <li>Aucun serveur ni formulaire tiers n'est nécessaire.</li>
+    <li>La sélection est gardée dans le navigateur du visiteur s'il revient plus tard. Si ce stockage est bloqué, le site fonctionne quand même.</li>
+  </ul>
+  <h3>Préparé pour la version anglaise</h3>
+  <ul>
+    <li>Les textes générés par le script sont regroupés par langue (<code>fr</code> et <code>en</code>) dans <code>main.js</code> ; les textes anglais sont déjà prêts.</li>
+    <li>Le sélecteur FR / EN est en place ; EN est grisé « bientôt ».</li>
+    <li>La balise <code>hreflang</code> anglaise est prête, en commentaire.</li>
+  </ul>
+  <h3>Référencement</h3>
+  <p>Titre et description de page, balises Open Graph pour le partage sur les réseaux, et données structurées schema.org « Person » (métier, adresse, liens LinkedIn, Instagram, Facebook, Discogs).</p>
+</section>
+
+<section class="saut">
+  <h2><span class="num">08</span>Tests et corrections</h2>
+  <p>La page a été ouverte dans Chromium sans interface, en format bureau (1440 × 900) et mobile (390 × 844). Vérifications faites :</p>
+  <ul>
+    <li>Aucune erreur JavaScript dans la console.</li>
+    <li>Pas de défilement horizontal sur mobile (largeur de page = largeur d'écran).</li>
+    <li>Boutons « En discuter » testés : chacun ouvre un e-mail avec le bon objet.</li>
+  </ul>
+  <h3>Corrections après la première version</h3>
+  <table>
+    <tr><th>Problème constaté</th><th>Correction</th></tr>
+    <tr><td>Accueil : le texte recouvrait le visage de Michel, placé à gauche de la photo.</td><td>Mise en page en deux parties : texte à gauche, photo à droite en fondu. Sur mobile, la photo passe au-dessus du texte.</td></tr>
+    <tr><td>Le menu disparaissait sur la partie claire de la photo.</td><td>Dégradé sombre ajouté derrière le menu.</td></tr>
+    <tr><td>Krokus (2004) apparaissait sous « Sowatt Music », et le bloc « Avec Mutt Lange » affirmait plus que ce que dit Discogs.</td><td>Titres des deux listes rendus exacts : « Signatures internationales » et « Productions &amp; mixages ».</td></tr>
+    <tr><td>Section Presse : la photo coupait le visage.</td><td>Recadrage de l'image.</td></tr>
+  </table>
+  <div class="duo">
+    <figure><img src="v1_bureau_hero.png"><figcaption>Version 1 : texte sur le visage</figcaption></figure>
+    <figure><img src="v2_bureau_hero.png"><figcaption>Version 2 : texte et photo séparés</figcaption></figure>
+  </div>
+  <div class="duo">
+    <figure><img src="v1_mobile_hero.png" style="max-height:105mm"><figcaption>Mobile, version 1</figcaption></figure>
+    <figure><img src="v2_mobile_hero.png" style="max-height:105mm"><figcaption>Mobile, version 2</figcaption></figure>
+    
+  </div>
+</section>
+
+<section class="saut">
+  <h2><span class="num">09</span>Points à valider par Michel</h2>
+  <table>
+    <tr><th style="width:30%">Sujet</th><th>Choix fait</th><th style="width:28%">À confirmer</th></tr>
+    <tr><td>Adresse e-mail</td><td>Réglé à l'étape 15 : contact@michelgallone.ch.</td><td>Mettre à jour le CV en PDF.</td></tr>
+    <tr><td>Contenu LinkedIn</td><td>Non lu (LinkedIn bloque les robots).</td><td>Envoyer un export PDF du profil (LinkedIn › Plus › Enregistrer au format PDF) pour compléter.</td></tr>
+    <tr><td>Rôle sur les disques « crédités »</td><td>Écrit « Crédité » quand Discogs ne précise pas le rôle.</td><td>Préciser le rôle exact sur Shania Twain, Céline Dion, The Corrs, Michael Bolton…</td></tr>
+    <tr><td>Abbey Road et Philippe Entremont</td><td>Mentionnés d'après l'interview Headliner.</td><td>Vérifier la formulation.</td></tr>
+    <tr><td>Forme de collaboration</td><td>Chaque domaine indique « mission », « mandat » ou « poste ».</td><td>Michel cherche-t-il surtout un poste salarié, des missions, ou les deux ?</td></tr>
+    <tr><td>Citations Headliner</td><td>Traduites de l'anglais par nos soins, avec lien vers l'article.</td><td>Relire la traduction.</td></tr>
+    <tr><td>Sowatt Media</td><td>Lien non affiché (site inaccessible pendant le travail).</td><td>Faut-il l'ajouter ?</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2><span class="num">10</span>Prochaines étapes</h2>
+  <ol>
+    <li>Relecture du site par Michel et corrections.</li>
+    <li>Version anglaise : copier <code>site/fr/</code> vers <code>site/en/</code>, traduire, puis activer le lien EN et la balise <code>hreflang</code>.</li>
+    <li>Mise en ligne : GitHub Pages (gratuit) ou hébergement suisse, avec un nom de domaine (par exemple michelgallone.ch).</li>
+    <li>Option : formulaire de contact hébergé (Tally, Formspree) à la place de l'e-mail prérempli.</li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="num">11</span>Régénérer ce document</h2>
+  <p>Ce PDF est produit à partir de <code>docs/journal/journal_de_bord.html</code>. La commande suivante refait les captures du site puis le PDF :</p>
+  <pre>node docs/build_pdf.js</pre>
+  <p>À chaque nouvelle étape (version anglaise, mise en ligne…), on ajoute une section au fichier HTML et on relance la commande.</p>
+</section>
+
+<section class="saut">
+  <h2><span class="num">12</span>Retours : retrait du panier</h2>
+  <p><b>Retour reçu :</b> « Pourquoi y a-t-il un panier ? Je ne vends rien. »</p>
+  <p>La première version poussait l'idée de « boutique » jusqu'au panier : bouton « Ajouter » sur chaque prestation, icône de panier dans le menu, tiroir « Ma demande de devis », mention « Sur devis ». Or Michel propose ses compétences, il ne vend pas de produits. Le panier brouillait le message.</p>
+  <h3>Changements</h3>
+  <table>
+    <tr><th>Avant</th><th>Après</th></tr>
+    <tr><td>Icône de panier avec compteur dans le menu</td><td>Supprimée</td></tr>
+    <tr><td>Bouton « Ajouter » sur chaque prestation</td><td>Bouton « En discuter » : e-mail prérempli avec le domaine en objet</td></tr>
+    <tr><td>« Sur devis »</td><td>Forme de collaboration : mission, mandat ou poste</td></tr>
+    <tr><td>Titre « Choisissez ce dont votre projet a besoin. »</td><td>« Ce que je peux faire pour vous. »</td></tr>
+    <tr><td>Tiroir « Ma demande de devis »</td><td>Supprimé ; le contact se fait par e-mail ou téléphone</td></tr>
+  </table>
+  <p>Le code du panier a été retiré du HTML, du CSS et du JavaScript. La vitrine reste organisée par domaines, avec les filtres.</p>
+  <div class="duo">
+    <figure><img src="v1_bureau_demande.png"><figcaption>Avant : le panier et le tiroir de demande</figcaption></figure>
+    <figure><img src="v2_bureau_prestations.png"><figcaption>Après : les domaines avec « En discuter »</figcaption></figure>
+  </div>
+</section>
+
+<section class="saut">
+  <h2><span class="num">13</span>Refonte : un CV live</h2>
+  <p><b>Demande de Michel :</b> repenser le site en mode « curriculum vitae live », orienté <b>marketing digital</b> et <b>gestion de projet</b>. Le défi : trouver le juste milieu entre un CV en ligne et une offre de prestations. Limiter les pages et les boutons au strict nécessaire. Supprimer le bandeau défilant des clients. Le reste était jugé « pas mal » et a été conservé (couleurs, typographies, photos, presse, contact).</p>
+  <h3>Nouvelle structure : une seule page, dans l'ordre d'un CV</h3>
+  <table>
+    <tr><th style="width:24%">Section</th><th>Contenu</th></tr>
+    <tr><td>En-tête</td><td>Pastille « Disponible · poste, mandat ou mission », titre « Je pilote vos projets, de l'idée à l'écran. », poste visé « Chef de projet audiovisuel et digital », lieu, langues, nationalité</td></tr>
+    <tr><td>Chiffres clés</td><td>30+ années, 3 infrastructures, 4 pays, 50+ disques</td></tr>
+    <tr><td>Profil</td><td>Résumé et trois atouts : gestion de projet, communication digitale, exigence internationale</td></tr>
+    <tr><td>Expérience</td><td>Frise détaillée de 1994 à aujourd'hui, réécrite côté pilotage et communication</td></tr>
+    <tr><td>Compétences</td><td>Trois familles : gestion de projet, marketing digital et communication, production audiovisuelle. Puis formation, langues, engagement</td></tr>
+    <tr><td>Offre</td><td>Trois services seulement, sans bouton : gestion de projet, communication pour les PME, production audio et vidéo</td></tr>
+    <tr><td>Références</td><td>L'interview Headliner, deux citations, liens vers l'article et Discogs</td></tr>
+    <tr><td>Contact</td><td>Un seul bouton, coordonnées, réseaux</td></tr>
+  </table>
+  <h3>Ce qui a été retiré</h3>
+  <ul>
+    <li>Le bandeau défilant des clients.</li>
+    <li>Les filtres et les six cartes de prestations avec leurs boutons « En discuter ».</li>
+    <li>La liste détaillée des crédits Discogs (remplacée par un lien), la section Studio (matériel) et la section Engagement (intégrée aux compétences).</li>
+  </ul>
+  <h3>Boutons : quatre au total</h3>
+  <p>« Me contacter » et « CV en PDF » dans l'en-tête, « Écrire un e-mail » dans le contact, et le sélecteur de langue. Le menu passe à cinq entrées : Profil, Expérience, Compétences, Offre, Contact.</p>
+  <h3>Le CV en PDF</h3>
+  <p>Le bouton « CV en PDF » télécharge le CV chef de projet avec photo déjà présent dans le dépôt, copié dans <code>site/assets/CV_Michel_Gallone.pdf</code>. Si ce CV est modifié, il faut recopier le PDF à cet endroit.</p>
+  <div class="note"><b>À valider :</b> l'orientation marketing digital s'appuie sur ce que disent les sources (communication pour les PME chez Sowatt Music, production vidéo, label). Les compétences « Contenus pour les réseaux sociaux » et « Lancement d'artistes » sont des déductions : Michel doit confirmer, préciser ou compléter (outils, campagnes, résultats chiffrés). La pastille « Disponible » est aussi à confirmer.</div>
+  <div class="duo">
+    <figure><img src="v2_bureau_hero.png"><figcaption>Avant : la vitrine de prestations</figcaption></figure>
+    <figure><img src="ecran_bureau_hero.png"><figcaption>Après : le CV live</figcaption></figure>
+  </div>
+  <div class="duo">
+    <figure><img src="ecran_bureau_experience.png"><figcaption>Expérience</figcaption></figure>
+    <figure><img src="v3_bureau_competences.png"><figcaption>Compétences (retirées à l'étape 21)</figcaption></figure>
+  </div>
+  <figure><img src="v3_bureau_offre.png" style="max-height:90mm"><figcaption>Offre (retirée à l'étape 21)</figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="num">14</span>Ajout d'un second titre</h2>
+  <p><b>Demande de Michel :</b> ajouter « Responsable visibilité, marketing » à côté de « Chef de projet audiovisuel et digital », dans le même style.</p>
+  <ul>
+    <li><b>En-tête du site :</b> les deux titres sont désormais affichés l'un sous l'autre, chacun précédé d'un point rouge : « Chef de projet audiovisuel et digital » et « Responsable visibilité et marketing ».</li>
+    <li>L'accroche mentionne maintenant la visibilité : « contenus vidéo, visibilité et communication pour les PME ».</li>
+    <li>Le titre de la page, l'aperçu de partage sur les réseaux et les données structurées reprennent les deux titres.</li>
+  </ul>
+  <figure><img src="ecran_bureau_hero.png" style="max-height:95mm"><figcaption>L'en-tête avec les deux titres</figcaption></figure>
+</section>
+
+<section class="saut">
+  <h2><span class="num">15</span>Missions, références et pied de page</h2>
+  <p><b>Demandes de Michel :</b></p>
+  <ul>
+    <li>Enlever la phrase « Formé auprès des plus exigeants, de Mutt Lange à Canal+. »</li>
+    <li>La remplacer par ses missions : conception et chef des opérations pour stations TV et radio et complexes multimédias, direction de la communication, développement de la visibilité.</li>
+    <li>Afficher les références clients en bas de page, sans bandeau.</li>
+    <li>Mettre dans le pied de page l'e-mail contact@michelgallone.ch (cliquable) et le téléphone +41 79 342 98 80.</li>
+  </ul>
+  <h3>Changements</h3>
+  <table>
+    <tr><th style="width:24%">Endroit</th><th>Changement</th></tr>
+    <tr><td>En-tête</td><td>Après « 30 ans à concevoir, coordonner et livrer : », une liste de trois missions avec une coche rouge. La phrase sur Mutt Lange et Canal+ est supprimée.</td></tr>
+    <tr><td>Pied de page</td><td>Bloc fixe « Ils m'ont fait confiance » : Universal Music, Canal+, Walt Disney, TF1, M6, Energy (NRJ), Mutt Lange, Shania Twain, Céline Dion, Britney Spears, Bryan Adams, The Corrs, Royal Philharmonic Orchestra, Dorier Group, Winkler, Illumination, 2m2c Montreux. Puis l'e-mail et le téléphone, cliquables.</td></tr>
+    <tr><td>E-mail du site</td><td>contact@michelgallone.ch remplace michel@sowattmusic.com partout (section Contact, bouton « Écrire un e-mail », données structurées), pour n'avoir qu'une seule adresse.</td></tr>
+  </table>
+  <div class="note"><b>À vérifier :</b> l'adresse contact@michelgallone.ch suppose que le domaine michelgallone.ch est réservé et que la boîte e-mail fonctionne. Le CV en PDF téléchargeable affiche encore gallone@bluewin.ch.</div>
+  <figure><img src="ecran_bureau_hero.png" style="max-height:90mm"><figcaption>L'en-tête avec les missions</figcaption></figure>
+  <figure><img src="ecran_pied.png" style="max-height:60mm"><figcaption>Le pied de page : références et coordonnées</figcaption></figure>
+</section>
+
+<section class="saut">
+  <h2><span class="num">16</span>Deuxième page : le parcours raconté</h2>
+  <p><b>Demande de Michel :</b> une deuxième page où les éléments du CV sont mis en forme de page web, avec le même look. En mode narratif, mais avec des séparations par période et par employeur, comme dans le CV PDF. Elle reprend le CV, les références Discogs des artistes les plus connus et l'article Headliner.</p>
+  <h3>Fichier et accès</h3>
+  <ul>
+    <li>Nouvelle page : <code>site/fr/parcours.html</code>, mêmes couleurs, typographies, menu et pied de page.</li>
+    <li>Le menu des deux pages devient : Profil, <b>Parcours</b>, Compétences, Offre, Contact. « Parcours » remplace « Expérience » : la frise de la page d'accueil reste, avec un lien texte en bas vers la nouvelle page.</li>
+  </ul>
+  <h3>Structure</h3>
+  <p>En-tête avec photo, puis un sommaire des chapitres cliquable. Chaque chapitre a deux colonnes : à gauche, la période, le lieu et la fiche employeur (comme dans le CV PDF), qui reste visible pendant la lecture ; à droite, le récit, les citations et les crédits.</p>
+  <table>
+    <tr><th style="width:8%">N°</th><th style="width:18%">Période</th><th>Chapitre et sources utilisées</th></tr>
+    <tr><td>1</td><td>1990 – 1994</td><td>Formation : bac A2, Full Sail University (CV, Headliner)</td></tr>
+    <tr><td>2</td><td>1994 – 1999</td><td>Londres, Paris, Marrakech, Montreux : Nomis Studios, Télétota, Digital Media Partners avec Tom Hidley, Ony Media (CV, Headliner) ; Marla Glen 1995 (Discogs)</td></tr>
+    <tr><td>3</td><td>1999 – 2007</td><td>Mutt Lange et Sully Sound SA (CV) ; citation sur Mutt Lange (Headliner) ; 10 crédits : Céline Dion, The Corrs, Britney Spears, Shania Twain, Michael Bolton, Krokus (Discogs)</td></tr>
+    <tr><td>4</td><td>2000 – auj.</td><td>Sowatt Music Sàrl (CV, Discogs) ; 6 productions et mixages récents (Discogs)</td></tr>
+    <tr><td>5</td><td>2007 – 2020</td><td>Dorier Group, Winkler, Illumination, Rouge TV (CV)</td></tr>
+    <tr><td>6</td><td>2009 – 2017</td><td>The Hana Road Music Group (CV)</td></tr>
+    <tr><td>7</td><td>Depuis 2012</td><td>Le classique : Elizabeth Sombart, Philippe Entremont, Royal Philharmonic Orchestra, Abbey Road (Headliner) ; <i>The Art Of Chopin</i> 2015 (Discogs)</td></tr>
+    <tr><td>8</td><td>2022 – 2025</td><td>M Le Media (CV)</td></tr>
+    <tr><td>9</td><td>Aujourd'hui</td><td>Missions actuelles, engagement, studio, regard sur l'IA (CV, Headliner) ; liens vers l'interview et Discogs</td></tr>
+  </table>
+  <div class="note"><b>À valider :</b> les citations sont traduites de l'anglais par nos soins. Le chapitre 7 « Le classique » est construit à partir de l'interview Headliner, il n'apparaît pas dans le CV PDF : Michel peut préciser les dates et les albums. Les crédits de la période Mutt Lange sans rôle précisé par Discogs sont listés sans rôle.</div>
+  <div class="duo">
+    <figure><img src="parcours_bureau_tete.png"><figcaption>En-tête et sommaire des chapitres</figcaption></figure>
+    <figure><img src="parcours_bureau_chapitre.png"><figcaption>Chapitre 3 : fiche à gauche, récit et crédits à droite</figcaption></figure>
+  </div>
+  <figure><img src="parcours_mobile_tete.png" style="max-height:95mm"><figcaption>Sur mobile</figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="num">17</span>Bouton « Plus d'infos »</h2>
+  <p><b>Demande de Michel :</b> remplacer le bouton « Me contacter » de l'en-tête par un bouton « Plus d'infos » qui mène à la page 2, le parcours détaillé.</p>
+  <ul>
+    <li>L'en-tête de l'accueil a maintenant deux boutons : « Plus d'infos » (rouge, vers <code>parcours.html</code>) et « CV en PDF ».</li>
+    <li>Le contact reste accessible par le menu, la section Contact et le pied de page.</li>
+  </ul>
+  <figure><img src="ecran_bureau_hero.png" style="max-height:90mm"><figcaption>L'en-tête avec le bouton « Plus d'infos »</figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="num">18</span>Page Parcours : Montreux et Mutt Lange</h2>
+  <p><b>Demande de Michel :</b> dans le passage « Montreux » du chapitre 2, mentionner aussi Mutt Lange et les artistes connus : Céline Dion, Britney Spears et Shania Twain.</p>
+  <ul>
+    <li>Le sous-titre devient « Montreux · Ony Media, puis Mutt Lange ».</li>
+    <li>Un paragraphe ajouté explique que c'est à Montreux que Michel commence à travailler pour Robert John « Mutt » Lange, sur les projets de Céline Dion, Britney Spears et Shania Twain (ainsi que Bryan Adams et The Corrs), avec un lien vers le chapitre 3 qui détaille ces années. Source : l'interview Headliner, où Michel raconte ce retour à Montreux.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="num">19</span>Page Parcours : chapitre Mutt Lange simplifié</h2>
+  <p><b>Demande de Michel :</b> simplifier le chapitre 3. Mettre simplement les références des artistes, et retirer le paragraphe sur l'année 2001.</p>
+  <ul>
+    <li>Le paragraphe des souvenirs (Britney Spears, Andrea Corr, Bryan Adams) est remplacé par une simple ligne : « Artistes : Céline Dion, Britney Spears, Shania Twain, Bryan Adams, The Corrs, Michael Bolton. »</li>
+    <li>Le paragraphe sur l'essai de Merging Pyramix vers 2001 est supprimé.</li>
+    <li>Restent : le récit du rôle de Michel, la citation sur l'exigence de Mutt Lange et l'encadré des crédits Discogs.</li>
+  </ul>
+</section>
+
+<section class="saut">
+  <h2><span class="num">20</span>Page 1 allégée : pas de répétition avec la page 2</h2>
+  <p><b>Constat de Michel :</b> la page 2 semblait en trop, car tout était déjà sur la page 1. <b>Décision :</b> garder les deux pages, avec un rôle distinct pour chacune. La page 1 doit être très concise et ne rien répéter de la page 2.</p>
+  <table>
+    <tr><th style="width:50%">Page 1 · la vitrine</th><th>Page 2 · le parcours complet</th></tr>
+    <tr><td>Titres, missions, chiffres clés, profil, parcours en bref, compétences, offre, contact</td><td>Récit par chapitres, fiches employeurs, crédits Discogs, citations Headliner</td></tr>
+  </table>
+  <h3>Changements sur la page 1</h3>
+  <ul>
+    <li>La frise détaillée de l'expérience est remplacée par un « Parcours en bref » : six cases, une ligne chacune (M Le Media, Hana Road, Dorier · Winkler · Illumination, Sowatt Music, Mutt Lange · Sully Sound, Londres · Paris · Marrakech), puis un lien vers la page 2.</li>
+    <li>Le bloc de l'interview Headliner est retiré : il est sur la page 2.</li>
+    <li>Dans le profil, l'atout « Une exigence de niveau international », qui racontait les années Mutt Lange, devient « Une carrière internationale », pour ne pas répéter le parcours.</li>
+  </ul>
+  <p>La page 1 passe d'environ 7 300 à 5 700 pixels de haut sur ordinateur.</p>
+  <div class="duo">
+    <figure><img src="ecran_bureau_experience.png"><figcaption>Le « Parcours en bref » de la page 1</figcaption></figure>
+    <figure><img src="parcours_bureau_chapitre.png"><figcaption>Le détail sur la page 2</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">21</span>Page 1 arrêtée après le parcours en bref</h2>
+  <p><b>Demande de Michel :</b> sur la première page, s'arrêter avant « Compétences », qui est en trop.</p>
+  <ul>
+    <li>La page 1 se termine maintenant par le « Parcours en bref » et son lien vers la page 2, puis le pied de page.</li>
+    <li>Sections retirées : Compétences (avec formation, langues et engagement), Offre et la grande section Contact. Les langues restent dans l'en-tête ; la formation et l'engagement sont sur la page 2.</li>
+    <li>Le contact passe par le pied de page : références clients, e-mail et téléphone. L'entrée « Contact » du menu y mène.</li>
+    <li>Le menu des deux pages se réduit à : Profil, Parcours, Contact.</li>
+  </ul>
+  <p>La page 1 passe à environ 3 200 pixels de haut sur ordinateur.</p>
+  <figure><img src="ecran_bureau_complet.png" style="max-height:150mm;width:auto"><figcaption>La page 1 complète</figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="num">22</span>Chiffres clés plus discrets</h2>
+  <p><b>Demande de Michel :</b> les chiffres (30 années, etc.) prennent trop de place ; en faire une section nettement plus discrète.</p>
+  <ul>
+    <li>Les quatre grandes cases deviennent une fine bande d'une ligne, entre deux filets, sous l'en-tête.</li>
+    <li>Chiffres plus petits, libellés raccourcis : « 30+ ans de projets · 3 infrastructures livrées · 4 pays · 50+ disques crédités ».</li>
+    <li>Sur mobile, la bande passe sur deux lignes.</li>
+  </ul>
+  <figure><img src="ecran_bureau_hero.png" style="max-height:90mm"><figcaption>L'en-tête ; la bande des chiffres se trouve juste en dessous</figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="num">23</span>Chiffres clés retirés</h2>
+  <p><b>Demande de Michel :</b> finalement, enlever la section des chiffres clés. Ne garder que « 30 ans d'expérience », intégré à la ligne lieu, langues, nationalité.</p>
+  <ul>
+    <li>La bande des chiffres (30+ ans, 3 infrastructures, 4 pays, 50+ disques) est supprimée, avec ses styles.</li>
+    <li>La fiche de l'en-tête affiche maintenant : Expérience 30 ans · Lieu · Langues · Nationalité.</li>
+  </ul>
+  <figure><img src="ecran_bureau_hero.png" style="max-height:90mm"><figcaption>L'en-tête avec « Expérience : 30 ans »</figcaption></figure>
+</section>
+
+<section class="saut">
+  <h2><span class="num">24</span>Page Parcours : ordre inversé, textes courts, volets dépliables</h2>
+  <p><b>Demande de Michel :</b> sur la page 2, raccourcir un peu les textes, mettre les périodes du plus récent au plus ancien, et placer les crédits et informations supplémentaires dans un onglet qui se révèle au clic.</p>
+  <h3>Ordre</h3>
+  <p>Aujourd'hui · 2022 M Le Media · 2012 Le classique · 2009 Hana Road · 2007 Événementiel et TV · 2000 Sowatt Music · 1999 Mutt Lange · 1994 Londres, Paris, Marrakech · 1990 Formation. Le sommaire en haut de page suit le même ordre. Les mentions « Chapitre 1, 2… » sont retirées, car elles n'avaient plus de sens dans l'ordre inversé.</p>
+  <h3>Textes raccourcis</h3>
+  <p>Chaque période tient en un ou deux paragraphes courts. La fiche employeur reste à gauche.</p>
+  <h3>Volets dépliables</h3>
+  <ul>
+    <li>Les crédits Discogs, les citations Headliner et les détails passent dans un volet fermé par défaut, avec un « + » qui devient « × » à l'ouverture.</li>
+    <li>Cinq volets : « Studio et méthode » (aujourd'hui), « Crédits et citation » (classique), « Productions et mixages récents » (Sowatt Music), « Crédits et citation » (Mutt Lange), « Détails et crédit » (débuts).</li>
+    <li>Réalisé avec l'élément HTML natif <code>details</code> : fonctionne sans JavaScript, au clavier et avec les lecteurs d'écran.</li>
+    <li>Les colonnes de la liste des crédits sont alignées d'une ligne à l'autre.</li>
+  </ul>
+  <div class="duo">
+    <figure><img src="parcours_bureau_chapitre.png"><figcaption>Une période, volet fermé</figcaption></figure>
+    <figure><img src="parcours_bureau_volet.png"><figcaption>Le volet « Crédits et citation » ouvert</figcaption></figure>
+  </div>
+</section>
+
+<section class="saut">
+  <h2><span class="num">25</span>Page Parcours : cartes claires, comme la page 1</h2>
+  <p><b>Demande de Michel :</b> une page 2 aussi claire que la page 1 et basée sur la forme de son « Parcours en bref ». Sans les citations Headliner, sauf si elles mettent vraiment en valeur le parcours. Rester sombre.</p>
+  <ul>
+    <li>La page 2 reprend la forme des cartes de la page 1 : une liste encadrée, une carte par période. Dans chaque carte : la date en rouge à gauche, puis l'employeur en gras, le rôle et le lieu en bleu, et deux à quatre points courts.</li>
+    <li>Ordre du plus récent au plus ancien : Aujourd'hui, M Le Media, classique, Hana Road, Dorier · Winkler · Illumination, Rouge TV (désormais une carte à part), Sowatt Music, Mutt Lange, Londres · Paris · Marrakech · Montreux, Formation.</li>
+    <li>Toutes les citations Headliner sont retirées : la page reste factuelle. Un simple lien vers l'interview figure en bas, à côté du lien Discogs.</li>
+    <li>Seuls les crédits restent dans des volets dépliables (classique, Sowatt Music, Mutt Lange, débuts). Le volet « Studio et méthode » est retiré.</li>
+    <li>Retirés aussi : la grande photo d'en-tête, le sommaire des périodes et la section Contact de la page 2. L'entrée « Contact » du menu mène au pied de page.</li>
+  </ul>
+  <div class="duo">
+    <figure><img src="parcours_bureau_tete.png"><figcaption>Le haut de la page 2</figcaption></figure>
+    <figure><img src="parcours_bureau_volet.png"><figcaption>Un volet de crédits ouvert</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">26</span>Lieu : Suisse romande</h2>
+  <p><b>Demande de Michel :</b> afficher « Lieu : Suisse romande ».</p>
+  <ul>
+    <li>Page 1 : la ligne d'informations de l'en-tête affiche « Lieu · Suisse romande » au lieu de « Lussery-Villars (VD), Suisse ».</li>
+    <li>Page 2 : la carte « Aujourd'hui » affiche aussi « Suisse romande ».</li>
+    <li>L'adresse précise reste uniquement dans les données structurées invisibles destinées aux moteurs de recherche.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="num">27</span>Boutons déplacés sous le parcours en bref</h2>
+  <p><b>Demande de Michel :</b> placer les deux boutons de la page 1 plus bas, après le parcours résumé.</p>
+  <ul>
+    <li>« Plus d'infos » et « CV en PDF » quittent l'en-tête et se placent juste sous les six cases du « Parcours en bref ».</li>
+    <li>Ils remplacent le lien texte « Lire le parcours complet… », qui faisait doublon avec « Plus d'infos ».</li>
+    <li>L'en-tête se termine désormais par les missions et la ligne Expérience · Lieu · Langues · Nationalité.</li>
+  </ul>
+  <figure><img src="ecran_bureau_experience.png" style="max-height:90mm"><figcaption>Le parcours en bref suivi des deux boutons</figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="num">28</span>Bouton renommé « Parcours complet »</h2>
+  <p><b>Demande de Michel :</b> remplacer « Plus d'infos » par « Parcours complet ». Le bouton rouge sous le parcours en bref porte ce nouveau nom et mène toujours à la page 2.</p>
+</section>
+
+<section>
+  <h2><span class="num">29</span>Réseaux sociaux dans le pied de page</h2>
+  <p><b>Demande de Michel :</b> améliorer le pied de page avec les liens LinkedIn, Instagram et Facebook, à trouver sur linkin.bio/mg.</p>
+  <ul>
+    <li>Trois boutons discrets avec icône et nom, sur la même ligne que l'e-mail et le téléphone, alignés à droite. Sur mobile, ils passent en dessous. Présents sur les deux pages.</li>
+    <li>Instagram : instagram.com/michel.gallone ; Facebook : facebook.com/michelgallone (tous deux repris de linkin.bio).</li>
+    <li>LinkedIn : linkin.bio pointe vers « linkedin.com/michelgallone », une adresse incomplète (il manque « /in/ ») qui ne mène pas au profil. Le site utilise l'adresse correcte, linkedin.com/in/michelgallone. <b>À corriger aussi sur linkin.bio.</b></li>
+  </ul>
+  <figure><img src="ecran_pied.png" style="max-height:60mm"><figcaption>Le pied de page avec les réseaux sociaux</figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="num">30</span>Icône courrier devant l'e-mail</h2>
+  <p><b>Demande de Michel :</b> ajouter un symbole de courrier devant l'e-mail du pied de page, avec un lien mailto ; garder le téléphone tel quel.</p>
+  <p>Une enveloppe rouge précède désormais contact@michelgallone.ch sur les deux pages ; un clic ouvre la messagerie (mailto). Le téléphone reste inchangé.</p>
+  <figure><img src="ecran_pied.png" style="max-height:60mm"><figcaption>Le pied de page avec l'icône courrier</figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="num">31</span>Téléphone en bouton, comme les réseaux</h2>
+  <p><b>Demande de Michel :</b> mettre le téléphone dans un bouton comme les liens des réseaux sociaux, avec un logo de téléphone suivi de +41 79 342 98 80, et un lien tel:.</p>
+  <p>Sur les deux pages, le téléphone devient le premier des boutons à droite du pied de page : icône de combiné, numéro, lien <code>tel:+41793429880</code> qui lance l'appel sur mobile. Suivent LinkedIn, Instagram et Facebook. L'e-mail avec son enveloppe reste à gauche.</p>
+  <figure><img src="ecran_pied.png" style="max-height:60mm"><figcaption>Le pied de page avec le bouton téléphone</figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="num">32</span>E-mail et téléphone au même niveau que les réseaux</h2>
+  <p><b>Demande de Michel :</b> le téléphone et l'e-mail au même niveau que les réseaux sociaux, avec le même look.</p>
+  <p>Le pied de page des deux pages présente désormais une seule rangée de cinq boutons identiques (bordure fine, icône grise, texte) : e-mail (mailto), téléphone (tel:), LinkedIn, Instagram, Facebook. L'enveloppe rouge de l'étape 30 prend la couleur des autres icônes.</p>
+  <figure><img src="ecran_pied.png" style="max-height:60mm"><figcaption>Le pied de page : cinq boutons au même niveau</figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="num">33</span>Copyright simplifié</h2>
+  <p><b>Demande de Michel :</b> dans le copyright, mettre « © 2026 Michel Gallone », enlever Sowatt Music et la date de mise à jour du CV.</p>
+  <p>La dernière ligne du pied de page des deux pages affiche seulement « © 2026 Michel Gallone ». L'année se met à jour automatiquement. « Sowatt Music Sàrl » et « CV mis à jour en octobre 2026 » sont retirés.</p>
+</section>
+
+<section>
+  <h2><span class="num">34</span>Boutons du pied de page centrés</h2>
+  <p><b>Demande de Michel :</b> bien centrer les liens et leurs boutons, pour qu'ils restent centrés quelle que soit la largeur d'écran ; quand la rangée passe sur deux lignes, le bouton restant ne doit plus être collé à gauche.</p>
+  <p>La rangée des cinq boutons (e-mail, téléphone, LinkedIn, Instagram, Facebook) est centrée sur toute la largeur, et chaque ligne créée par le retour à la ligne est centrée elle aussi.</p>
+  <div class="duo">
+    <figure><img src="ecran_pied.png"><figcaption>Ordinateur</figcaption></figure>
+    <figure><img src="ecran_pied_mobile.png" style="max-height:70mm"><figcaption>Mobile</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">35</span>Pied de page : logos seuls</h2>
+  <p><b>Demande de Michel :</b> enlever les noms et ne garder que les logos, y compris pour l'e-mail ; seul le téléphone reste écrit en toutes lettres.</p>
+  <ul>
+    <li>E-mail, LinkedIn, Instagram et Facebook deviennent des boutons ronds avec leur seul logo. Au survol, une bulle rappelle le nom (ou l'adresse e-mail) ; les lecteurs d'écran annoncent aussi le nom.</li>
+    <li>Le téléphone garde son bouton avec le combiné et le numéro +41 79 342 98 80.</li>
+    <li>La rangée reste centrée à toutes les largeurs.</li>
+  </ul>
+  <div class="duo">
+    <figure><img src="ecran_pied.png"><figcaption>Ordinateur</figcaption></figure>
+    <figure><img src="ecran_pied_mobile.png" style="max-height:70mm"><figcaption>Mobile</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">36</span>Deuxième photo avant le parcours en bref</h2>
+  <p><b>Demande de Michel :</b> placer la deuxième image juste avant « 30 ans de projets » (parcours en bref), sans trop d'espace avant et après.</p>
+  <ul>
+    <li>La photo du studio quitte la section Profil et devient un bandeau large, en haut de la section « Parcours en bref », juste au-dessus du titre. Espacement réduit : environ 50 pixels au-dessus, 40 en dessous.</li>
+    <li>La section Profil passe en deux colonnes : à gauche le titre et le texte, à droite les trois atouts.</li>
+    <li>Sur mobile, le bandeau prend un format 16/9 et le profil passe sur une colonne.</li>
+  </ul>
+  <figure><img src="ecran_bureau_experience.png" style="max-height:90mm"><figcaption>La photo au-dessus du parcours en bref</figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="num">37</span>Espace resserré entre l'intro et le profil</h2>
+  <p><b>Demande de Michel :</b> l'espace entre l'intro et la section Profil est trop grand, le resserrer.</p>
+  <ul>
+    <li>L'intro n'occupe plus forcément toute la hauteur de l'écran : elle s'arrête après la ligne Expérience · Lieu · Langues · Nationalité (hauteur minimale 640 pixels pour la photo).</li>
+    <li>Marge sous l'intro réduite de 80 à 32 pixels, marge au-dessus du Profil réduite de 110 à 40 pixels (de 80 à 40 sur mobile).</li>
+    <li>Sur ordinateur, l'écart passe d'environ 300 à environ 90 pixels.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="num">38</span>Même écart entre toutes les sections</h2>
+  <p><b>Question de Michel :</b> l'espace entre l'intro et le profil est parfait ; est-ce le même entre chaque section, pour la cohérence graphique ?</p>
+  <p>Ce n'était pas le cas. Mesure de l'écart réel entre la fin du contenu d'une section et le début de la suivante :</p>
+  <table>
+    <tr><th>Écart</th><th>Avant (ordinateur / mobile)</th><th>Après (ordinateur / mobile)</th></tr>
+    <tr><td>Intro → Profil</td><td>116 / 136 px</td><td>116 / 110 px</td></tr>
+    <tr><td>Profil → Parcours en bref</td><td>137 / 140 px</td><td>117 / 110 px</td></tr>
+    <tr><td>Parcours en bref → pied de page</td><td>135 / 105 px</td><td>116 / 110 px</td></tr>
+    <tr><td>Page 2 : périodes → pied de page</td><td>173 / 103 px</td><td>116 / 110 px</td></tr>
+  </table>
+  <p>Toutes les sections des deux pages sont désormais séparées par le même écart que celui validé entre l'intro et le profil : 116 pixels sur ordinateur, 110 sur mobile.</p>
+</section>
+
+<section class="saut">
+  <h2><span class="num">39</span>Sowatt Music en premier, ajout de Loreto1 Trading SA</h2>
+  <p><b>Demande de Michel :</b> dans le parcours en bref et le parcours complet, mettre Sowatt Music en premier, car l'activité continue aujourd'hui. Ajouter ensuite : Loreto1 Trading SA, 2026 – présent, responsable administratif et visibilité pour cette société immobilière.</p>
+  <h3>Page 1 · Parcours en bref</h3>
+  <ul>
+    <li>Ordre : Sowatt Music (2000 – auj.), Loreto1 Trading SA (2026 – présent), M Le Media, Hana Road, Dorier · Winkler · Illumination, Mutt Lange · Sully Sound, Londres · Paris · Marrakech.</li>
+    <li>Avec sept cases, la grille passe à un rythme 2 + 3 + 2 : les deux activités en cours occupent la première ligne, aucune case ne reste seule.</li>
+  </ul>
+  <h3>Page 2 · Parcours complet</h3>
+  <ul>
+    <li>Sowatt Music devient la première carte, suivie de Loreto1 Trading SA, puis les autres périodes du plus récent au plus ancien.</li>
+    <li>La carte « Aujourd'hui » est retirée : ses missions sont déjà dans l'en-tête de la page 1. Son contenu associatif devient une carte « Engagement » en fin de liste (Route 108, association SAP).</li>
+  </ul>
+  <div class="info"><b>Orthographe confirmée par Michel :</b> « Loreto1 Trading SA » (sans espace), corrigé sur les deux pages.</div>
+  <div class="duo">
+    <figure><img src="ecran_bureau_experience.png"><figcaption>Page 1 : parcours en bref</figcaption></figure>
+    <figure><img src="parcours_bureau_tete.png"><figcaption>Page 2 : Sowatt Music puis Loreto1</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">40</span>Sowatt Music : activités complétées</h2>
+  <p><b>Demande de Michel :</b> ajouter à Sowatt Music la production musicale, le management artistique et le studio de production son et image.</p>
+  <ul>
+    <li>Page 1, parcours en bref : « Communication pour les PME, vidéo, label, production musicale, management artistique, studio de production son et image ».</li>
+    <li>Page 2, carte Sowatt Music : deux points ajoutés, « Production musicale et management artistique » et « Studio de production son et image ».</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="num">41</span>Hana Road : « multimédia » au lieu de « vidéo »</h2>
+  <p><b>Demande de Michel :</b> pour The Hana Road Music Group, remplacer « vidéo » par « multimédia ».</p>
+  <p>Page 1 : « Conception d'un complexe de production audio et multimédia ». Page 2 : « Conception et construction d'un complexe de production audio et multimédia haut de gamme ».</p>
+</section>
+
+<section>
+  <h2><span class="num">42</span>Ajout de Media One Group et Rouge TV</h2>
+  <p><b>Demande de Michel :</b> ajouter Media One Group et Rouge TV à la case 2007 – 2020 (Dorier · Winkler · Illumination).</p>
+  <ul>
+    <li>Page 1 : la case devient « Dorier · Winkler · Illumination · Media One Group · Rouge TV ».</li>
+    <li>Page 2 : la carte 2007 – 2020 devient « Dorier Group · Winkler · Illumination · Media One Group ». Rouge TV y a déjà sa propre carte (2008 – 2012).</li>
+  </ul>
+  <div class="note"><b>Nouvelle information :</b> Media One Group n'apparaissait dans aucune source (CV, Discogs, Headliner). Michel peut préciser les dates et le rôle exacts.</div>
+</section>
+
+<section class="saut">
+  <h2><span class="num">43</span>Page Contact : carte de visite, vCard et QR code</h2>
+  <p><b>Demande de Michel :</b> une page contact sous forme de carte de visite virtuelle, comme celle du site Route 108 (dépôt sowattmusic/route108-site), avec une vCard téléchargeable et un QR code. Coordonnées : Michel Gallone, Rue de Villars 6A, 1307 Lussery-Villars, Suisse, +41 79 342 98 80, contact@michelgallone.ch ; LinkedIn, Instagram et Facebook dans la vCard si possible.</p>
+  <h3>Modèle repris de Route 108</h3>
+  <p>Le dépôt route108-site a été consulté : chaque membre y a une carte (<code>pages/member.template.html</code>) avec un bouton « Enregistrer le contact » qui télécharge une vCard, un bouton « Afficher le QR code » qui ouvre une fenêtre noir sur blanc, des réseaux en icônes rondes et l'adresse avec « Voir sur la carte ». La vCard et le QR code y sont produits par des scripts Python (<code>tools/build_members.py</code>, <code>tools/make_qr.py</code>, bibliothèque segno). La même structure est reprise, au style sombre du site de Michel.</p>
+  <h3>La page <code>site/fr/contact.html</code></h3>
+  <ul>
+    <li>Carte centrée : portrait rond cerclé de rouge, nom, les deux titres.</li>
+    <li>Quatre boutons : « Enregistrer le contact » (rouge, télécharge <code>Michel_Gallone.vcf</code>), « +41 79 342 98 80 » (appel), « contact@michelgallone.ch » (e-mail), « Afficher le QR code ».</li>
+    <li>LinkedIn, Instagram et Facebook en icônes rondes, puis l'adresse complète avec un lien « Voir sur la carte » (Google Maps).</li>
+    <li>Le QR code s'ouvre dans une fenêtre blanche, toujours noir sur blanc pour être lisible ; l'adresse <code>contact.html#qr</code> l'ouvre directement (pratique comme raccourci sur l'écran d'accueil du téléphone).</li>
+    <li>Le menu « Contact » des trois pages mène désormais à cette page. Écart avec le pied de page aligné sur les autres pages (116 / 110 px).</li>
+  </ul>
+  <h3>La vCard</h3>
+  <ul>
+    <li>Format vCard 3.0, lu par iPhone, Android, Outlook et Gmail : nom, titres, téléphone, e-mail, adresse postale, site, photo (le portrait).</li>
+    <li>LinkedIn, Instagram et Facebook y figurent deux fois : en profils sociaux (lus par les Contacts d'Apple) et en liens nommés (lus par les autres carnets d'adresses).</li>
+  </ul>
+  <h3>Le QR code</h3>
+  <ul>
+    <li>Il contient directement les coordonnées (une vCard compacte, sans photo) : en le scannant, le téléphone propose d'ajouter le contact, sans connexion internet et sans dépendre de l'adresse du site, qui n'est pas encore en ligne.</li>
+    <li>Version 14, correction d'erreurs M. Une première version complète donnait un code trop dense (version 22) ; la version compacte se scanne facilement. Décodage vérifié : toutes les coordonnées sont lues correctement.</li>
+  </ul>
+  <h3>Régénérer la vCard et le QR code</h3>
+  <p>Les coordonnées se modifient en un seul endroit, en haut du script <code>tools/make_contact.py</code>, puis :</p>
+  <pre>python3 -m venv tools/.venv && tools/.venv/bin/pip install segno pillow
+tools/.venv/bin/python tools/make_contact.py</pre>
+  <div class="info"><b>Confirmé par Michel :</b> le site sera publié sur <code>https://michelgallone.ch</code>, l'adresse inscrite dans la vCard. La page Contact affiche l'adresse postale complète.</div>
+  <div class="duo">
+    <figure><img src="contact_bureau.png"><figcaption>La carte de visite sur ordinateur</figcaption></figure>
+    <figure><img src="contact_mobile.png" style="max-height:110mm"><figcaption>Sur mobile</figcaption></figure>
+    <figure><img src="contact_mobile_qr.png" style="max-height:110mm"><figcaption>La fenêtre du QR code</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">44</span>Lien « Mes coordonnées » et signet « Parcours en bref »</h2>
+  <p><b>Demandes de Michel :</b> tout en bas, sur la ligne du copyright, ajouter après un espace un bouton vers la page Contact, au même look que les réseaux sociaux ; ajouter au menu un signet vers le parcours en bref.</p>
+  <ul>
+    <li>Ligne du bas des trois pages : « © 2026 Michel Gallone », puis un bouton « Mes coordonnées » (icône de carte de visite) qui ouvre la page Contact.</li>
+    <li>Menu des trois pages : Profil · <b>Parcours en bref</b> (signet vers la section de la page d'accueil) · <b>Parcours complet</b> (page 2, anciennement « Parcours », renommé pour éviter deux entrées identiques et pour reprendre le nom du bouton) · Contact.</li>
+  </ul>
+  <figure><img src="ecran_pied.png" style="max-height:60mm"><figcaption>Le pied de page avec le bouton « Mes coordonnées »</figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="num">45</span>Pied de page centré, réseaux sociaux seuls</h2>
+  <p><b>Demandes de Michel :</b> centrer « Ils m'ont fait confiance » (titre orange et noms), centrer la ligne du copyright et des coordonnées ; retirer les boutons e-mail et téléphone du pied de page, puisqu'ils sont sur la page Contact, et ne garder que les réseaux sociaux.</p>
+  <ul>
+    <li>Le titre « Ils m'ont fait confiance » et la liste des noms sont centrés.</li>
+    <li>Les boutons e-mail et téléphone sont retirés du pied de page des trois pages ; restent LinkedIn, Instagram et Facebook, centrés.</li>
+    <li>La dernière ligne « © 2026 Michel Gallone · Mes coordonnées » est centrée.</li>
+  </ul>
+  <div class="duo">
+    <figure><img src="ecran_pied.png"><figcaption>Ordinateur</figcaption></figure>
+    <figure><img src="ecran_pied_mobile.png" style="max-height:70mm"><figcaption>Mobile</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">46</span>Références à gauche, réseaux dans la ligne du copyright</h2>
+  <p><b>Demande de Michel :</b> finalement, « Ils m'ont fait confiance » revient aligné à gauche, plus cohérent avec le reste du site ; les réseaux sociaux descendent dans la zone du copyright, juste au-dessus de « © 2026 Michel Gallone · Mes coordonnées ».</p>
+  <ul>
+    <li>Le titre orange et la liste des noms sont de nouveau alignés à gauche, comme les titres des sections.</li>
+    <li>Sous le filet de séparation, une zone centrée : d'abord LinkedIn, Instagram et Facebook, puis la ligne « © 2026 Michel Gallone » et le bouton « Mes coordonnées ».</li>
+  </ul>
+  <div class="duo">
+    <figure><img src="ecran_pied.png"><figcaption>Ordinateur</figcaption></figure>
+    <figure><img src="ecran_pied_mobile.png" style="max-height:70mm"><figcaption>Mobile</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">47</span>« Mes coordonnées » à côté des réseaux, copyright à la ligne</h2>
+  <p><b>Demande de Michel :</b> le bouton « Mes coordonnées » au même niveau que les réseaux sociaux, et le copyright à la ligne en dessous.</p>
+  <p>Sur les trois pages, la zone du bas présente une rangée centrée LinkedIn · Instagram · Facebook · Mes coordonnées (même hauteur de 40 pixels pour tous les boutons), puis, seul sur la ligne suivante, « © 2026 Michel Gallone ».</p>
+  <div class="duo">
+    <figure><img src="ecran_pied.png"><figcaption>Ordinateur</figcaption></figure>
+    <figure><img src="ecran_pied_mobile.png" style="max-height:70mm"><figcaption>Mobile</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">48</span>Préparation de la mise en ligne et passage en session locale</h2>
+  <p><b>Demande de Michel :</b> publier le site sur le serveur N0C (gestionnaire de fichiers, dossier michelgallone.ch), accessible avec Chrome ; puis migrer la session en local pour pouvoir téléverser et mettre à jour directement par Chrome.</p>
+  <h3>Fait dans la session cloud</h3>
+  <ul>
+    <li>Réglages serveur du site Route 108 étudiés (<code>server/.htaccess</code>, <code>build.sh</code>) pour reprendre la même méthode.</li>
+    <li>Image de partage <code>site/assets/img/og-image.jpg</code> (1200 × 630) créée à partir de la photo du studio.</li>
+    <li>Sur les trois pages : adresse canonique, <code>og:url</code> et <code>og:image</code> en adresse complète sur https://michelgallone.ch, carte d'aperçu large pour les réseaux.</li>
+  </ul>
+  <h3>Pourquoi passer en local</h3>
+  <p>La session cloud ne peut pas utiliser le Chrome de Michel, où il est connecté au gestionnaire de fichiers N0C. En local, l'extension Claude in Chrome permet de téléverser les fichiers et de vérifier le site en ligne directement.</p>
+  <h3>Reprise</h3>
+  <p>La suite (fichiers serveur, <code>build.sh</code>, téléversement, tests en ligne) est décrite dans <code>docs/REPRISE_SESSION_LOCALE.md</code>, à lire par la session locale.</p>
+</section>
+
+<section>
+  <h2><span class="num">49</span>Mise en ligne sur michelgallone.ch</h2>
+  <p><b>Demande de Michel :</b> reprendre en local la note de la session cloud, préparer les fichiers serveur et téléverser le site avec Chrome dans le dossier michelgallone.ch du gestionnaire de fichiers N0C.</p>
+  <h3>Fichiers serveur (dossier <code>server/</code>)</h3>
+  <ul>
+    <li><code>.htaccess</code> : une seule adresse, <code>https://michelgallone.ch</code> (www et http y renvoient) ; <code>/</code> renvoie vers <code>/fr/</code> de façon temporaire, pour laisser la place à la version anglaise ; adresses courtes <code>/fr/parcours</code> et <code>/fr/contact</code> ; <code>/fr/index.html</code>, <code>/fr</code> et <code>/fr/contact/</code> renvoient vers l'adresse propre.</li>
+    <li>La vCard est servie comme carte de contact, jamais indexée par les moteurs de recherche ni gardée en cache ; compression et cache des images comme pour Route 108.</li>
+    <li><code>robots.txt</code>, <code>sitemap.xml</code> avec les trois pages, et une page 404 « Cette page n'existe pas » aux couleurs du site.</li>
+  </ul>
+  <h3>Fabrication et téléversement</h3>
+  <ul>
+    <li><code>./build.sh</code> rassemble <code>site/</code> et <code>server/</code> dans <code>deploy/</code> (19 fichiers, 1,3 Mo), sans les fichiers cachés du Mac.</li>
+    <li>Le dossier michelgallone.ch était vide sur le serveur : rien n'a été remplacé. Les 19 fichiers ont été téléversés par Chrome, tailles vérifiées une à une.</li>
+  </ul>
+  <h3>Vérifié en ligne</h3>
+  <ul>
+    <li>Les trois pages s'affichent ; <code>/fr/contact#qr</code> ouvre directement le QR code.</li>
+    <li>Toutes les redirections (http, www, racine, anciennes adresses) arrivent à la bonne adresse ; une adresse inconnue affiche la page 404.</li>
+  </ul>
+  <h3>Reste à vérifier</h3>
+  <p>Enregistrement de la vCard sur iPhone et Android, et aperçu de partage avec LinkedIn Post Inspector.</p>
+  <h3>Mettre le site à jour plus tard</h3>
+  <pre>./build.sh</pre>
+  <p>puis téléverser le contenu de <code>deploy/</code> dans le dossier michelgallone.ch en remplaçant les fichiers modifiés.</p>
+</section>
+
+<section>
+  <h2><span class="num">50</span>Moins de « 30 ans », nouveaux titres, crédits et page Contact</h2>
+  <p><b>Demande de Michel :</b> « 30 ans » revenait trop souvent ; ajouter des crédits pour The Hana Road Music Group et pour les débuts.</p>
+  <h3>Textes</h3>
+  <ul>
+    <li>Accueil, accroche : « 30 ans à concevoir, coordonner et livrer : » devient « Savoir-faire pour concevoir, coordonner et livrer : ».</li>
+    <li>Accueil, Parcours en bref : « 30 ans de projets, de Londres à Montreux. » devient « Les étapes clés, de Londres à Montreux. », puis simplement « Les jalons. ».</li>
+    <li>Page Parcours, grand titre : « 30 ans de projets, du plus récent au premier. » devient « Les jalons d’une carrière. ».</li>
+    <li>Descriptions pour Google et pour les aperçus de partage : « 30 ans » retiré.</li>
+    <li>Seul le chiffre clé « Expérience · 30 ans » est gardé sur l'accueil.</li>
+  </ul>
+  <h3>Crédits</h3>
+  <ul>
+    <li>The Hana Road Music Group : Van Morrison, enregistrement (tracking) avec Bob Rock ; Larry Graham, enregistrement (tracking). Sur la page Parcours (bouton « Crédits ») et dans le Parcours en bref de l'accueil.</li>
+    <li>Débuts (1994 – 1999), sous Marla Glen : Squeeze, <i>Ridiculous</i> (1995) ; Chris de Burgh, <i>Beautiful Dreams</i> (1995). Le bouton devient « Crédits ».</li>
+  </ul>
+  <h3>Page Contact</h3>
+  <ul>
+    <li>Lien « Voir sur la carte » (Google Maps) retiré : l'adresse reste affichée seule.</li>
+  </ul>
+  <h3>Aperçu en local</h3>
+  <p>Un petit serveur local (<code>.claude/launch.json</code>) affiche le dossier <code>site/</code> dans l'aperçu de Claude, avec la mise en page ; il a fallu autoriser l'accès au dossier Documents dans les réglages de macOS.</p>
+  <h3>Mise en ligne</h3>
+  <p><code>./build.sh</code>, puis téléversement des pages modifiées (<code>fr/index.html</code>, <code>fr/parcours.html</code>, <code>fr/contact.html</code>) dans le dossier michelgallone.ch, en remplaçant les anciennes. Vérifié en ligne.</p>
+</section>
+
+<section class="saut">
+  <h2>Annexe · La page complète (version actuelle)</h2>
+  <div class="duo">
+    <figure><img src="ecran_bureau_complet.png" style="max-height:230mm;width:auto"><figcaption>Bureau, page entière</figcaption></figure>
+    <figure><img src="ecran_mobile_complet.png" style="max-height:230mm;width:auto"><figcaption>Mobile, page entière</figcaption></figure>
+  </div>
+</section>
+
+</body>
+</html>
