@@ -53,6 +53,21 @@ const journal = path.join(__dirname, 'journal');
     await page.close();
   }
 
+  // 1 ter. Captures de la page Contact (carte de visite et fenêtre du QR code)
+  const contact = path.join(racine, 'site/fr/contact.html');
+  for (const [nom, vp] of [['bureau', { width: 1440, height: 900 }], ['mobile', { width: 390, height: 844 }]]) {
+    const page = await navigateur.newPage({ viewport: vp });
+    await page.goto('file://' + contact, { waitUntil: 'load' });
+    await page.addStyleTag({ content: '.apparait{transition:none!important}' });
+    await page.evaluate(() => document.querySelectorAll('.apparait').forEach(e => e.classList.add('vu')));
+    await page.waitForTimeout(1000);
+    await page.screenshot({ path: path.join(journal, `contact_${nom}.png`) });
+    await page.click('[data-qr-ouvrir]');
+    await page.waitForTimeout(300);
+    await page.screenshot({ path: path.join(journal, `contact_${nom}_qr.png`) });
+    await page.close();
+  }
+
   // 2. Journal de bord en PDF
   const page = await navigateur.newPage();
   await page.goto('file://' + path.join(journal, 'journal_de_bord.html'), { waitUntil: 'load' });

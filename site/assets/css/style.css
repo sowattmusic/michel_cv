@@ -383,11 +383,42 @@ footer.pied { padding: 48px 0 28px; border-top: 1px solid var(--ligne); font-siz
   .langues { display: none; }
 }
 
+/* ---------- Page Contact : carte de visite ---------- */
+.section.page-carte { padding: 120px 0 87px; }
+.carte {
+  max-width: 520px; margin-inline: auto; display: grid; justify-items: center; gap: 14px; text-align: center;
+  padding: clamp(28px, 6vw, 48px) clamp(20px, 5vw, 44px); border-radius: 24px;
+  background: var(--nuit-2); border: 1px solid var(--ligne);
+}
+.carte-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; border: 2px solid var(--rouge); margin-bottom: 4px; }
+.carte h1 { font-size: clamp(2rem, 7vw, 2.6rem); }
+.carte-roles { display: grid; gap: 2px; margin: 0; color: var(--bleu-lueur); font-size: .95rem; font-weight: 500; }
+.carte-actions { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 10px; width: 100%; }
+.carte-actions .btn { width: 100%; justify-content: center; min-height: 52px; font-variant-numeric: tabular-nums; }
+.carte-actions .btn svg { width: 18px; height: 18px; flex: none; }
+.carte-actions button.btn { font-family: var(--corps); }
+.carte-reseaux { display: flex; justify-content: center; gap: 10px; list-style: none; margin: 8px 0 0; padding: 0; }
+.carte-reseaux a { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--ligne); color: var(--texte); transition: border-color .2s, background .2s; }
+.carte-reseaux a:hover { border-color: #fff; background: rgba(255,255,255,.06); }
+.carte-reseaux svg { width: 20px; height: 20px; }
+.carte-adresse { font-style: normal; margin-top: 12px; padding-top: 18px; border-top: 1px solid var(--ligne); width: 100%; color: var(--texte-doux); font-size: .92rem; line-height: 1.7; }
+.carte-adresse a { color: var(--bleu-lueur); text-underline-offset: 3px; }
+.qr-fenetre { border: 0; padding: 0; width: min(92vw, 420px); max-height: 94vh; border-radius: 24px; background: #FFFFFF; color: #0A0A0A; color-scheme: light; }
+.qr-fenetre::backdrop { background: rgba(0, 0, 0, .78); }
+.qr-contenu { display: grid; justify-items: center; gap: 8px; padding: clamp(22px, 6vw, 34px); text-align: center; }
+.qr-contenu h2 { font-size: 1.6rem; color: #0A0A0A; }
+.qr-role { margin: 0; font-size: .82rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #333; }
+.qr-code { width: min(74vw, 300px); height: auto; margin: 10px 0 4px; }
+.qr-legende { margin: 0; color: #525252; font-size: .88rem; max-width: 30ch; }
+.qr-fermer { margin-top: 10px; min-height: 48px; padding: 12px 28px; border-radius: 999px; border: 0; background: #0A0A0A; color: #FFFFFF; font: 600 .95rem/1 var(--corps); cursor: pointer; }
+.qr-fermer:focus-visible { outline: 3px solid #0A0A0A; outline-offset: 3px; }
+
 /* ---------- Rythme vertical : même écart entre toutes les sections ---------- */
 .section.profil-section { padding: 40px 0 52px; }
 .section#experience { padding: 48px 0 91px; }
 .section.page2-tete { padding-bottom: 53px; }
 @media (max-width: 640px) {
+  .section.page-carte { padding: 96px 0 82px; }
   .section.profil-section { padding: 14px 0 42px; }
   .section#experience { padding: 48px 0 85px; }
   .section.page2-tete { padding-bottom: 47px; }

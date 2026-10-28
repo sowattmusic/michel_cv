@@ -1,5 +1,5 @@
 /* Michel Gallone · CV en ligne
-   Navigation et animations d'apparition. */
+   Navigation, animations d'apparition et fenêtre du QR code. */
 
 (function () {
   "use strict";
@@ -34,6 +34,16 @@
     elements.forEach(function (el) { obs.observe(el); });
   } else {
     elements.forEach(function (el) { el.classList.add("vu"); });
+  }
+
+  /* ---------- Fenêtre du QR code (page Contact, ou lien direct contact.html#qr) ---------- */
+  var qr = document.getElementById("qr");
+  if (qr && typeof qr.showModal === "function") {
+    var ouvrirQr = function () { if (!qr.open) qr.showModal(); };
+    document.querySelectorAll("[data-qr-ouvrir]").forEach(function (b) { b.addEventListener("click", ouvrirQr); });
+    qr.querySelector("[data-qr-fermer]").addEventListener("click", function () { qr.close(); });
+    qr.addEventListener("click", function (e) { if (e.target === qr) qr.close(); });
+    if (location.hash === "#qr") ouvrirQr();
   }
 
   document.getElementById("annee").textContent = new Date().getFullYear();

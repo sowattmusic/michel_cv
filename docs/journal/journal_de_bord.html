@@ -94,6 +94,7 @@
     <li>Sowatt Music : activités complétées</li>
     <li>Hana Road : « multimédia » au lieu de « vidéo »</li>
     <li>Ajout de Media One Group et Rouge TV</li>
+    <li>Page Contact : carte de visite, vCard et QR code</li>
   </ol>
 </section>
 
@@ -694,6 +695,41 @@
     <li>Page 2 : la carte 2007 – 2020 devient « Dorier Group · Winkler · Illumination · Media One Group ». Rouge TV y a déjà sa propre carte (2008 – 2012).</li>
   </ul>
   <div class="note"><b>Nouvelle information :</b> Media One Group n'apparaissait dans aucune source (CV, Discogs, Headliner). Michel peut préciser les dates et le rôle exacts.</div>
+</section>
+
+<section class="saut">
+  <h2><span class="num">43</span>Page Contact : carte de visite, vCard et QR code</h2>
+  <p><b>Demande de Michel :</b> une page contact sous forme de carte de visite virtuelle, comme celle du site Route 108 (dépôt sowattmusic/route108-site), avec une vCard téléchargeable et un QR code. Coordonnées : Michel Gallone, Rue de Villars 6A, 1307 Lussery-Villars, Suisse, +41 79 342 98 80, contact@michelgallone.ch ; LinkedIn, Instagram et Facebook dans la vCard si possible.</p>
+  <h3>Modèle repris de Route 108</h3>
+  <p>Le dépôt route108-site a été consulté : chaque membre y a une carte (<code>pages/member.template.html</code>) avec un bouton « Enregistrer le contact » qui télécharge une vCard, un bouton « Afficher le QR code » qui ouvre une fenêtre noir sur blanc, des réseaux en icônes rondes et l'adresse avec « Voir sur la carte ». La vCard et le QR code y sont produits par des scripts Python (<code>tools/build_members.py</code>, <code>tools/make_qr.py</code>, bibliothèque segno). La même structure est reprise, au style sombre du site de Michel.</p>
+  <h3>La page <code>site/fr/contact.html</code></h3>
+  <ul>
+    <li>Carte centrée : portrait rond cerclé de rouge, nom, les deux titres.</li>
+    <li>Quatre boutons : « Enregistrer le contact » (rouge, télécharge <code>Michel_Gallone.vcf</code>), « +41 79 342 98 80 » (appel), « contact@michelgallone.ch » (e-mail), « Afficher le QR code ».</li>
+    <li>LinkedIn, Instagram et Facebook en icônes rondes, puis l'adresse complète avec un lien « Voir sur la carte » (Google Maps).</li>
+    <li>Le QR code s'ouvre dans une fenêtre blanche, toujours noir sur blanc pour être lisible ; l'adresse <code>contact.html#qr</code> l'ouvre directement (pratique comme raccourci sur l'écran d'accueil du téléphone).</li>
+    <li>Le menu « Contact » des trois pages mène désormais à cette page. Écart avec le pied de page aligné sur les autres pages (116 / 110 px).</li>
+  </ul>
+  <h3>La vCard</h3>
+  <ul>
+    <li>Format vCard 3.0, lu par iPhone, Android, Outlook et Gmail : nom, titres, téléphone, e-mail, adresse postale, site, photo (le portrait).</li>
+    <li>LinkedIn, Instagram et Facebook y figurent deux fois : en profils sociaux (lus par les Contacts d'Apple) et en liens nommés (lus par les autres carnets d'adresses).</li>
+  </ul>
+  <h3>Le QR code</h3>
+  <ul>
+    <li>Il contient directement les coordonnées (une vCard compacte, sans photo) : en le scannant, le téléphone propose d'ajouter le contact, sans connexion internet et sans dépendre de l'adresse du site, qui n'est pas encore en ligne.</li>
+    <li>Version 14, correction d'erreurs M. Une première version complète donnait un code trop dense (version 22) ; la version compacte se scanne facilement. Décodage vérifié : toutes les coordonnées sont lues correctement.</li>
+  </ul>
+  <h3>Régénérer la vCard et le QR code</h3>
+  <p>Les coordonnées se modifient en un seul endroit, en haut du script <code>tools/make_contact.py</code>, puis :</p>
+  <pre>python3 -m venv tools/.venv && tools/.venv/bin/pip install segno pillow
+tools/.venv/bin/python tools/make_contact.py</pre>
+  <div class="note"><b>À valider :</b> la vCard indique le site <code>https://michelgallone.ch</code>, déduit de l'adresse e-mail. À corriger si le site est publié à une autre adresse. Le site affiche maintenant l'adresse postale complète sur la page Contact.</div>
+  <div class="duo">
+    <figure><img src="contact_bureau.png"><figcaption>La carte de visite sur ordinateur</figcaption></figure>
+    <figure><img src="contact_mobile.png" style="max-height:110mm"><figcaption>Sur mobile</figcaption></figure>
+    <figure><img src="contact_mobile_qr.png" style="max-height:110mm"><figcaption>La fenêtre du QR code</figcaption></figure>
+  </div>
 </section>
 
 <section class="saut">
