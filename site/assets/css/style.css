@@ -210,6 +210,10 @@ footer.pied { padding: 48px 0 28px; border-top: 1px solid var(--ligne); font-siz
 @media (max-width: 420px) { .pied-reseaux { gap: 6px; } .pied-reseaux a:not(.icone) { padding: 8px 12px; } }
 .pied-reseaux svg { width: 16px; height: 16px; flex: none; }
 .pied-bas { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-top: 20px; border-top: 1px solid var(--ligne); }
+.pied-bas { align-items: center; justify-content: flex-start; gap: 10px 20px; }
+.pied-carte { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--ligne); border-radius: 999px; font-size: .85rem; font-weight: 500; color: var(--texte-doux); text-decoration: none; transition: border-color .2s, color .2s; }
+.pied-carte:hover { color: #fff; border-color: #fff; }
+.pied-carte svg { width: 16px; height: 16px; flex: none; }
 
 
 /* ---------- CV live ---------- */
