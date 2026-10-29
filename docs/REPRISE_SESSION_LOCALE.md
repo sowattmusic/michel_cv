@@ -7,7 +7,7 @@ Note laissée par la session cloud pour la session Claude Code locale (Mac, avec
 - Branche : `main` (la branche de travail a été fusionnée puis supprimée)
 - Trois pages en français : `site/fr/index.html` (accueil), `site/fr/parcours.html` (parcours complet), `site/fr/contact.html` (carte de visite, vCard, QR code).
 - `site/index.html` redirige vers `site/fr/`. La version anglaise ira dans `site/en/`.
-- Journal de bord : `docs/journal/journal_de_bord.html` → `node docs/build_pdf.js` régénère les captures et `docs/Journal_de_bord_site_Michel_Gallone.pdf`. Chaque modification du site ajoute une étape (la dernière est la 54) avant la section « Annexe ».
+- Journal de bord : `docs/journal/journal_de_bord.html` → `node docs/build_pdf.js` régénère les captures et `docs/Journal_de_bord_site_Michel_Gallone.pdf`. Chaque modification du site ajoute une étape (la dernière est la 55) avant la section « Annexe ».
 - vCard et QR code : coordonnées en haut de `tools/make_contact.py`, puis `tools/.venv/bin/python tools/make_contact.py`.
 
 ## Mise en ligne : faite (étapes 48 et 49 du journal)
@@ -26,7 +26,7 @@ Note laissée par la session cloud pour la session Claude Code locale (Mac, avec
 
 ## Points encore ouverts avec Michel
 
-- CV PDF téléchargeable (`site/assets/CV_Michel_Gallone.pdf`) : à mettre à jour (second titre, contact@michelgallone.ch, missions) pour correspondre au site.
+- CV PDF téléchargeable : mis à jour le 29.10.2026 (étape 55), copie de `renders/chefdeprojet_photo/`.
 - Lien LinkedIn incomplet sur linkin.bio/mg (il manque `/in/`).
 - Media One Group et Loreto1 Trading SA : dates et rôles à préciser si Michel le souhaite.
 - Version anglaise.

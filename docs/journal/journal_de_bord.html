@@ -950,6 +950,17 @@ tools/.venv/bin/python tools/make_contact.py</pre>
   <p>Feuille de style passée à <code>style.css?v=3</code>, puis <code>?v=4</code> pour la grille sur téléphone. Sur un Pixel 9a, l'ancienne mise en page restait affichée même après rafraîchissement : les pages avaient été téléversées 28 secondes avant la feuille de style, et le téléphone avait gardé l'ancienne feuille sous le numéro <code>v4</code>. Passage à <code>?v=5</code>, en téléversant cette fois la feuille de style avant les pages, dates de modification et sitemap mis à jour, accueil, parcours, contact, feuille de style et sitemap téléversés.</p>
 </section>
 
+<section>
+  <h2><span class="num">55</span>Nouveau CV en PDF</h2>
+  <p><b>Demande de Michel :</b> remplacer le CV téléchargeable par la version « chef de projet » avec photo, réécrite à partir du texte du site.</p>
+  <ul>
+    <li><code>site/assets/CV_Michel_Gallone.pdf</code> remplacé par <code>renders/chefdeprojet_photo/CV_Michel_Gallone_chefdeprojet_photo.pdf</code> : titre « Chef de projet audiovisuel et digital · Responsable visibilité et marketing », contact@michelgallone.ch, projets récents avec les quatre fondations, Loreto1 Trading SA, enregistrements classiques, phrase signature « Le lien entre la direction, les équipes et le public. » à la place des chiffres.</li>
+    <li>Accueil : le bouton « CV en PDF » pointe vers <code>CV_Michel_Gallone.pdf?v=2</code>, pour que le cache d'un jour des PDF ne garde pas l'ancien CV.</li>
+  </ul>
+  <h3>Mise en ligne</h3>
+  <p>PDF téléversé d'abord, puis la page d'accueil.</p>
+</section>
+
 <section class="saut">
   <h2>Annexe · La page complète (version actuelle)</h2>
   <div class="duo">
