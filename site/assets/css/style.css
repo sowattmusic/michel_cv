@@ -104,9 +104,10 @@ p { margin: 0 0 1em; }
     linear-gradient(0deg, var(--nuit) 0%, rgba(7,11,24,0) 30%);
 }
 .hero .conteneur > * { max-width: min(600px, 50%); }
-.hero h1 { font-size: clamp(2.5rem, 5.6vw, 4.4rem); margin: 22px 0 22px; max-width: 13ch; }
+.hero h1 { font-size: clamp(2.3rem, 5vw, 3.8rem); margin: 22px 0 22px; max-width: 16ch; }
 .hero h1 em { font-style: normal; color: var(--rouge); }
 .hero .accroche { font-size: clamp(1.05rem, 1.7vw, 1.25rem); color: #cdd3e6; max-width: 560px; margin-bottom: 34px; }
+.hero .accroche-titre { color: #fff; font-weight: 600; }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 .hero-metiers { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 46px; }
 .hero-metiers span {
