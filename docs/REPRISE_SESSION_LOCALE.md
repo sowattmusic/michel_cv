@@ -16,6 +16,7 @@ Note laissée par la session cloud pour la session Claude Code locale (Mac, avec
 - `server/` contient `.htaccess`, `robots.txt`, `sitemap.xml` et `404.html`.
 - `./build.sh` fabrique `deploy/` (ignoré par git) à partir de `site/` et `server/`.
 - Si `site/assets/css/style.css` change, augmenter le numéro `?v=` du lien vers la feuille de style dans les trois pages (le serveur la garde une semaine en cache).
+- Ordre de téléversement : **la feuille de style d'abord, les pages ensuite.** Sinon un visiteur peut charger la nouvelle page pendant que l'ancienne feuille est encore sur le serveur, et la garder une semaine sous le nouveau numéro (arrivé le 29.10.2026 avec `?v=4`, corrigé par `?v=5`).
 - Pour mettre à jour : `./build.sh`, puis téléverser les fichiers modifiés de `deploy/` avec Chrome dans
   https://nodels65-eu.n0c.com:4443/fb/cpjhfswt/files/michelgallone.ch/
   (Michel est connecté dans son Chrome ; ne jamais demander ni enregistrer de mot de passe.)
