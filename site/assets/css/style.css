@@ -230,6 +230,8 @@ footer.pied { padding: 48px 0 28px; border-top: 1px solid var(--ligne); font-siz
 .actions-bas { margin-top: 32px; }
 .fiche { list-style: none; padding: 0; margin: 44px 0 0; display: flex; flex-wrap: wrap; gap: 14px 36px; font-size: .92rem; color: #cdd3e6; }
 .fiche span { display: block; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--texte-doux); margin-bottom: 3px; }
+/* Téléphones : grille 2 × 2, colonnes alignées */
+@media (max-width: 640px) { .fiche { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; } }
 .etape ul { margin: 10px 0 0; padding-left: 18px; color: var(--texte-doux); font-size: .94rem; max-width: 70ch; }
 .etape li { margin: 4px 0; }
 .etape li::marker { color: var(--rouge); }
