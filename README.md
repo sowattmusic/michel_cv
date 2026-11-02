@@ -10,6 +10,7 @@ Le CV de Michel Gallone : directeur technique audiovisuel, réalisateur TV & rad
 | `renders/ingeson/CV_Michel_Gallone_ingeson.pdf` | CV ingénieur du son / directeur technique, 2 pages A4 |
 | `renders/ingeson/CV_Michel_Gallone_ingeson.html` | Source de ce CV (HTML/CSS) |
 | `renders/ingeson_photo/` | Même CV avec portrait en fondu dans l'en-tête (`portrait.jpg`, recadré de `sources/photos/DSC_8780.jpg`) |
+| `renders/dirtech_photo/` | CV directeur technique avec portrait : comme `ingeson_photo`, mais Sowatt Music décrit côté installations son / vidéo et captations |
 | `renders/chefdeprojet/` | CV orienté chef de projet (sans photo) : M Le Media, Sully Sound et Digital Media Partners réécrits côté management |
 | `renders/chefdeprojet_photo/` | Même CV chef de projet, avec le portrait en fondu dans l'en-tête |
 | `site/` | CV en ligne de Michel, orienté gestion de projet, visibilité et marketing. Ouvrir `site/index.html` (redirige vers `site/fr/`). Pages : `site/fr/index.html` (accueil), `site/fr/parcours.html` (parcours complet), `site/fr/contact.html` (carte de visite avec vCard et QR code). Version anglaise à venir dans `site/en/` |
