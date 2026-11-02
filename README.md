@@ -14,6 +14,7 @@ Le CV de Michel Gallone : directeur technique audiovisuel, réalisateur TV & rad
 | `renders/chefdeprojet/` | CV orienté chef de projet (sans photo) : M Le Media, Sully Sound et Digital Media Partners réécrits côté management |
 | `renders/chefdeprojet_photo/` | Même CV chef de projet, avec le portrait en fondu dans l'en-tête |
 | `renders/lettre_arsenic/` | Lettre de motivation pour le poste de directeur·rice·x technique à l'Arsenic, Lausanne (HTML + PDF, même charte que les CV, et version Word `.docx` modifiable) |
+| `renders/lettre_avdc/` | Lettre de motivation pour le poste de chargé·e·x de production et de communication à l'AVDC (association vaudoise de danse contemporaine), Lausanne : profil organisation et gestion de projet (HTML, PDF, Word) |
 | `site/` | CV en ligne de Michel, orienté gestion de projet, visibilité et marketing. Ouvrir `site/index.html` (redirige vers `site/fr/`). Pages : `site/fr/index.html` (accueil), `site/fr/parcours.html` (parcours complet), `site/fr/contact.html` (carte de visite avec vCard et QR code). Version anglaise à venir dans `site/en/` |
 | `docs/Journal_de_bord_site_Michel_Gallone.pdf` | Journal de bord du site : sources, choix, tests, points à valider |
 | `docs/journal/` | Source HTML du journal et captures d'écran ; `node docs/build_pdf.js` régénère captures et PDF |
