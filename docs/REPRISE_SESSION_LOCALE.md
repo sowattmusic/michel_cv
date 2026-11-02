@@ -26,7 +26,7 @@ Note laissée par la session cloud pour la session Claude Code locale (Mac, avec
 
 ## Points encore ouverts avec Michel
 
-- CV PDF téléchargeable : mis à jour le 29.10.2026 (étape 55), copie de `renders/chefdeprojet_photo/`.
+- CV PDF téléchargeable : mis à jour le 29.10.2026 (étape 55), copie de `renders/CV/chefdeprojet_photo/`.
 - Lien LinkedIn incomplet sur linkin.bio/mg (il manque `/in/`).
 - Media One Group et Loreto1 Trading SA : dates et rôles à préciser si Michel le souhaite.
 - Version anglaise.
