@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Lettre Michel Gallone · Arsenic · directeur technique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #15171c;
+    --ink-2: #3a3f4a;
+    --muted: #6b7180;
+    --line: #e3e5ea;
+    --paper: #ffffff;
+    --onair: #e8452c;
+    --hero: #1b2b45;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #d9dbe0; }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    color: var(--ink-2);
+    font-size: 10pt;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    background: var(--paper);
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    overflow: hidden;
+  }
+  @media screen { .page { margin: 12mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.12); } }
+
+  /* ---------- En-tête ---------- */
+  header.hero {
+    background: var(--hero);
+    color: #fff;
+    padding: 9mm 20mm 7mm;
+    display: flex; justify-content: space-between; align-items: flex-end;
+  }
+  .name {
+    font: 800 22pt/1 "Archivo", sans-serif;
+    letter-spacing: -.01em;
+  }
+  .name span { color: var(--onair); }
+  .role {
+    margin-top: 2.5mm;
+    font: 500 9pt/1.35 "Archivo", sans-serif;
+    color: rgba(255,255,255,.78);
+  }
+  .coords {
+    text-align: right;
+    font-size: 8.4pt; line-height: 1.6;
+    color: rgba(255,255,255,.85);
+  }
+
+  /* ---------- Corps ---------- */
+  main { padding: 13mm 20mm 0; }
+  .meta {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 12mm;
+  }
+  .dest { color: var(--ink); line-height: 1.45; }
+  .dest strong { font-weight: 600; }
+  .date { color: var(--muted); font-size: 9.4pt; }
+  .objet {
+    font: 700 10.4pt/1.35 "Archivo", sans-serif;
+    color: var(--ink);
+    padding-left: 3mm;
+    border-left: 2px solid var(--onair);
+    margin-bottom: 8mm;
+  }
+  .objet small {
+    display: block;
+    font: 500 8.6pt/1.4 "Inter", sans-serif;
+    color: var(--muted);
+  }
+  main p { margin-bottom: 3.6mm; text-align: justify; hyphens: auto; }
+  main p.salut { margin-bottom: 4.5mm; }
+  .signature {
+    margin-top: 9mm;
+    font: 700 11pt/1 "Archivo", sans-serif;
+    color: var(--ink);
+  }
+  .pj {
+    margin-top: 11mm;
+    font-size: 8.4pt; color: var(--muted);
+  }
+
+  footer {
+    padding: 3.5mm 20mm;
+    border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between;
+    font-size: 7.4pt; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <div>
+      <div class="name">Michel Gallone<span>.</span></div>
+      <div class="role">Directeur technique audiovisuel<br>Réalisateur TV &amp; radio · Ingénieur du son</div>
+    </div>
+    <div class="coords">
+      +41 79 342 98 80<br>
+      gallone@bluewin.ch<br>
+      1307 Lussery-Villars (VD)
+    </div>
+  </header>
+
+  <main>
+    <div class="meta">
+      <div class="dest">
+        <strong>Arsenic</strong><br>
+        Centre d’art scénique contemporain<br>
+        Rue de Genève 57<br>
+        1004 Lausanne
+      </div>
+      <div class="date">Lussery-Villars, le 2 novembre 2026</div>
+    </div>
+
+    <div class="objet">
+      Candidature au poste de directeur·rice·x technique (80 %)
+      <small>Annonce parue sur artos-net.ch le 26 octobre 2026</small>
+    </div>
+
+    <p class="salut">Madame, Monsieur,</p>
+
+    <p>Je vous propose ma candidature au poste de directeur·rice·x technique au sein de votre théâtre. Mon intérêt depuis toujours pour les arts du spectacle, et mon parcours professionnel dans ce monde, me motivent tout particulièrement à rejoindre votre théâtre.</p>
+
+    <p>J’ai été responsable technique du Hana Road Music Group à Montreux, puis directeur technique de M&nbsp;Le&nbsp;Media à Crissier : j’y ai conçu, mis en service et exploité les installations, et dirigé leur fonctionnement au quotidien. Pendant plus de dix ans, avec Dorier Group, Winkler et Illumination, j’ai également installé et exploité le son et la vidéo de spectacles, de concerts et d’événements dans des salles comme l’Auditorium Stravinsky, le SwissTech Convention Center ou Beaulieu.</p>
+
+    <p>Je serais heureux de vous rencontrer pour vous présenter mon parcours plus en détail. Dans l’attente de votre réponse, je vous prie d’agréer, Madame, Monsieur, mes salutations les meilleures.</p>
+
+    <div class="signature">Michel Gallone</div>
+
+    <div class="pj">Annexes : curriculum vitæ, certificats de travail</div>
+  </main>
+
+  <footer>
+    <span>Michel Gallone · Lettre de motivation</span>
+    <span>Arsenic · Lausanne</span>
+  </footer>
+</div>
+</body>
+</html>
