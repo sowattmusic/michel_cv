@@ -3,15 +3,11 @@
 <head>
 <meta charset="utf-8">
 <title>Lettre Michel Gallone · Arsenic · directeur technique</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #15171c;
     --ink-2: #3a3f4a;
     --muted: #6b7180;
-    --line: #e3e5ea;
     --paper: #ffffff;
     --onair: #e8452c;
     --hero: #1b2b45;
@@ -20,86 +16,75 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { background: #d9dbe0; }
   body {
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     color: var(--ink-2);
-    font-size: 10pt;
-    line-height: 1.5;
+    font-size: 10.5pt;
+    line-height: 4.25mm;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
+  /* Marges du Word : 15 mm en haut, 20 mm à gauche et à droite */
   .page {
     width: 210mm;
     height: 297mm;
     margin: 0 auto;
+    padding: 15mm 20mm 0;
     background: var(--paper);
-    display: grid;
-    grid-template-rows: max-content 1fr max-content;
     overflow: hidden;
   }
   @media screen { .page { margin: 12mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.12); } }
 
-  /* ---------- En-tête ---------- */
+  /* ---------- Bandeau (tableau Word 105,8 + 64,2 mm) ---------- */
   header.hero {
     background: var(--hero);
-    color: #fff;
-    padding: 9mm 20mm 7mm;
     display: flex; justify-content: space-between; align-items: flex-end;
+    height: 24.7mm;
+    padding: 0 4.9mm 4.4mm;
   }
   .name {
-    font: 800 22pt/1 "Archivo", sans-serif;
-    letter-spacing: -.01em;
+    font-weight: 700; font-size: 20pt; line-height: 1;
+    color: #fff;
   }
   .name span { color: var(--onair); }
-  .role {
-    margin-top: 2.5mm;
-    font: 500 9pt/1.35 "Archivo", sans-serif;
-    color: rgba(255,255,255,.78);
-  }
-  .coords {
-    text-align: right;
-    font-size: 8.4pt; line-height: 1.6;
-    color: rgba(255,255,255,.85);
-  }
+  .role, .coords { font-size: 8.5pt; line-height: 3.42mm; }
+  .role { color: #c9ced8; margin-top: 0.5mm; }
+  .coords { color: #fff; text-align: right; }
 
-  /* ---------- Corps ---------- */
-  main { padding: 13mm 20mm 0; }
-  .meta {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    margin-bottom: 12mm;
-  }
-  .dest { color: var(--ink); line-height: 1.45; }
-  .dest strong { font-weight: 600; }
-  .date { color: var(--muted); font-size: 9.4pt; }
+  /* ---------- Adresse et date, en retrait comme dans le Word ---------- */
+  .dest { margin: 15.1mm 0 0 95.4mm; color: var(--ink); }
+  .dest strong { font-weight: 700; }
+  .date { margin: 12.7mm 0 0 97mm; color: var(--muted); font-size: 9.5pt; }
+
   .objet {
-    font: 700 10.4pt/1.35 "Archivo", sans-serif;
-    color: var(--ink);
-    padding-left: 3mm;
-    border-left: 2px solid var(--onair);
-    margin-bottom: 8mm;
-  }
-  .objet small {
-    display: block;
-    font: 500 8.6pt/1.4 "Inter", sans-serif;
-    color: var(--muted);
-  }
-  main p { margin-bottom: 3.6mm; text-align: justify; hyphens: auto; }
-  main p.salut { margin-bottom: 4.5mm; }
-  .signature {
-    margin-top: 9mm;
-    font: 700 11pt/1 "Archivo", sans-serif;
+    margin-top: 8.9mm;
+    padding: 1mm 0 1mm 2.5mm;
+    border-left: 1.5pt solid var(--onair);
+    font-weight: 700; font-size: 11pt; line-height: 4.4mm;
     color: var(--ink);
   }
-  .pj {
-    margin-top: 11mm;
-    font-size: 8.4pt; color: var(--muted);
+  .salut { margin-top: 9.6mm; }
+  main p.texte {
+    margin-top: 2.8mm;
+    line-height: 5.33mm;
+    text-align: justify;
   }
+  main .salut + p.texte { margin-top: 3.8mm; }
+  main p.vide-apres { padding-bottom: 5.33mm; }
 
-  footer {
-    padding: 3.5mm 20mm;
-    border-top: 1px solid var(--line);
-    display: flex; justify-content: space-between;
-    font-size: 7.4pt; color: var(--muted);
+  /* ---------- Signature : image ancrée comme dans le Word ---------- */
+  .signature {
+    position: relative;
+    margin: 21.9mm 0 0 114.3mm;
+    font-weight: 700; font-size: 11pt;
+    color: var(--ink);
   }
+  .signature img {
+    position: absolute;
+    left: -15.1mm; top: -15.6mm;
+    width: 62.6mm; height: 18.8mm;
+  }
+  .signature span { position: relative; }
+  .pj { margin-top: 10.3mm; font-size: 8.5pt; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -117,39 +102,31 @@
   </header>
 
   <main>
-    <div class="meta">
-      <div class="dest">
+    <div class="dest">
         <strong>Arsenic</strong><br>
         Centre d’art scénique contemporain<br>
         Rue de Genève 57<br>
         1004 Lausanne
-      </div>
-      <div class="date">Lussery-Villars, le 2 novembre 2026</div>
     </div>
 
-    <div class="objet">
-      Candidature au poste de directeur·rice·x technique (80 %)
-    </div>
+    <div class="date">Lussery-Villars, le 2 novembre 2026</div>
+
+    <div class="objet">Candidature au poste de directeur·rice·x technique (80 %)</div>
 
     <p class="salut">Chère Madame, cher Monsieur,</p>
 
-    <p>Je vous propose ma candidature au poste de directeur·rice·x technique au sein de votre théâtre. Mon intérêt depuis toujours pour les arts du spectacle, et mon parcours professionnel dans ce monde, me motivent tout particulièrement à rejoindre votre théâtre.</p>
+    <p class="texte">Je vous propose ma candidature au poste de directeur·rice·x technique au sein de votre théâtre. Mon intérêt depuis toujours pour les arts du spectacle, et mon parcours professionnel dans ce monde, me motivent tout particulièrement à rejoindre votre théâtre.</p>
 
-    <p>Comme responsable technique j’ai conçu, mis en service et exploité les installations, et dirigé leur fonctionnement au quotidien dans plusieurs établissements (Hana Road, Sully Sound, Sowatt Music).</p>
+    <p class="texte vide-apres">Comme responsable technique j’ai conçu, mis en service et exploité les installations, et dirigé leur fonctionnement au quotidien dans plusieurs établissements (Hana Road, Sully Sound, Sowatt Music).</p>
 
-    <p>Pendant plus de dix ans, avec Dorier Group, Winkler et Illumination, j’ai également installé et exploité le son et la vidéo de spectacles, de concerts et d’événements dans des salles comme l’Auditorium Stravinsky, le SwissTech Convention Center ou Beaulieu.</p>
+    <p class="texte">Pendant plus de dix ans, avec Dorier Group, Winkler et Illumination, j’ai également installé et exploité le son et la vidéo de spectacles, de concerts et d’événements dans des salles comme l’Auditorium Stravinsky, le SwissTech Convention Center ou Beaulieu.</p>
 
-    <p>Je serais heureux de vous rencontrer pour vous présenter mon parcours plus en détail. Dans l’attente de votre réponse, je vous prie d’agréer, chère Madame, cher Monsieur, mes salutations les meilleures.</p>
+    <p class="texte">Je serais heureux de vous rencontrer pour vous présenter mon parcours plus en détail. Dans l’attente de votre réponse, je vous prie d’agréer, chère Madame, cher Monsieur, mes salutations les meilleures.</p>
 
-    <div class="signature">Michel Gallone</div>
+    <div class="signature"><img src="signature.png" alt=""><span>Michel Gallone</span></div>
 
     <div class="pj">Annexe : curriculum vitæ</div>
   </main>
-
-  <footer>
-    <span>Michel Gallone · Lettre de motivation</span>
-    <span>Arsenic · Lausanne</span>
-  </footer>
 </div>
 </body>
 </html>
