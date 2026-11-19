@@ -14,6 +14,7 @@ Le CV de Michel Gallone : directeur technique audiovisuel, réalisateur TV & rad
 | `renders/CV/dirtech_photo/` | CV directeur technique avec portrait : comme `ingeson_photo`, mais Sowatt Music décrit côté installations son / vidéo et captations |
 | `renders/CV/chefdeprojet/` | CV orienté chef de projet (sans photo) : M Le Media, Sully Sound et Digital Media Partners réécrits côté management |
 | `renders/CV/chefdeprojet_photo/` | Même CV chef de projet, avec le portrait en fondu dans l'en-tête |
+| `renders/lettres_postulations/lettre_dorier/` | Lettre de motivation pour le poste de technicien audiovisuel, spécialiste son, chez Dorier Group, Genève (adressée aux RH à Satigny) ; profil technique son, avec le CV ingénieur du son : HTML, PDF, Word |
 | `renders/lettres_postulations/lettre_arsenic/` | Lettre de motivation pour le poste de directeur·rice·x technique à l'Arsenic, Lausanne (HTML + PDF, même charte que les CV, et version Word `.docx` modifiable) |
 | `renders/lettres_postulations/lettre_avdc/` | Lettre de motivation pour le poste de chargé·e·x de production et de communication à l'AVDC (association vaudoise de danse contemporaine), Lausanne : profil organisation et gestion de projet (HTML, PDF, Word) |
 | `site/` | CV en ligne de Michel, orienté gestion de projet, visibilité et marketing. Ouvrir `site/index.html` (redirige vers `site/fr/`). Pages : `site/fr/index.html` (accueil), `site/fr/parcours.html` (parcours complet), `site/fr/contact.html` (carte de visite avec vCard et QR code). Version anglaise à venir dans `site/en/` |
