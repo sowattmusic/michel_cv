@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Lettre Michel Gallone · ORP Echallens · assistant administratif</title>
+<style>
+  :root {
+    --ink: #15171c;
+    --ink-2: #3a3f4a;
+    --muted: #6b7180;
+    --paper: #ffffff;
+    --onair: #e8452c;
+    --hero: #1b2b45;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #d9dbe0; }
+  body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: var(--ink-2);
+    font-size: 10.5pt;
+    line-height: 4.25mm;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  /* Marges du Word : 15 mm en haut, 20 mm à gauche et à droite */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    padding: 15mm 20mm 0;
+    background: var(--paper);
+    overflow: hidden;
+  }
+  @media screen { .page { margin: 12mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.12); } }
+
+  /* ---------- Bandeau (tableau Word 105,8 + 64,2 mm) ---------- */
+  header.hero {
+    background: var(--hero);
+    display: flex; justify-content: space-between; align-items: flex-end;
+    height: 24.7mm;
+    padding: 0 4.9mm 4.4mm;
+  }
+  .name {
+    font-weight: 700; font-size: 20pt; line-height: 1;
+    color: #fff;
+  }
+  .name span { color: var(--onair); }
+  .role, .coords { font-size: 8.5pt; line-height: 3.42mm; }
+  .role { color: #c9ced8; margin-top: 0.5mm; }
+  .coords { color: #fff; text-align: right; }
+
+  /* ---------- Adresse et date, en retrait comme dans le Word ---------- */
+  .dest { margin: 15.1mm 0 0 95.4mm; color: var(--ink); }
+  .dest strong { font-weight: 700; }
+  .date { margin: 12.7mm 0 0 97mm; color: var(--muted); font-size: 9.5pt; }
+
+  .objet {
+    margin-top: 8.9mm;
+    padding: 1mm 0 1mm 2.5mm;
+    border-left: 1.5pt solid var(--onair);
+    font-weight: 700; font-size: 11pt; line-height: 4.4mm;
+    color: var(--ink);
+  }
+  .salut { margin-top: 9.6mm; }
+  main p.texte {
+    margin-top: 2.8mm;
+    line-height: 5.33mm;
+    text-align: justify;
+  }
+  main .salut + p.texte { margin-top: 3.8mm; }
+  main p.vide-apres { padding-bottom: 5.33mm; }
+
+  /* ---------- Signature : image ancrée comme dans le Word ---------- */
+  .signature {
+    position: relative;
+    margin: 21.9mm 0 0 114.3mm;
+    font-weight: 700; font-size: 11pt;
+    color: var(--ink);
+  }
+  .signature img {
+    position: absolute;
+    left: -15.1mm; top: -15.6mm;
+    width: 62.6mm; height: 18.8mm;
+  }
+  .signature span { position: relative; }
+  .pj { margin-top: 10.3mm; font-size: 8.5pt; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <div>
+      <div class="name">Michel Gallone<span>.</span></div>
+      <div class="role">Assistant administratif<br>Secrétariat, organisation et relation clients</div>
+    </div>
+    <div class="coords">
+      +41 79 342 98 80<br>
+      contact@michelgallone.ch<br>
+      1307 Lussery-Villars (VD)
+    </div>
+  </header>
+
+  <main>
+    <div class="dest">
+        <strong>ORP Echallens</strong><br>
+        À l’attention de M. Philippe Doudin<br>
+        Place du Château 10 B<br>
+        1040 Echallens
+    </div>
+
+    <div class="date">Lussery-Villars, le 10 novembre 2026</div>
+
+    <div class="objet">Candidature au poste d’assistant administratif à 80 % (réf. 00002548673)</div>
+
+    <p class="salut">Monsieur,</p>
+
+    <p class="texte">Je vous propose ma candidature au poste d’assistant administratif à 80 % à Poliez-Pittet, publié par l’ORP d’Echallens. Habitant Lussery-Villars, à proximité, je suis disponible de suite et les horaires annoncés me conviennent parfaitement.</p>
+
+    <p class="texte">Gérant de Sowatt Music Sàrl depuis 2000, j’en assure toute l’administration : offres, facturation, correspondance, suivi des clients et des fournisseurs. J’ai aussi été pendant huit ans Studio Manager et Personal Manager de la direction de Sully Sound SA, et je suis aujourd’hui responsable administratif de Loreto1 Trading SA.</p>
+
+    <p class="texte">Organisé et autonome, à l’aise au téléphone comme avec les outils informatiques, j’aime le travail en équipe.</p>
+
+    <p class="texte">Je serais heureux de vous rencontrer pour vous présenter mon parcours plus en détail. Dans l’attente de votre réponse, je vous prie d’agréer, Monsieur, mes salutations les meilleures.</p>
+
+    <div class="signature"><img src="signature.png" alt=""><span>Michel Gallone</span></div>
+
+    <div class="pj">Annexes : curriculum vitæ, diplômes</div>
+  </main>
+</div>
+</body>
+</html>
