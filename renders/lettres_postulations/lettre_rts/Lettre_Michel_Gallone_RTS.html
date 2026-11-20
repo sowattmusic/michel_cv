@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Lettre Michel Gallone · RTS · technicien audiovisuel Actualité</title>
+<style>
+  :root {
+    --ink: #15171c;
+    --ink-2: #3a3f4a;
+    --muted: #6b7180;
+    --paper: #ffffff;
+    --onair: #e8452c;
+    --hero: #1b2b45;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #d9dbe0; }
+  body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: var(--ink-2);
+    font-size: 10.5pt;
+    line-height: 4.25mm;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  /* Marges du Word : 15 mm en haut, 20 mm à gauche et à droite */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    padding: 15mm 20mm 0;
+    background: var(--paper);
+    overflow: hidden;
+  }
+  @media screen { .page { margin: 12mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.12); } }
+
+  /* ---------- Bandeau (tableau Word 105,8 + 64,2 mm) ---------- */
+  header.hero {
+    background: var(--hero);
+    display: flex; justify-content: space-between; align-items: flex-end;
+    height: 24.7mm;
+    padding: 0 4.9mm 4.4mm;
+  }
+  .name {
+    font-weight: 700; font-size: 20pt; line-height: 1;
+    color: #fff;
+  }
+  .name span { color: var(--onair); }
+  .role, .coords { font-size: 8.5pt; line-height: 3.42mm; }
+  .role { color: #c9ced8; margin-top: 0.5mm; }
+  .coords { color: #fff; text-align: right; }
+
+  /* ---------- Adresse et date, en retrait comme dans le Word ---------- */
+  .dest { margin: 15.1mm 0 0 95.4mm; color: var(--ink); }
+  .dest strong { font-weight: 700; }
+  .date { margin: 12.7mm 0 0 97mm; color: var(--muted); font-size: 9.5pt; }
+
+  .objet {
+    margin-top: 8.9mm;
+    padding: 1mm 0 1mm 2.5mm;
+    border-left: 1.5pt solid var(--onair);
+    font-weight: 700; font-size: 11pt; line-height: 4.4mm;
+    color: var(--ink);
+  }
+  .salut { margin-top: 9.6mm; }
+  main p.texte {
+    margin-top: 2.8mm;
+    line-height: 5.33mm;
+    text-align: justify;
+  }
+  main .salut + p.texte { margin-top: 3.8mm; }
+  main p.vide-apres { padding-bottom: 5.33mm; }
+
+  /* ---------- Signature : image ancrée comme dans le Word ---------- */
+  .signature {
+    position: relative;
+    margin: 21.9mm 0 0 114.3mm;
+    font-weight: 700; font-size: 11pt;
+    color: var(--ink);
+  }
+  .signature img {
+    position: absolute;
+    left: -15.1mm; top: -15.6mm;
+    width: 62.6mm; height: 18.8mm;
+  }
+  .signature span { position: relative; }
+  .pj { margin-top: 10.3mm; font-size: 8.5pt; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <div>
+      <div class="name">Michel Gallone</div>
+      <div class="role">Ingénieur du son<br>Technicien audiovisuel · Radio, télévision et direct</div>
+    </div>
+    <div class="coords">
+      +41 79 342 98 80<br>
+      contact@michelgallone.ch<br>
+      1307 Lussery-Villars (VD)
+    </div>
+  </header>
+
+  <main>
+    <div class="dest">
+        <strong>Ressources humaines</strong><br>
+        RTS Radio Télévision Suisse<br>
+        Unité de Production · Actualité<br>
+        1024 Ecublens
+    </div>
+
+    <div class="date">Lussery-Villars, le 20 novembre 2026</div>
+
+    <div class="objet">Candidature au poste de technicien audiovisuel – Actualité</div>
+
+    <p class="salut">Chère Madame, cher Monsieur,</p>
+
+    <p class="texte">Je vous propose ma candidature au poste de technicien audiovisuel pour le service Production Actualité, à Ecublens. Travailler au cœur de l’information, en radio, en télévision et en digital, rejoint ce que je fais depuis des années.</p>
+
+    <p class="texte">Ingénieur du son de formation (Recording Arts Degree, Full Sail University), j’ai plus de trente ans de métier, des studios de Londres à la post-production pour TF1, Walt Disney France et M6 (Télétota, Paris).</p>
+
+    <p class="texte">Depuis 2008, j’assure le montage technique et la réalisation des émissions de chaînes de radio et de télévision (Rouge FM, M Le Media, Be Curious TV). Habitué aux horaires irréguliers, aux contraintes du direct, je suis disponible de suite pour démarrer la mission.</p>
+
+    <p class="texte">Je serais heureux de vous rencontrer pour vous présenter mon parcours plus en détail. Dans l’attente de votre réponse, je vous prie d’agréer, chère Madame, cher Monsieur, mes salutations les meilleures.</p>
+
+    <div class="signature"><img src="signature.png" alt=""><span>Michel Gallone</span></div>
+
+    <div class="pj">Annexes : curriculum vitæ, diplômes</div>
+  </main>
+</div>
+</body>
+</html>
